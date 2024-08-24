@@ -1,0 +1,32 @@
+name: Publish NuGet Package
+
+on:
+  release:
+    types:
+      - published
+
+env:
+  MANIFEST_PATH: .manifest.json
+  NUGET_API_SOURCE: https://nuget.pkg.github.com/SaladTechnologies/index.json
+
+jobs:
+  build-and-publish:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Read .csproj file path
+        id: read_csproj_path
+        run: echo "csproj_path=$(jq -r '.files[] | select(endswith(".csproj") and (. | endswith("Example.csproj") | not))' $MANIFEST_PATH)" >> "$GITHUB_OUTPUT"
+      - name: Read SDK version
+        id: read_sdk_version
+        run: echo "sdk_version=$(jq -r '.config.sdkVersion' $MANIFEST_PATH)" >> "$GITHUB_OUTPUT"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Pack NuGet package
+        run: dotnet pack ${{ steps.read_csproj_path.outputs.csproj_path }} -o ./dist --configuration Release /p:ContinuousIntegrationBuild=true /p:PackageVersion=${{ steps.read_sdk_version.outputs.sdk_version }}
+      - name: Publish NuGet package
+        run: dotnet nuget push ./dist/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source $NUGET_API_SOURCE
