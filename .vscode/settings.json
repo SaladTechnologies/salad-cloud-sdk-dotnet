@@ -1,0 +1,24 @@
+{
+  "dotnet.defaultSolution": "Salad.Cloud.SDK.sln",
+  "editor.formatOnSave": true,
+  "editor.minimap.maxColumn": 120,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [120],
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  },
+  "git.branchProtection": ["main"],
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.organizeImportsOnFormat": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
