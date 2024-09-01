@@ -10,8 +10,8 @@ env:
   NUGET_API_SOURCE: https://api.nuget.org/v3/index.json
 
 jobs:
-  build-and-publish:
-    name: Build and Publish
+  publish:
+    name: Publish Package
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
