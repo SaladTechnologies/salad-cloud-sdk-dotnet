@@ -1,0 +1,477 @@
+{
+  "liblabVersion": "2.1.30",
+  "date": "2024-08-31T20:15:36.518Z",
+  "config": {
+    "apiId": 1094,
+    "sdkName": "salad-cloud-sdk",
+    "sdkVersion": "0.9.0-alpha.1",
+    "liblabVersion": "2",
+    "deliveryMethods": ["zip"],
+    "languages": ["csharp"],
+    "specFilePath": "spec.yaml",
+    "docs": ["snippets"],
+    "auth": ["apikey"],
+    "languageOptions": {
+      "csharp": {
+        "packageId": "Salad.Cloud.SDK",
+        "authors": [
+          {
+            "name": "salad"
+          },
+          {
+            "name": "seniorquico"
+          }
+        ],
+        "githubRepoName": "salad-cloud-sdk-dotnet",
+        "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "sdkVersion": "0.9.0-alpha.1",
+        "targetBranch": "main"
+      },
+      "go": {
+        "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go",
+        "githubRepoName": "salad-cloud-sdk-go",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "sdkVersion": "0.9.0-alpha.1",
+        "targetBranch": "main"
+      },
+      "java": {
+        "groupId": "com.salad.cloud",
+        "artifactId": "sdk",
+        "developers": [
+          {
+            "name": "SaladCloud Developers",
+            "email": "dev@salad.com",
+            "organization": "Salad Technologies",
+            "organizationUrl": "https://salad.com"
+          },
+          {
+            "name": "Kyle Dodson",
+            "email": "kyle@salad.com",
+            "organization": "Salad Technologies",
+            "organizationUrl": "https://salad.com"
+          }
+        ],
+        "githubRepoName": "salad-cloud-sdk-java",
+        "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "sdkVersion": "0.9.0-alpha.1",
+        "targetBranch": "main"
+      },
+      "python": {
+        "alwaysInitializeOptionals": true,
+        "classifiers": [
+          "Development Status :: 3 - Alpha",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Topic :: Internet",
+          "Topic :: Software Development",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "projectUrls": {
+          "Homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-python",
+          "Documentation": "https://docs.salad.com",
+          "Repository": "https://github.com/SaladTechnologies/salad-cloud-sdk-python.git",
+          "Issues": "https://github.com/SaladTechnologies/salad-cloud-sdk-python/issues"
+        },
+        "pypiPackageName": "salad-cloud-sdk",
+        "authors": [
+          {
+            "email": "dev@salad.com",
+            "name": "SaladCloud Developers"
+          },
+          {
+            "email": "kyle@salad.com",
+            "name": "Kyle Dodson"
+          }
+        ],
+        "githubRepoName": "salad-cloud-sdk-python",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "sdkVersion": "0.9.0-alpha.1",
+        "targetBranch": "main"
+      },
+      "terraform": {
+        "hideComputedDiff": false,
+        "mockAcceptance": true,
+        "providerGoModuleName": "github.com/saladtechnologies/terraform-provider-salad-cloud",
+        "providerName": "salad-cloud",
+        "providerSchemaConfig": {
+          "authTokenKey": "api_key"
+        },
+        "providerVersion": "0.9.0-alpha.1",
+        "githubRepoName": "terraform-provider-salad-cloud",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "targetBranch": "main"
+      },
+      "typescript": {
+        "bundle": true,
+        "exportClassDefault": false,
+        "httpClient": "fetch",
+        "npmName": "salad-cloud-sdk",
+        "npmOrg": "saladtechnologies-oss",
+        "authors": [
+          {
+            "email": "dev@salad.com",
+            "name": "SaladCloud Developers"
+          },
+          {
+            "email": "kyle@salad.com",
+            "name": "Kyle Dodson"
+          }
+        ],
+        "githubRepoName": "salad-cloud-sdk-javascript",
+        "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
+        "ignoreFiles": ["LICENSE"],
+        "liblabVersion": "2",
+        "sdkVersion": "0.9.0-alpha.1",
+        "targetBranch": "main"
+      }
+    },
+    "publishing": {
+      "githubOrg": "SaladTechnologies"
+    },
+    "validationsToIgnore": [
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "CreateQueueProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "UpdateQueueProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "CreateQueueJobProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "CreateContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "ListContainerGroupsProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "DeleteContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "GetContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "UpdateContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "StartContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "StopContainerGroupProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "ReallocateContainerGroupInstanceProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "RecreateContainerGroupInstanceProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "RestartContainerGroupInstanceProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "CreateInferenceEndpointJobProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "GetInferenceEndpointJobProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "GetInferenceEndpointJobsProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "DeleteInferenceEndpointJobProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "GetWebhookSecretKeyProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "UpdateWebhookSecretKeyProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "schemas", "ListGpuClassesProblemType"]
+      },
+      {
+        "code": "oas3-unused-component",
+        "path": ["components", "responses", "401"]
+      }
+    ],
+    "apiName": "SaladCloud API",
+    "apiVersion": "0.9.0-alpha.1",
+    "authentication": {
+      "apiKey": {
+        "header": "Salad-Api-Key"
+      }
+    },
+    "devContainer": true,
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": true,
+    "inferServiceNames": false,
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "includeWatermark": false,
+    "packageId": "Salad.Cloud.SDK",
+    "authors": [
+      {
+        "name": "salad"
+      },
+      {
+        "name": "seniorquico"
+      }
+    ],
+    "githubRepoName": "salad-cloud-sdk-dotnet",
+    "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
+    "ignoreFiles": ["LICENSE"],
+    "targetBranch": "main",
+    "language": "csharp",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "usesFormData": false,
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.7.4"
+      },
+      "languages": ["typescript"]
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    }
+  },
+  "files": [
+    "SaladCloudSdk/SaladCloudSdk.csproj",
+    "install.sh",
+    "SaladCloudSdk/Services/BaseService.cs",
+    "SaladCloudSdk/Services/WorkloadErrorsService.cs",
+    "SaladCloudSdk/Services/QuotasService.cs",
+    "SaladCloudSdk/Services/OrganizationDataService.cs",
+    "SaladCloudSdk/Models/ValueEnum.cs",
+    "SaladCloudSdk/Json/ValueEnumJsonConverter.cs",
+    "SaladCloudSdk/Json/ValueEnumJsonConverterFactory.cs",
+    "SaladCloudSdk/Http/Handlers/TokenHandler.cs",
+    "Example/Example.csproj",
+    "Example/Program.cs",
+    "Example/.gitignore",
+    "SaladCloudSdk/Http/Serialization/SerializationStyle.cs",
+    "SaladCloudSdk/Http/Serialization/QuerySerializationStyle.cs",
+    "SaladCloudSdk/Http/Serialization/PathSerializationStyle.cs",
+    "SaladCloudSdk/Http/Serialization/Serializer.cs",
+    "SaladCloudSdk/Http/RequestBuilder.cs",
+    "SaladCloudSdk/Config/SaladCloudSdkConfig.cs",
+    "SaladCloudSdk/Config/ApiKeyAuthConfig.cs",
+    "SaladCloudSdk/Http/Environment.cs",
+    "SaladCloudSdk/SaladCloudSdkClient.cs",
+    "SaladCloudSdk/Http/Handlers/RetryHandler.cs",
+    "SaladCloudSdk/.gitignore",
+    "./LICENSE",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-patch.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-delete.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-start-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-stop-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-reallocate-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-recreate-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-restart-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-errors-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-patch.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-delete.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-jobs-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-jobs-post.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-jobs-{queue_job_id}-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-jobs-{queue_job_id}-delete.md",
+    "documentation/snippets/organizations-{organization_name}-quotas-get.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-get.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-{inference_endpoint_name}-get.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-{inference_endpoint_name}-jobs-get.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-{inference_endpoint_name}-jobs-post.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-{inference_endpoint_name}-jobs-{inference_endpoint_job_id}-get.md",
+    "documentation/snippets/organizations-{organization_name}-inference-endpoints-{inference_endpoint_name}-jobs-{inference_endpoint_job_id}-delete.md",
+    "documentation/snippets/organizations-{organization_name}-gpu-classes-get.md",
+    "documentation/snippets/organizations-{organization_name}-webhook-secret-key-get.md",
+    "documentation/snippets/organizations-{organization_name}-webhook-secret-key-post.md",
+    "documentation/models/ContainerGroupList.md",
+    "documentation/models/CreateContainerGroup.md",
+    "documentation/models/ContainerGroup.md",
+    "documentation/models/UpdateContainerGroup.md",
+    "documentation/models/ContainerGroupInstances.md",
+    "documentation/models/WorkloadErrorList.md",
+    "documentation/models/QueueList.md",
+    "documentation/models/CreateQueue.md",
+    "documentation/models/Queue.md",
+    "documentation/models/UpdateQueue.md",
+    "documentation/models/QueueJobList.md",
+    "documentation/models/CreateQueueJob.md",
+    "documentation/models/Quotas.md",
+    "documentation/models/InferenceEndpointsList.md",
+    "documentation/models/InferenceEndpoint.md",
+    "documentation/models/InferenceEndpointJobList.md",
+    "documentation/models/CreateInferenceEndpointJob.md",
+    "documentation/models/GpuClassesList.md",
+    "documentation/models/WebhookSecretKey.md",
+    "documentation/models/ContainerRestartPolicy.md",
+    "documentation/models/ContainerGroupState.md",
+    "documentation/models/CountryCode.md",
+    "documentation/models/ContainerGroupNetworking.md",
+    "documentation/models/ContainerGroupLivenessProbe.md",
+    "documentation/models/ContainerGroupReadinessProbe.md",
+    "documentation/models/ContainerGroupStartupProbe.md",
+    "documentation/models/ContainerGroupQueueConnection.md",
+    "documentation/models/ContainerResourceRequirements.md",
+    "documentation/models/ContainerGroupPriority.md",
+    "documentation/models/ContainerGroupStatus.md",
+    "documentation/models/ContainerGroupInstanceStatusCount.md",
+    "documentation/models/ContainerNetworkingProtocol.md",
+    "documentation/models/ContainerGroupProbeTcp.md",
+    "documentation/models/ContainerGroupProbeHttp.md",
+    "documentation/models/ContainerGroupProbeGrpc.md",
+    "documentation/models/ContainerGroupProbeExec.md",
+    "documentation/models/ContainerProbeHttpScheme.md",
+    "documentation/models/ContainerGroupProbeHttpHeaders2.md",
+    "documentation/models/CreateContainerGroupNetworking.md",
+    "documentation/models/UpdateContainerGroupNetworking.md",
+    "documentation/models/WorkloadError.md",
+    "documentation/models/ContainerGroupsQuotas.md",
+    "documentation/models/RecipesQuotas.md",
+    "documentation/models/GpuClass.md",
+    "documentation/models/GpuClassPrice.md",
+    ".devcontainer/devcontainer.json",
+    "SaladCloudSdk/Services/WebhookSecretKeyService.cs",
+    "SaladCloudSdk/Models/ContainerGroupList.cs",
+    "SaladCloudSdk/Models/CreateContainerGroup.cs",
+    "SaladCloudSdk/Models/ContainerGroup.cs",
+    "SaladCloudSdk/Models/UpdateContainerGroup.cs",
+    "SaladCloudSdk/Models/ContainerGroupInstances.cs",
+    "SaladCloudSdk/Models/WorkloadErrorList.cs",
+    "SaladCloudSdk/Models/QueueList.cs",
+    "SaladCloudSdk/Models/CreateQueue.cs",
+    "SaladCloudSdk/Models/Queue.cs",
+    "SaladCloudSdk/Models/UpdateQueue.cs",
+    "SaladCloudSdk/Models/QueueJobList.cs",
+    "SaladCloudSdk/Models/CreateQueueJob.cs",
+    "SaladCloudSdk/Models/Quotas.cs",
+    "SaladCloudSdk/Models/InferenceEndpointsList.cs",
+    "SaladCloudSdk/Models/InferenceEndpoint.cs",
+    "SaladCloudSdk/Models/InferenceEndpointJobList.cs",
+    "SaladCloudSdk/Models/CreateInferenceEndpointJob.cs",
+    "SaladCloudSdk/Models/GpuClassesList.cs",
+    "SaladCloudSdk/Models/WebhookSecretKey.cs",
+    "SaladCloudSdk/Models/ContainerRestartPolicy.cs",
+    "SaladCloudSdk/Models/ContainerGroupState.cs",
+    "SaladCloudSdk/Models/CountryCode.cs",
+    "SaladCloudSdk/Models/ContainerGroupNetworking.cs",
+    "SaladCloudSdk/Models/ContainerGroupLivenessProbe.cs",
+    "SaladCloudSdk/Models/ContainerGroupReadinessProbe.cs",
+    "SaladCloudSdk/Models/ContainerGroupStartupProbe.cs",
+    "SaladCloudSdk/Models/ContainerGroupQueueConnection.cs",
+    "SaladCloudSdk/Models/ContainerResourceRequirements.cs",
+    "SaladCloudSdk/Models/ContainerGroupPriority.cs",
+    "SaladCloudSdk/Models/ContainerGroupStatus.cs",
+    "SaladCloudSdk/Models/ContainerGroupInstanceStatusCount.cs",
+    "SaladCloudSdk/Models/ContainerNetworkingProtocol.cs",
+    "SaladCloudSdk/Models/ContainerGroupProbeTcp.cs",
+    "SaladCloudSdk/Models/ContainerGroupProbeHttp.cs",
+    "SaladCloudSdk/Models/ContainerGroupProbeGrpc.cs",
+    "SaladCloudSdk/Models/ContainerGroupProbeExec.cs",
+    "SaladCloudSdk/Models/ContainerProbeHttpScheme.cs",
+    "SaladCloudSdk/Models/ContainerGroupProbeHttpHeaders2.cs",
+    "SaladCloudSdk/Models/CreateContainerGroupNetworking.cs",
+    "SaladCloudSdk/Models/UpdateContainerGroupNetworking.cs",
+    "SaladCloudSdk/Models/WorkloadError.cs",
+    "SaladCloudSdk/Models/ContainerGroupsQuotas.cs",
+    "SaladCloudSdk/Models/RecipesQuotas.cs",
+    "SaladCloudSdk/Models/GpuClass.cs",
+    "SaladCloudSdk/Models/GpuClassPrice.cs",
+    "documentation/models/ContainerGroupInstance.md",
+    "documentation/models/QueueJob.md",
+    "documentation/models/InferenceEndpointJob.md",
+    "documentation/models/QueueJobEvent.md",
+    "documentation/models/InferenceEndpointJobEvent.md",
+    "documentation/services/WorkloadErrorsService.md",
+    "documentation/services/QuotasService.md",
+    "documentation/services/OrganizationDataService.md",
+    "SaladCloudSdk/Models/ContainerGroupInstance.cs",
+    "SaladCloudSdk/Models/QueueJob.cs",
+    "SaladCloudSdk/Models/InferenceEndpointJob.cs",
+    "SaladCloudSdk/Models/QueueJobEvent.cs",
+    "SaladCloudSdk/Models/InferenceEndpointJobEvent.cs",
+    "documentation/services/WebhookSecretKeyService.md",
+    "SaladCloudSdk/Services/InferenceEndpointsService.cs",
+    "documentation/services/InferenceEndpointsService.md",
+    "SaladCloudSdk/Services/QueuesService.cs",
+    "README.md",
+    "documentation/services/QueuesService.md",
+    "SaladCloudSdk/Services/ContainerGroupsService.cs",
+    "documentation/models/Container.md",
+    "documentation/services/ContainerGroupsService.md",
+    "documentation/models/CreateContainer.md",
+    "documentation/models/UpdateContainer.md",
+    "SaladCloudSdk/Models/Container.cs",
+    "SaladCloudSdk/Models/CreateContainer.cs",
+    "SaladCloudSdk/Models/UpdateContainer.cs"
+  ]
+}
