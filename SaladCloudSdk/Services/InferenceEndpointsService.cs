@@ -11,7 +11,7 @@ public class InferenceEndpointsService : BaseService
         : base(httpClient) { }
 
     /// <summary>Gets the list of all inference endpoints</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="page">The page number</param>
     /// <param name="pageSize">The number of items per page</param>
     public async Task<InferenceEndpointsList> ListInferenceEndpointsAsync(
@@ -46,7 +46,7 @@ public class InferenceEndpointsService : BaseService
     }
 
     /// <summary>Gets an inference endpoint</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     public async Task<InferenceEndpoint> GetInferenceEndpointAsync(
         string organizationName,
@@ -79,7 +79,7 @@ public class InferenceEndpointsService : BaseService
     }
 
     /// <summary>Retrieves a list of an inference endpoint jobs</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     /// <param name="page">The page number</param>
     /// <param name="pageSize">The number of items per page</param>
@@ -118,7 +118,7 @@ public class InferenceEndpointsService : BaseService
     }
 
     /// <summary>Creates a new job</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     public async Task<InferenceEndpointJob> CreateInferenceEndpointJobAsync(
         CreateInferenceEndpointJob input,
@@ -154,7 +154,7 @@ public class InferenceEndpointsService : BaseService
     }
 
     /// <summary>Retrieves a job in an inference endpoint</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     /// <param name="inferenceEndpointJobId">The unique job id</param>
     public async Task<InferenceEndpointJob> GetInferenceEndpointJobAsync(
@@ -191,7 +191,7 @@ public class InferenceEndpointsService : BaseService
     }
 
     /// <summary>Deletes an inference endpoint job</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     /// <param name="inferenceEndpointJobId">The unique job id</param>
     public async Task DeleteInferenceEndpointJobAsync(

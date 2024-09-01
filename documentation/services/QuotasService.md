@@ -15,9 +15,9 @@ Gets the organization quotas
 
 **Parameters**
 
-| Name             | Type   | Required | Description                  |
-| :--------------- | :----- | :------- | :--------------------------- |
-| organizationName | string | ✅       | The unique organization name |
+| Name             | Type   | Required | Description                                                                                                                                                                                                                                         |
+| :--------------- | :----- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organizationName | string | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
 
 **Return Type**
 
@@ -30,7 +30,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.Quotas.GetQuotasAsync("o110sou");
+var response = await client.Quotas.GetQuotasAsync("y-7yhh5v70xusg163gdfs9vma6wkyd2rcvosdiwny-k");
 
 Console.WriteLine(response);
 ```

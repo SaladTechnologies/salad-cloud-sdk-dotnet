@@ -3,7 +3,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.ContainerGroups.ListContainerGroupsAsync("v50imwzgi4em4q035", "m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1");
+var response = await client.ContainerGroups.ListContainerGroupsAsync("ep7fgeqvy6vfd66h1ewe-69h", "dpdhw0h4i3hwpdzw9");
 
 Console.WriteLine(response);
 

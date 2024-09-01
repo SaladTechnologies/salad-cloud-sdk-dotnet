@@ -12,8 +12,8 @@ public class ContainerGroupsService : BaseService
         : base(httpClient) { }
 
     /// <summary>Gets the list of container groups</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     public async Task<ContainerGroupList> ListContainerGroupsAsync(
         string organizationName,
         string projectName,
@@ -45,8 +45,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Creates a new container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     public async Task<ContainerGroup> CreateContainerGroupAsync(
         CreateContainerGroup input,
         string organizationName,
@@ -81,8 +81,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Gets a container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task<ContainerGroup> GetContainerGroupAsync(
         string organizationName,
@@ -118,8 +118,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Updates a container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task<ContainerGroup> UpdateContainerGroupAsync(
         UpdateContainerGroup input,
@@ -162,8 +162,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Deletes a container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task DeleteContainerGroupAsync(
         string organizationName,
@@ -192,8 +192,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Starts a container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task StartContainerGroupAsync(
         string organizationName,
@@ -222,8 +222,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Stops a container group</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task StopContainerGroupAsync(
         string organizationName,
@@ -252,8 +252,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Retrieves a list of container group instances</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     public async Task<ContainerGroupInstances> ListContainerGroupInstancesAsync(
         string organizationName,
@@ -289,8 +289,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Retrieves the details of a single instance within a container group by instance ID</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     /// <param name="containerGroupInstanceId">The unique instance identifier</param>
     public async Task<ContainerGroupInstance> GetContainerGroupInstanceAsync(
@@ -333,8 +333,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Remove a node from a workload and reallocate the workload to a different node</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     /// <param name="containerGroupInstanceId">The unique instance identifier</param>
     public async Task ReallocateContainerGroupInstanceAsync(
@@ -370,8 +370,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Stops a container, destroys it, creates a new one without requiring the image to be downloaded again on a different node</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     /// <param name="containerGroupInstanceId">The unique instance identifier</param>
     public async Task RecreateContainerGroupInstanceAsync(
@@ -407,8 +407,8 @@ public class ContainerGroupsService : BaseService
     }
 
     /// <summary>Restarts a workload on a node without reallocating it</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="containerGroupName">The unique container group name</param>
     /// <param name="containerGroupInstanceId">The unique instance identifier</param>
     public async Task RestartContainerGroupInstanceAsync(

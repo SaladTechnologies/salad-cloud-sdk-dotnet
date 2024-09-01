@@ -11,9 +11,9 @@ public class QueuesService : BaseService
     internal QueuesService(HttpClient httpClient)
         : base(httpClient) { }
 
-    /// <summary>Gets the list of queues</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <summary>Gets the list of queues in the given project.</summary>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     public async Task<QueueList> ListQueuesAsync(
         string organizationName,
         string projectName,
@@ -41,9 +41,9 @@ public class QueuesService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Creates a new queue</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
+    /// <summary>Creates a new queue in the given project.</summary>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     public async Task<Queue> CreateQueueAsync(
         CreateQueue input,
         string organizationName,
@@ -74,10 +74,10 @@ public class QueuesService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Gets a queue</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
+    /// <summary>Gets an existing queue in the given project.</summary>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
     public async Task<Queue> GetQueueAsync(
         string organizationName,
         string projectName,
@@ -108,10 +108,10 @@ public class QueuesService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Updates a queue</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
+    /// <summary>Updates an existing queue in the given project.</summary>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
     public async Task<Queue> UpdateQueueAsync(
         UpdateQueue input,
         string organizationName,
@@ -149,10 +149,10 @@ public class QueuesService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Deletes a queue</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
+    /// <summary>Deletes an existing queue in the given project.</summary>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
     public async Task DeleteQueueAsync(
         string organizationName,
         string projectName,
@@ -180,9 +180,9 @@ public class QueuesService : BaseService
     }
 
     /// <summary>Retrieves a list of queue jobs</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
     /// <param name="page">The page number</param>
     /// <param name="pageSize">The number of items per page</param>
     public async Task<QueueJobList> ListQueueJobsAsync(
@@ -220,9 +220,9 @@ public class QueuesService : BaseService
     }
 
     /// <summary>Creates a new job</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
     public async Task<QueueJob> CreateQueueJobAsync(
         CreateQueueJob input,
         string organizationName,
@@ -257,10 +257,10 @@ public class QueuesService : BaseService
     }
 
     /// <summary>Retrieves a job in a queue</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
-    /// <param name="queueJobId">The unique job id</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
+    /// <param name="queueJobId">The job identifier. This is automatically generated and assigned when the job is created.</param>
     public async Task<QueueJob> GetQueueJobAsync(
         string organizationName,
         string projectName,
@@ -295,10 +295,10 @@ public class QueuesService : BaseService
     }
 
     /// <summary>Deletes a queue job</summary>
-    /// <param name="organizationName">The unique organization name</param>
-    /// <param name="projectName">The unique project name</param>
-    /// <param name="queueName">The unique queue name</param>
-    /// <param name="queueJobId">The unique job id</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
+    /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
+    /// <param name="queueName">The queue name.</param>
+    /// <param name="queueJobId">The job identifier. This is automatically generated and assigned when the job is created.</param>
     public async Task DeleteQueueJobAsync(
         string organizationName,
         string projectName,
