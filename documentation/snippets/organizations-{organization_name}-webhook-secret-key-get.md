@@ -3,7 +3,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("dyxdaqq1t3iwwpawdlk-78rt9bh26smkuf3v0nd2ropp");
+var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("hn9h7px3wro2wjja0yeu6kcgk0nggtveqmh45ilbsw4b2dcch55e1sj");
 
 Console.WriteLine(response);
 

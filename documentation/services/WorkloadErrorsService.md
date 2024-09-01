@@ -15,11 +15,11 @@ Gets the workload errors
 
 **Parameters**
 
-| Name               | Type   | Required | Description                     |
-| :----------------- | :----- | :------- | :------------------------------ |
-| organizationName   | string | ✅       | The unique organization name    |
-| projectName        | string | ✅       | The unique project name         |
-| containerGroupName | string | ✅       | The unique container group name |
+| Name               | Type   | Required | Description                                                                                                                                                                                                                                         |
+| :----------------- | :----- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| organizationName   | string | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| projectName        | string | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| containerGroupName | string | ✅       | The unique container group name                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -32,7 +32,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.WorkloadErrors.GetWorkloadErrorsAsync("kr8pje-v4-ccp8q-329szw31h4fee237cnffybnugpd7nbngr", "vjne2vq5j0d2m4f21ex5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844mz", "jpqhlkkgd");
+var response = await client.WorkloadErrors.GetWorkloadErrorsAsync("cg3m2ys7p7s0l7bztd09ndj7juif71slwjakka", "rcn12djtrq4osvz", "ha1vqw6i748x874akg4f74ap-5lo17i");
 
 Console.WriteLine(response);
 ```

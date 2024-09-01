@@ -84,7 +84,7 @@ ApiKeyAuth = apiKeyConfig
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Quotas.GetQuotasAsync("o110sou");
+var response = await client.Quotas.GetQuotasAsync("y-7yhh5v70xusg163gdfs9vma6wkyd2rcvosdiwny-k");
 
 Console.WriteLine(response);
 
@@ -126,9 +126,9 @@ The SDK includes several models that represent the data structures used in API r
 | [ContainerGroupInstance](documentation/models/ContainerGroupInstance.md)                       | Represents the details of a single container group instance              |
 | [WorkloadErrorList](documentation/models/WorkloadErrorList.md)                                 | Represents a list of workload errors                                     |
 | [QueueList](documentation/models/QueueList.md)                                                 | Represents a list of queues                                              |
-| [CreateQueue](documentation/models/CreateQueue.md)                                             | Represents a request to create a queue                                   |
-| [Queue](documentation/models/Queue.md)                                                         | Represents a queue                                                       |
-| [UpdateQueue](documentation/models/UpdateQueue.md)                                             | Represents a request to update a queue                                   |
+| [CreateQueue](documentation/models/CreateQueue.md)                                             | Represents a request to create a new queue.                              |
+| [Queue](documentation/models/Queue.md)                                                         | Represents a queue.                                                      |
+| [UpdateQueue](documentation/models/UpdateQueue.md)                                             | Represents a request to update an existing queue.                        |
 | [QueueJobList](documentation/models/QueueJobList.md)                                           | Represents a list of queue jobs                                          |
 | [CreateQueueJob](documentation/models/CreateQueueJob.md)                                       | Represents a request to create a queue job                               |
 | [QueueJob](documentation/models/QueueJob.md)                                                   | Represents a queue job                                                   |

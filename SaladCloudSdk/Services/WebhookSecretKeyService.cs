@@ -11,7 +11,7 @@ public class WebhookSecretKeyService : BaseService
         : base(httpClient) { }
 
     /// <summary>Gets the webhook secret key</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     public async Task<WebhookSecretKey> GetWebhookSecretKeyAsync(
         string organizationName,
         CancellationToken cancellationToken = default
@@ -40,7 +40,7 @@ public class WebhookSecretKeyService : BaseService
     }
 
     /// <summary>Updates the webhook secret key</summary>
-    /// <param name="organizationName">The unique organization name</param>
+    /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     public async Task<WebhookSecretKey> UpdateWebhookSecretKeyAsync(
         string organizationName,
         CancellationToken cancellationToken = default
