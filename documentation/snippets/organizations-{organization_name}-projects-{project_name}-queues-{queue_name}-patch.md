@@ -6,7 +6,7 @@ var client = new SaladCloudSdkClient();
 
 var input = new UpdateQueue();
 
-var response = await client.Queues.UpdateQueueAsync(input, "voe5nrfsnef63doc193sgdihl8bgcxw201b7qbn", "xlauk07eld4q4sm9jdgi4bgl1flz0elvw26099ougowft9j-kjp6bahz155", "gsomvfqk5h4gbc8o3p4id29bdadte3m51it2hfzxfmyjtvnd0b");
+var response = await client.Queues.UpdateQueueAsync(input, "g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3", "wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", "bnkfiyt3k5ke3wy-5gl1809r");
 
 Console.WriteLine(response);
 

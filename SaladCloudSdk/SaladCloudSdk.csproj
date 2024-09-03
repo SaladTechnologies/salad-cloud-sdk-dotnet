@@ -10,17 +10,11 @@
     <Authors>salad, seniorquico</Authors>
     <ProjectUrl>https://github.com/saladtechnologies/salad-cloud-sdk-dotnet</ProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Deterministic>true</Deterministic>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
-    <PackageReference Include="Polly" Version="8.2.1" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+      <PackageReference Include="Polly" Version="8.2.1" />
   </ItemGroup>
 
 </Project>

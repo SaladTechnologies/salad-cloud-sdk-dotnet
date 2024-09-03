@@ -37,7 +37,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("sqctlusaj22ygymnjifxur", 585200996, 35);
+var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("wg1umdxtc9fte8osib-e-5ux2vsmrhjjt13u7q3pryxxnm", 756148233, 66);
 
 Console.WriteLine(response);
 ```
@@ -67,7 +67,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("rvbmdh-8zxih", "id nulla");
+var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("uzp1dyfm2yp4-lxa27tl0fwms3fu3myo74a99jr6ouv4w8", "aute Ut reprehenderit occaecat sed");
 
 Console.WriteLine(response);
 ```
@@ -99,7 +99,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("et0wus4xea-xt7p0xv", "minim Ut s", 408174252, 59);
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00", "ut officia ut", 1653138765, 76);
 
 Console.WriteLine(response);
 ```
@@ -133,7 +133,7 @@ var client = new SaladCloudSdkClient();
 
 var input = new CreateInferenceEndpointJob(new object {});
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "et0wus4xea-xt7p0xv", "minim Ut s");
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00", "ut officia ut");
 
 Console.WriteLine(response);
 ```
@@ -164,7 +164,7 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("wm7sq978nq8j748qskk0hr2eg4sl7t97a39br872", "ullamco", "inference_endpoint_job_id");
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("b7tj9", "sed eu labore", "inference_endpoint_job_id");
 
 Console.WriteLine(response);
 ```
@@ -191,5 +191,5 @@ using SaladCloudSdk;
 
 var client = new SaladCloudSdkClient();
 
-await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("wm7sq978nq8j748qskk0hr2eg4sl7t97a39br872", "ullamco", "inference_endpoint_job_id");
+await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("b7tj9", "sed eu labore", "inference_endpoint_job_id");
 ```
