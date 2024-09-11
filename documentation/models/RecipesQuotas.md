@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name                        | Type | Required | Description |
-| :-------------------------- | :--- | :------- | :---------- |
-| MaxCreatedRecipeDeployments | long | ✅       |             |
-| RecipeInstanceQuota         | long | ✅       |             |
+| Name                        | Type   | Required | Description |
+| :-------------------------- | :----- | :------- | :---------- |
+| MaxCreatedRecipeDeployments | `long` | ✅       |             |
+| RecipeInstanceQuota         | `long` | ✅       |             |

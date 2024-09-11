@@ -1,14 +1,14 @@
 ```csharp
-using SaladCloudSdk;
-using SaladCloudSdk.Models;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Models;
 
 var client = new SaladCloudSdkClient();
 
-var resources = new ContainerResourceRequirements(6, 8938);
-var container = new CreateContainer("magna laboris exercitation sunt", resources);
-var input = new CreateContainerGroup("vgm3", container, false, ContainerRestartPolicy.Always, 21);
+var resources = new ContainerResourceRequirements(10, 17858);
+var container = new CreateContainer("velit qui cillum veniam ullamco", resources);
+var input = new CreateContainerGroup("oh2mpxyfojt-6cco", container, false, ContainerRestartPolicy.Always, 225);
 
-var response = await client.ContainerGroups.CreateContainerGroupAsync(input, "ep7fgeqvy6vfd66h1ewe-69h", "dpdhw0h4i3hwpdzw9");
+var response = await client.ContainerGroups.CreateContainerGroupAsync(input, "v50imwzgi4em4q035", "m6yw3-xm60cb7tiev8rketqiiwjepibzf2ust1cvjx8oua8mepeueo5-1");
 
 Console.WriteLine(response);
 
