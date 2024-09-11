@@ -4,8 +4,8 @@ Represents container group queue connection
 
 **Properties**
 
-| Name      | Type   | Required | Description |
-| :-------- | :----- | :------- | :---------- |
-| Path      | string | ✅       |             |
-| Port      | long   | ✅       |             |
-| QueueName | string | ✅       |             |
+| Name      | Type     | Required | Description |
+| :-------- | :------- | :------- | :---------- |
+| Path      | `string` | ✅       |             |
+| Port      | `long`   | ✅       |             |
+| QueueName | `string` | ✅       |             |

@@ -1,12 +1,12 @@
 ```csharp
-using SaladCloudSdk;
-using SaladCloudSdk.Models;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Models;
 
 var client = new SaladCloudSdkClient();
 
 var input = new UpdateContainerGroup();
 
-var response = await client.ContainerGroups.UpdateContainerGroupAsync(input, "zt-dvmb-gmo5a", "enqsq6na2w8d2wlvk-85d3jxhjhj", "fcixv6oyiqlk");
+var response = await client.ContainerGroups.UpdateContainerGroupAsync(input, "gq7z7dvdopv2czgde1zrufxgiv5tp-kncd4gfzda9ik-lw", "xd-if9b1yvozs9trd4v0bll7qwslfehyhnfadnjp2w52gwrmz", "ojjj5b9hbe2fr6f5t7j1htjaws1zx3r");
 
 Console.WriteLine(response);
 
