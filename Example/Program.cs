@@ -1,6 +1,6 @@
-using SaladCloudSdk;
-using SaladCloudSdk.Config;
-using Environment = SaladCloudSdk.Http.Environment;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
 var apiKeyConfig = new ApiKeyAuthConfig("YOUR_API_KEY");
 
@@ -12,6 +12,6 @@ var config = new SaladCloudSdkConfig
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Quotas.GetQuotasAsync("y-7yhh5v70xusg163gdfs9vma6wkyd2rcvosdiwny-k");
+var response = await client.Quotas.GetQuotasAsync("o110sou");
 
 Console.WriteLine(response);

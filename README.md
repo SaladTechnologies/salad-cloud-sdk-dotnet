@@ -1,11 +1,11 @@
-# SaladCloudSdk C# SDK 0.9.0-alpha.1
+# SaladCloudSdk C# SDK 0.9.0-alpha.2
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions
 
-- API version: `0.9.0-alpha.1`
-- SDK version: `0.9.0-alpha.1`
+- API version: `0.9.0-alpha.2`
+- SDK version: `0.9.0-alpha.2`
 
 ## About the API
 
@@ -41,17 +41,17 @@ dotnet add package Salad.Cloud.SDK
 
 ### API Key Authentication
 
-The salad-cloud-sdk API uses API keys as a form of authentication. An API key is a unique identifier used to authenticate a user, developer, or a program that is calling the API.
+The SaladCloudSdk API uses API keys as a form of authentication. An API key is a unique identifier used to authenticate a user, developer, or a program that is calling the API.
 
 #### Setting the API key
 
 When you initialize the SDK, you can set the API key as follows:
 
 ```cs
-using SaladCloudSdk;
-using SaladCloudSdk.Config;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
 
-var config = new SaladCloudSdkConfig()
+var config = new Salad.Cloud.SDKConfig()
 {
 	ApiKeyAuth = new ApiKeyAuthConfig("YOUR_API_KEY")
 };
@@ -70,9 +70,9 @@ client.SetApiKey("YOUR_API_KEY")
 Below is a comprehensive example demonstrating how to authenticate and call a simple endpoint:
 
 ```cs
-using SaladCloudSdk;
-using SaladCloudSdk.Config;
-using Environment = SaladCloudSdk.Http.Environment;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
 var apiKeyConfig = new ApiKeyAuthConfig("YOUR_API_KEY");
 
@@ -84,7 +84,7 @@ ApiKeyAuth = apiKeyConfig
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Quotas.GetQuotasAsync("y-7yhh5v70xusg163gdfs9vma6wkyd2rcvosdiwny-k");
+var response = await client.Quotas.GetQuotasAsync("o110sou");
 
 Console.WriteLine(response);
 
@@ -149,6 +149,7 @@ The SDK includes several models that represent the data structures used in API r
 | [ContainerGroupReadinessProbe](documentation/models/ContainerGroupReadinessProbe.md)           | Represents the container group readiness probe                           |
 | [ContainerGroupStartupProbe](documentation/models/ContainerGroupStartupProbe.md)               | Represents the container group startup probe                             |
 | [ContainerGroupQueueConnection](documentation/models/ContainerGroupQueueConnection.md)         | Represents container group queue connection                              |
+| [QueueAutoscaler](documentation/models/QueueAutoscaler.md)                                     | Represents the autoscaling rules for a queue                             |
 | [ContainerResourceRequirements](documentation/models/ContainerResourceRequirements.md)         | Represents a container resource requirements                             |
 | [ContainerGroupPriority](documentation/models/ContainerGroupPriority.md)                       |                                                                          |
 | [ContainerGroupStatus](documentation/models/ContainerGroupStatus.md)                           |                                                                          |

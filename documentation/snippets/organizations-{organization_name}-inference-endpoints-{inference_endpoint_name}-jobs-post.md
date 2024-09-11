@@ -1,12 +1,12 @@
 ```csharp
-using SaladCloudSdk;
-using SaladCloudSdk.Models;
+using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Models;
 
 var client = new SaladCloudSdkClient();
 
 var input = new CreateInferenceEndpointJob(new object {});
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "et0wus4xea-xt7p0xv", "minim Ut s");
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00", "ut officia ut");
 
 Console.WriteLine(response);
 

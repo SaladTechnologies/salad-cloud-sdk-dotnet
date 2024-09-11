@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="../SaladCloudSdk/SaladCloudSdk.csproj" />
+    <ProjectReference Include="../Salad.Cloud.SDK/Salad.Cloud.SDK.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
