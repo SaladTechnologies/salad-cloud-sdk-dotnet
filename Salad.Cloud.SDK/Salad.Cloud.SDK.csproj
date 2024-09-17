@@ -5,16 +5,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Salad.Cloud.SDK</RootNamespace>
-    <Version>0.9.0-alpha.2</Version>
+    <Version>0.9.0-alpha.3</Version>
     <PackageId>Salad.Cloud.SDK</PackageId>
     <Authors>salad, seniorquico</Authors>
     <ProjectUrl>https://github.com/saladtechnologies/salad-cloud-sdk-dotnet</ProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Deterministic>true</Deterministic>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
       <PackageReference Include="Polly" Version="8.2.1" />
+      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
 </Project>
