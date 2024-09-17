@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Salad.Cloud.SDK</RootNamespace>
-    <Version>0.9.0-alpha.2</Version>
+    <Version>0.9.0-alpha.3</Version>
     <PackageId>Salad.Cloud.SDK</PackageId>
     <Authors>salad, seniorquico</Authors>
     <ProjectUrl>https://github.com/saladtechnologies/salad-cloud-sdk-dotnet</ProjectUrl>

@@ -1,11 +1,11 @@
-# SaladCloudSdk C# SDK 0.9.0-alpha.2
+# SaladCloudSdk C# SDK 0.9.0-alpha.3
 
 Welcome to the SaladCloudSdk SDK documentation. This guide will help you get started with integrating and using the SaladCloudSdk SDK in your project.
 
 ## Versions
 
-- API version: `0.9.0-alpha.2`
-- SDK version: `0.9.0-alpha.2`
+- API version: `0.9.0-alpha.3`
+- SDK version: `0.9.0-alpha.3`
 
 ## About the API
 

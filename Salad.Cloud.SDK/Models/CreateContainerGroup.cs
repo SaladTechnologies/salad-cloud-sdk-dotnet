@@ -34,9 +34,6 @@ public record CreateContainerGroup(
     [property: JsonPropertyName("queue_connection")]
         ContainerGroupQueueConnection? QueueConnection = null,
     /// <value>Represents the autoscaling rules for a queue</value>
-    [property:
-        JsonPropertyName("queue_autoscaler"),
-        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
-    ]
+    [property: JsonPropertyName("queue_autoscaler")]
         QueueAutoscaler? QueueAutoscaler = null
 );
