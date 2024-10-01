@@ -6,7 +6,6 @@ namespace Salad.Cloud.SDK.Models;
 public record Quotas(
     [property: JsonPropertyName("container_groups_quotas")]
         ContainerGroupsQuotas ContainerGroupsQuotas,
-    [property: JsonPropertyName("recipes_quotas")] RecipesQuotas RecipesQuotas,
     /// <value>The time the resource was created</value>
     [property:
         JsonPropertyName("create_time"),
