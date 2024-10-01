@@ -3,7 +3,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("trzfoq1p77wk9jgwxjp56dzbnwtbgowklqt1wsbe00", "ut officia ut", 1653138765, 76);
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("bzx0y-i4o1cvulgdrx", "minim", 82661968, 27);
 
 Console.WriteLine(response);
 

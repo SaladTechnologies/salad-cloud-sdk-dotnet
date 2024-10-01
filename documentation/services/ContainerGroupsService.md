@@ -74,7 +74,7 @@ using Salad.Cloud.SDK.Models;
 
 var client = new SaladCloudSdkClient();
 
-var resources = new ContainerResourceRequirements(10, 17858);
+var resources = new ContainerResourceRequirements(10, 35273);
 var container = new CreateContainer("voluptate officia adipisicing", resources);
 var input = new CreateContainerGroup("qfojt-6ccoil4t55-ccoyybgw92dermtsdfn3t2xmag", container, false, ContainerRestartPolicy.Always, 114);
 
