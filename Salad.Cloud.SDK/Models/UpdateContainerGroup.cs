@@ -26,5 +26,8 @@ public record UpdateContainerGroup(
         ContainerGroupReadinessProbe? ReadinessProbe = null,
     /// <value>Represents the container group startup probe</value>
     [property: JsonPropertyName("startup_probe")]
-        ContainerGroupStartupProbe? StartupProbe = null
+        ContainerGroupStartupProbe? StartupProbe = null,
+    /// <value>Represents the autoscaling rules for a queue</value>
+    [property: JsonPropertyName("queue_autoscaler")]
+        QueueAutoscaler? QueueAutoscaler = null
 );

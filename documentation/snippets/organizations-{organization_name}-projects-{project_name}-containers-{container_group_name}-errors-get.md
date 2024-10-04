@@ -3,7 +3,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.WorkloadErrors.GetWorkloadErrorsAsync("u9szw31h4fee237cnffybnugpd7nbngs47jne2vq5j0d2m4f20", "c5ozb1-4j-you0d7uftlpfgcaqa-2oc58y844m0ne", "khlkkgda39h5upyur493wxwbxrj4x");
+var response = await client.WorkloadErrors.GetWorkloadErrorsAsync("x4hd7xmy53wgq8mpuy5k2wfbbzlhws5edt3sje", "hug6abtk-ewjq1594j27m6u1whmqikj9f18pd", "lq52i317o2r8pje-v4-ccp8q-329szw31h4fee236");
 
 Console.WriteLine(response);
 

@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.5.0",
-  "date": "2024-10-01T05:14:05.186Z",
+  "liblabVersion": "2.5.1",
+  "date": "2024-10-04T04:24:23.519Z",
   "config": {
-    "apiId": 1228,
+    "apiId": 1252,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.4",
+    "sdkVersion": "0.9.0-alpha.5",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["csharp"],
@@ -26,7 +26,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.4",
+        "sdkVersion": "0.9.0-alpha.5",
         "targetBranch": "main"
       },
       "go": {
@@ -34,7 +34,7 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.4",
+        "sdkVersion": "0.9.0-alpha.5",
         "targetBranch": "main"
       },
       "java": {
@@ -58,7 +58,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main"
       },
       "python": {
@@ -101,7 +101,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.4",
+        "sdkVersion": "0.9.0-alpha.5",
         "targetBranch": "main"
       },
       "terraform": {
@@ -138,7 +138,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main",
         "generateEnumAs": "enum"
       }
@@ -233,7 +233,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.4",
+    "apiVersion": "0.9.0-alpha.5",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -376,7 +376,6 @@
     "documentation/models/ContainerRestartPolicy.md",
     "documentation/models/ContainerGroupState.md",
     "documentation/models/CountryCode.md",
-    "documentation/models/ContainerGroupNetworking.md",
     "documentation/models/ContainerGroupLivenessProbe.md",
     "documentation/models/ContainerGroupReadinessProbe.md",
     "documentation/models/ContainerGroupStartupProbe.md",
@@ -393,7 +392,6 @@
     "documentation/models/ContainerGroupProbeExec.md",
     "documentation/models/ContainerProbeHttpScheme.md",
     "documentation/models/ContainerGroupProbeHttpHeaders2.md",
-    "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/UpdateContainerGroupNetworking.md",
     "documentation/models/WorkloadError.md",
     "documentation/models/ContainerGroupsQuotas.md",
@@ -425,7 +423,6 @@
     "Salad.Cloud.SDK/Models/ContainerRestartPolicy.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupState.cs",
     "Salad.Cloud.SDK/Models/CountryCode.cs",
-    "Salad.Cloud.SDK/Models/ContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupLivenessProbe.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupReadinessProbe.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupStartupProbe.cs",
@@ -442,7 +439,6 @@
     "Salad.Cloud.SDK/Models/ContainerGroupProbeExec.cs",
     "Salad.Cloud.SDK/Models/ContainerProbeHttpScheme.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeHttpHeaders2.cs",
-    "Salad.Cloud.SDK/Models/CreateContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/UpdateContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/WorkloadError.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupsQuotas.cs",
@@ -451,6 +447,8 @@
     "documentation/models/ContainerGroupInstance.md",
     "documentation/models/QueueJob.md",
     "documentation/models/InferenceEndpointJob.md",
+    "documentation/models/ContainerGroupNetworking.md",
+    "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/QueueJobEvent.md",
     "documentation/models/InferenceEndpointJobEvent.md",
     "documentation/services/WorkloadErrorsService.md",
@@ -459,6 +457,8 @@
     "Salad.Cloud.SDK/Models/ContainerGroupInstance.cs",
     "Salad.Cloud.SDK/Models/QueueJob.cs",
     "Salad.Cloud.SDK/Models/InferenceEndpointJob.cs",
+    "Salad.Cloud.SDK/Models/ContainerGroupNetworking.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/QueueJobEvent.cs",
     "Salad.Cloud.SDK/Models/InferenceEndpointJobEvent.cs",
     "documentation/services/WebhookSecretKeyService.md",
