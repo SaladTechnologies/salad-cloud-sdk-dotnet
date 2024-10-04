@@ -12,6 +12,6 @@ var config = new SaladCloudSdkConfig
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Quotas.GetQuotasAsync("o110sou");
+var response = await client.Quotas.GetQuotasAsync("oecson4k2eclxr");
 
 Console.WriteLine(response);

@@ -39,7 +39,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.Queues.ListQueuesAsync("rtxaydgbmb5wprcvb9628akhug9lnd3c0", "p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177");
+var response = await client.Queues.ListQueuesAsync("xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e", "xk27gbnpmwk5xor49bk4ujk7");
 
 Console.WriteLine(response);
 ```
@@ -71,9 +71,9 @@ using Salad.Cloud.SDK.Models;
 
 var client = new SaladCloudSdkClient();
 
-var input = new CreateQueue("wcaz2jbu5pfmpygxffsf4bh4e6");
+var input = new CreateQueue("ho4d79h7bg0vpngqc8hz5pxjwi");
 
-var response = await client.Queues.CreateQueueAsync(input, "rtxaydgbmb5wprcvb9628akhug9lnd3c0", "p4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsz6xilo12xl52y9c177");
+var response = await client.Queues.CreateQueueAsync(input, "xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e", "xk27gbnpmwk5xor49bk4ujk7");
 
 Console.WriteLine(response);
 ```
@@ -104,7 +104,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.Queues.GetQueueAsync("g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3", "wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", "bnkfiyt3k5ke3wy-5gl1809r");
+var response = await client.Queues.GetQueueAsync("bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
 
 Console.WriteLine(response);
 ```
@@ -139,7 +139,7 @@ var client = new SaladCloudSdkClient();
 
 var input = new UpdateQueue();
 
-var response = await client.Queues.UpdateQueueAsync(input, "g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3", "wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", "bnkfiyt3k5ke3wy-5gl1809r");
+var response = await client.Queues.UpdateQueueAsync(input, "bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
 
 Console.WriteLine(response);
 ```
@@ -166,7 +166,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-await client.Queues.DeleteQueueAsync("g1bq27ohe5dpzbgsk8gvpuhecson4k2eclxss3", "wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", "bnkfiyt3k5ke3wy-5gl1809r");
+await client.Queues.DeleteQueueAsync("bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
 ```
 
 ## ListQueueJobsAsync
@@ -197,7 +197,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.Queues.ListQueueJobsAsync("jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs", "sn780t45z2tw4xt1b86w0clx6vkq-3", "sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c", 2110014563, 23);
+var response = await client.Queues.ListQueueJobsAsync("wcaz2jbu5pfmpygxffsf4bh4e6", "dzh9lv6afpamv8cx0x6", "s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2", 706148771, 45);
 
 Console.WriteLine(response);
 ```
@@ -232,7 +232,7 @@ var client = new SaladCloudSdkClient();
 
 var input = new CreateQueueJob(new object {});
 
-var response = await client.Queues.CreateQueueJobAsync(input, "jb7eyumc25lm4prwopvwr-1961g-m85nbqda3ufs", "sn780t45z2tw4xt1b86w0clx6vkq-3", "sx811v32aty9s-ghx1hm2nw1mhgooidhvnhwadaqzuh19krhv62or5c");
+var response = await client.Queues.CreateQueueJobAsync(input, "wcaz2jbu5pfmpygxffsf4bh4e6", "dzh9lv6afpamv8cx0x6", "s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2");
 
 Console.WriteLine(response);
 ```
@@ -264,7 +264,7 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-var response = await client.Queues.GetQueueJobAsync("j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr", "eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d", "zbvvpn2qgtohp", "queue_job_id");
+var response = await client.Queues.GetQueueJobAsync("zm-jv", "tq26", "je5dpzbgsk8gvp", "queue_job_id");
 
 Console.WriteLine(response);
 ```
@@ -292,5 +292,5 @@ using Salad.Cloud.SDK;
 
 var client = new SaladCloudSdkClient();
 
-await client.Queues.DeleteQueueJobAsync("j-8sae7t0u7o0emyztq64o8ut710qtepjztx34mk6lruecseiyq06ab3ok5xr", "eokxas9m7y892q4m5rifzmevenpg1vot8xgbal184sloim-c7555huym18dia9d", "zbvvpn2qgtohp", "queue_job_id");
+await client.Queues.DeleteQueueJobAsync("zm-jv", "tq26", "je5dpzbgsk8gvp", "queue_job_id");
 ```

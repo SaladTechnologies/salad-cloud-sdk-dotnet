@@ -6,7 +6,7 @@ var client = new SaladCloudSdkClient();
 
 var input = new CreateInferenceEndpointJob(new object {});
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "bzx0y-i4o1cvulgdrx", "minim");
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "yg0u13rmnwb7eyumc25lm4prwopvwr-1961f", "consectetur occaecat");
 
 Console.WriteLine(response);
 
