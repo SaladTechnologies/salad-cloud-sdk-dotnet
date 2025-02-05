@@ -8,5 +8,5 @@ public enum SerializationStyle
     Form = 3,
     SpaceDelimited = 4,
     PipeDelimited = 5,
-    DeepObject = 6
+    DeepObject = 6,
 }

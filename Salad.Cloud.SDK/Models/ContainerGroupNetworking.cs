@@ -13,7 +13,7 @@ public record ContainerGroupNetworking(
         JsonPropertyName("load_balancer"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        ContainerGroupNetworking.ContainerGroupNetworkingLoadBalancer? LoadBalancer = null,
+        ContainerGroupNetworkingLoadBalancer? LoadBalancer = null,
     [property:
         JsonPropertyName("single_connection_limit"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
@@ -29,18 +29,4 @@ public record ContainerGroupNetworking(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? ServerResponseTimeout = null
-)
-{
-    public record ContainerGroupNetworkingLoadBalancer : ValueEnum<string>
-    {
-        internal ContainerGroupNetworkingLoadBalancer(string value)
-            : base(value) { }
-
-        public ContainerGroupNetworkingLoadBalancer()
-            : base("round_robin") { }
-
-        public static ContainerGroupNetworkingLoadBalancer RoundRobin = new("round_robin");
-        public static ContainerGroupNetworkingLoadBalancer LeastNumberOfConnections =
-            new("least_number_of_connections");
-    }
-}
+);

@@ -1,9 +1,15 @@
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", 121822981, 37);
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("r1i8h22k", 16044711, 60);
 
 Console.WriteLine(response);
 

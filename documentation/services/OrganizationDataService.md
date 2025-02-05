@@ -27,10 +27,16 @@ List the GPU Classes
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.OrganizationData.ListGpuClassesAsync("vsg-okxas9m7y892q4m5rifzmevenpg1vot8xgbal");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.OrganizationData.ListGpuClassesAsync("s9g7lyyu-j0-p29ti");
 
 Console.WriteLine(response);
 ```

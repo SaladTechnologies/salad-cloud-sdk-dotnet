@@ -7,7 +7,7 @@ Represents an update container object
 | Name                   | Type                                  | Required | Description                                                                                      |
 | :--------------------- | :------------------------------------ | :------- | :----------------------------------------------------------------------------------------------- |
 | Image                  | string                                | ❌       |                                                                                                  |
-| Resources\_            | Resources                             | ❌       |                                                                                                  |
+| Resources1             | Resources                             | ❌       |                                                                                                  |
 | Command                | List<string>                          | ❌       | Pass a command (and optional arguments) to override the ENTRYPOINT and CMD of a container image. |
 | Priority               | ContainerGroupPriority                | ❌       |                                                                                                  |
 | EnvironmentVariables   | object                                | ❌       |                                                                                                  |

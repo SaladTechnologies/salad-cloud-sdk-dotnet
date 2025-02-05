@@ -1,9 +1,15 @@
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("a09xnu6-fkv3", "ca4ydy-pi16e4ddle58fi8u9w2qgnsgj7cn", "b4p90a72aagy0fz", "container_group_instance_id");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("h2vf5j9bl68odxyrub2vzqrpq", "dz0l0ksd13duaemr1bl6h3cfj", "qt5kcqqmsto9eh5guxaf9", "container_group_instance_id");
 
 Console.WriteLine(response);
 

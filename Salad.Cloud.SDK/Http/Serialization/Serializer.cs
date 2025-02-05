@@ -20,13 +20,11 @@ public static class Serializer
     {
         return value switch
         {
-            null
-            or string
-            or bool
-            or int
-            or long
-            or double
-                => SerializePrimitive(key, value, style),
+            null or string or bool or int or long or double => SerializePrimitive(
+                key,
+                value,
+                style
+            ),
             IEnumerable e => SerializeEnumerable(key, e, style, explode),
             object o => SerializeObject(key, o, style, explode),
         };
@@ -40,9 +38,13 @@ public static class Serializer
                 string s => WebUtility.UrlEncode(s),
                 bool b => b.ToString().ToLowerInvariant(),
                 int or long or double => value.ToString(),
-                IEnumerable e
-                    => SerializeEnumerable(string.Empty, e, SerializationStyle.Simple, false),
-                not null => SerializeObject(string.Empty, value, SerializationStyle.Simple, false)
+                IEnumerable e => SerializeEnumerable(
+                    string.Empty,
+                    e,
+                    SerializationStyle.Simple,
+                    false
+                ),
+                not null => SerializeObject(string.Empty, value, SerializationStyle.Simple, false),
             } ?? string.Empty;
     }
 
@@ -53,7 +55,7 @@ public static class Serializer
             SerializationStyle.Label => $".{SerializeValue(value)}",
             SerializationStyle.Matrix => $";{SerializeValue(value)}",
             SerializationStyle.Form => $"{key}={SerializeValue(value)}",
-            _ => SerializeValue(value)
+            _ => SerializeValue(value),
         };
     }
 
@@ -91,7 +93,7 @@ public static class Serializer
         {
             SerializationStyle.SpaceDelimited => " ",
             SerializationStyle.PipeDelimited => "|",
-            _ => ","
+            _ => ",",
         };
 
         return $"{key}={string.Join(separator, serializedValues)}";

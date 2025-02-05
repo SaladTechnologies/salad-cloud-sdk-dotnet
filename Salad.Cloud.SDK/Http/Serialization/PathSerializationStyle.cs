@@ -4,5 +4,5 @@ public enum PathSerializationStyle
 {
     Simple = SerializationStyle.Simple,
     Label = SerializationStyle.Label,
-    Matrix = SerializationStyle.Matrix
+    Matrix = SerializationStyle.Matrix,
 }

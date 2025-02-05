@@ -1,16 +1,257 @@
 {
-  "liblabVersion": "2.5.1",
-  "date": "2024-10-04T04:24:23.519Z",
+  "liblabVersion": "2.13.0",
+  "date": "2025-02-05T02:35:49.000Z",
   "config": {
-    "apiId": 1252,
+    "apiId": 1737,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.5",
+    "sdkVersion": "0.9.0-alpha.6",
+    "languages": ["csharp"],
+    "auth": ["apikey"],
+    "docs": ["snippets"],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
-    "languages": ["csharp"],
+    "rawConfig": {
+      "sdkName": "salad-cloud-sdk",
+      "specFilePath": "spec.yaml",
+      "languages": ["csharp", "go", "java", "python", "typescript"],
+      "auth": ["apikey"],
+      "docs": ["snippets"],
+      "customizations": {
+        "authentication": {
+          "apiKey": {
+            "header": "Salad-Api-Key"
+          }
+        },
+        "license": {
+          "type": "MIT"
+        },
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 3,
+          "retryDelay": 150
+        },
+        "devContainer": true
+      },
+      "languageOptions": {
+        "csharp": {
+          "liblabVersion": "2",
+          "githubRepoName": "salad-cloud-sdk-dotnet",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "sdkVersion": "0.9.0-alpha.6",
+          "authors": [
+            {
+              "name": "salad"
+            },
+            {
+              "name": "seniorquico"
+            }
+          ],
+          "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
+          "packageId": "Salad.Cloud.SDK"
+        },
+        "go": {
+          "liblabVersion": "2",
+          "githubRepoName": "salad-cloud-sdk-go",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "sdkVersion": "0.9.0-alpha.6",
+          "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go"
+        },
+        "java": {
+          "liblabVersion": "2",
+          "githubRepoName": "salad-cloud-sdk-java",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "sdkVersion": "0.9.0-alpha.7",
+          "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
+          "groupId": "com.salad.cloud",
+          "artifactId": "sdk",
+          "developers": [
+            {
+              "name": "SaladCloud Developers",
+              "email": "dev@salad.com",
+              "organization": "Salad Technologies",
+              "organizationUrl": "https://salad.com"
+            },
+            {
+              "name": "Kyle Dodson",
+              "email": "kyle@salad.com",
+              "organization": "Salad Technologies",
+              "organizationUrl": "https://salad.com"
+            }
+          ]
+        },
+        "python": {
+          "liblabVersion": "2",
+          "githubRepoName": "salad-cloud-sdk-python",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "sdkVersion": "0.9.0-alpha.6",
+          "authors": [
+            {
+              "name": "SaladCloud Developers",
+              "email": "dev@salad.com"
+            },
+            {
+              "name": "Kyle Dodson",
+              "email": "kyle@salad.com"
+            }
+          ],
+          "pypiPackageName": "salad-cloud-sdk",
+          "alwaysInitializeOptionals": false,
+          "classifiers": [
+            "Development Status :: 3 - Alpha",
+            "Intended Audience :: Developers",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: OS Independent",
+            "Programming Language :: Python",
+            "Programming Language :: Python :: 3",
+            "Programming Language :: Python :: 3 :: Only",
+            "Programming Language :: Python :: 3.7",
+            "Programming Language :: Python :: 3.8",
+            "Programming Language :: Python :: 3.9",
+            "Programming Language :: Python :: 3.10",
+            "Programming Language :: Python :: 3.11",
+            "Programming Language :: Python :: 3.12",
+            "Topic :: Internet",
+            "Topic :: Software Development",
+            "Topic :: Software Development :: Libraries"
+          ],
+          "projectUrls": {
+            "Homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-python",
+            "Documentation": "https://docs.salad.com",
+            "Repository": "https://github.com/SaladTechnologies/salad-cloud-sdk-python.git",
+            "Issues": "https://github.com/SaladTechnologies/salad-cloud-sdk-python/issues"
+          }
+        },
+        "terraform": {
+          "liblabVersion": "2",
+          "githubRepoName": "terraform-provider-salad-cloud",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "providerName": "salad-cloud",
+          "providerVersion": "0.9.0-alpha.1",
+          "providerGoModuleName": "github.com/saladtechnologies/terraform-provider-salad-cloud",
+          "providerSchemaConfig": {
+            "authTokenKey": "api_key"
+          }
+        },
+        "typescript": {
+          "liblabVersion": "2",
+          "githubRepoName": "salad-cloud-sdk-javascript",
+          "targetBranch": "main",
+          "ignoreFiles": [".gitignore", "./LICENSE"],
+          "sdkVersion": "0.9.0-alpha.7",
+          "authors": [
+            {
+              "name": "SaladCloud Developers",
+              "email": "dev@salad.com"
+            },
+            {
+              "name": "Kyle Dodson",
+              "email": "kyle@salad.com"
+            }
+          ],
+          "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
+          "npmOrg": "saladtechnologies-oss",
+          "npmName": "salad-cloud-sdk",
+          "httpClient": "fetch",
+          "bundle": true,
+          "exportClassDefault": false
+        }
+      },
+      "publishing": {
+        "githubOrg": "SaladTechnologies"
+      },
+      "validationsToIgnore": [
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "CreateQueueProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "UpdateQueueProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "CreateQueueJobProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "CreateContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "ListContainerGroupsProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "DeleteContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "GetContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "UpdateContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "StartContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "StopContainerGroupProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "ReallocateContainerGroupInstanceProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "RecreateContainerGroupInstanceProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "RestartContainerGroupInstanceProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "CreateInferenceEndpointJobProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "GetInferenceEndpointJobProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "GetInferenceEndpointJobsProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "DeleteInferenceEndpointJobProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "GetWebhookSecretKeyProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "UpdateWebhookSecretKeyProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "schemas", "ListGpuClassesProblemType"]
+        },
+        {
+          "code": "oas3-unused-component",
+          "path": ["components", "responses", "401"]
+        }
+      ]
+    },
     "specFilePath": "spec.yaml",
-    "docs": ["snippets"],
-    "auth": ["apikey"],
     "languageOptions": {
       "csharp": {
         "packageId": "Salad.Cloud.SDK",
@@ -26,7 +267,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main"
       },
       "go": {
@@ -34,7 +275,7 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main"
       },
       "java": {
@@ -58,7 +299,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.6",
+        "sdkVersion": "0.9.0-alpha.7",
         "targetBranch": "main"
       },
       "python": {
@@ -101,7 +342,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.5",
+        "sdkVersion": "0.9.0-alpha.6",
         "targetBranch": "main"
       },
       "terraform": {
@@ -138,7 +379,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.6",
+        "sdkVersion": "0.9.0-alpha.7",
         "targetBranch": "main",
         "generateEnumAs": "enum"
       }
@@ -233,7 +474,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.5",
+    "apiVersion": "0.9.0-alpha.6",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -287,7 +528,7 @@
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.7"
+        "axios": "^1.7.9"
       },
       "languages": ["typescript"]
     },
@@ -295,13 +536,15 @@
       "paths": [],
       "rawQueries": [],
       "queriesData": []
-    }
+    },
+    "ai": false
   },
   "files": [
     "Salad.Cloud.SDK/Salad.Cloud.SDK.csproj",
     "install.sh",
     "Salad.Cloud.SDK/Services/BaseService.cs",
     "Salad.Cloud.SDK/Services/WorkloadErrorsService.cs",
+    "Salad.Cloud.SDK/Services/SystemLogsService.cs",
     "Salad.Cloud.SDK/Services/QuotasService.cs",
     "Salad.Cloud.SDK/Services/OrganizationDataService.cs",
     "Salad.Cloud.SDK/Models/ValueEnum.cs",
@@ -335,6 +578,7 @@
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-recreate-post.md",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-instances-{container_group_instance_id}-restart-post.md",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-errors-get.md",
+    "documentation/snippets/organizations-{organization_name}-projects-{project_name}-containers-{container_group_name}-system-logs-get.md",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-get.md",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-post.md",
     "documentation/snippets/organizations-{organization_name}-projects-{project_name}-queues-{queue_name}-get.md",
@@ -360,6 +604,7 @@
     "documentation/models/UpdateContainerGroup.md",
     "documentation/models/ContainerGroupInstances.md",
     "documentation/models/WorkloadErrorList.md",
+    "documentation/models/SystemLogList.md",
     "documentation/models/QueueList.md",
     "documentation/models/CreateQueue.md",
     "documentation/models/Queue.md",
@@ -383,46 +628,211 @@
     "documentation/models/QueueAutoscaler.md",
     "documentation/models/ContainerResourceRequirements.md",
     "documentation/models/ContainerGroupPriority.md",
+    "documentation/models/LoggingAxiom1.md",
+    "documentation/models/LoggingNewRelic1.md",
+    "documentation/models/LoggingSplunk1.md",
+    "documentation/models/LoggingTcp1.md",
+    "documentation/models/DatadogTags1.md",
+    "documentation/models/HttpFormat1.md",
+    "documentation/models/HttpHeaders1.md",
+    "documentation/models/HttpCompression1.md",
     "documentation/models/ContainerGroupStatus.md",
     "documentation/models/ContainerGroupInstanceStatusCount.md",
     "documentation/models/ContainerNetworkingProtocol.md",
+    "documentation/models/ContainerGroupNetworkingLoadBalancer.md",
     "documentation/models/ContainerGroupProbeTcp.md",
     "documentation/models/ContainerGroupProbeHttp.md",
     "documentation/models/ContainerGroupProbeGrpc.md",
     "documentation/models/ContainerGroupProbeExec.md",
     "documentation/models/ContainerProbeHttpScheme.md",
     "documentation/models/ContainerGroupProbeHttpHeaders2.md",
+    "documentation/models/LoggingAxiom2.md",
+    "documentation/models/LoggingNewRelic2.md",
+    "documentation/models/LoggingSplunk2.md",
+    "documentation/models/LoggingTcp2.md",
+    "documentation/models/DatadogTags2.md",
+    "documentation/models/HttpFormat2.md",
+    "documentation/models/HttpHeaders3.md",
+    "documentation/models/HttpCompression2.md",
+    "documentation/models/RegistryAuthenticationBasic1.md",
+    "documentation/models/RegistryAuthenticationGcpGcr1.md",
+    "documentation/models/RegistryAuthenticationAwsEcr1.md",
+    "documentation/models/RegistryAuthenticationDockerHub1.md",
+    "documentation/models/RegistryAuthenticationGcpGar1.md",
+    "documentation/models/CreateContainerGroupNetworkingLoadBalancer.md",
     "documentation/models/UpdateContainerGroupNetworking.md",
+    "documentation/models/Resources.md",
+    "documentation/models/LoggingAxiom3.md",
+    "documentation/models/LoggingNewRelic3.md",
+    "documentation/models/LoggingSplunk3.md",
+    "documentation/models/LoggingTcp3.md",
+    "documentation/models/DatadogTags3.md",
+    "documentation/models/HttpFormat3.md",
+    "documentation/models/HttpHeaders4.md",
+    "documentation/models/HttpCompression3.md",
+    "documentation/models/RegistryAuthenticationBasic2.md",
+    "documentation/models/RegistryAuthenticationGcpGcr2.md",
+    "documentation/models/RegistryAuthenticationAwsEcr2.md",
+    "documentation/models/RegistryAuthenticationDockerHub2.md",
+    "documentation/models/RegistryAuthenticationGcpGar2.md",
+    "documentation/models/State.md",
     "documentation/models/WorkloadError.md",
+    "documentation/models/SystemLog.md",
+    "documentation/models/QueueJobStatus.md",
+    "documentation/models/QueueJobEventAction.md",
     "documentation/models/ContainerGroupsQuotas.md",
+    "documentation/models/InferenceEndpointJobStatus.md",
+    "documentation/models/InferenceEndpointJobEventAction.md",
     "documentation/models/GpuClass.md",
     "documentation/models/GpuClassPrice.md",
     ".devcontainer/devcontainer.json",
     "Salad.Cloud.SDK/Http/ApiException.cs",
-    "Salad.Cloud.SDK/Http/HttpResponseMessageExtensions.ejs';}.cs",
+    "Salad.Cloud.SDK/Http/Extensions/HttpResponseMessageExtensions.cs",
+    "Salad.Cloud.SDK/Http/Extensions/MultipartFormDataContentExtensions.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupListValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerGroupValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateContainerGroupValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupInstancesValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupInstanceValidator.cs",
+    "Salad.Cloud.SDK/Validation/WorkloadErrorListValidator.cs",
+    "Salad.Cloud.SDK/Validation/SystemLogListValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueListValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateQueueValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateQueueValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueJobListValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateQueueJobValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueJobValidator.cs",
+    "Salad.Cloud.SDK/Validation/QuotasValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointsListValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointJobListValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateInferenceEndpointJobValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointJobValidator.cs",
+    "Salad.Cloud.SDK/Validation/GpuClassesListValidator.cs",
+    "Salad.Cloud.SDK/Validation/WebhookSecretKeyValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerRestartPolicyValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupStateValidator.cs",
+    "Salad.Cloud.SDK/Validation/CountryCodeValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupNetworkingValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupLivenessProbeValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupReadinessProbeValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupStartupProbeValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupQueueConnectionValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueAutoscalerValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerResourceRequirementsValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupPriorityValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerLoggingValidator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingAxiom1Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingDatadog1Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingNewRelic1Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingSplunk1Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingTcp1Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingHttp1Validator.cs",
+    "Salad.Cloud.SDK/Validation/DatadogTags1Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpFormat1Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpCompression1Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpHeaders1Validator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupStatusValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupInstanceStatusCountValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerNetworkingProtocolValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupNetworkingLoadBalancerValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupProbeTcpValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupProbeHttpValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupProbeGrpcValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupProbeExecValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerProbeHttpSchemeValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupProbeHttpHeaders2Validator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerGroupNetworkingValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerLoggingValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerRegistryAuthenticationValidator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingAxiom2Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingDatadog2Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingNewRelic2Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingSplunk2Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingTcp2Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingHttp2Validator.cs",
+    "Salad.Cloud.SDK/Validation/DatadogTags2Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpFormat2Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpCompression2Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpHeaders3Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationBasic1Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationGcpGcr1Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationAwsEcr1Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationDockerHub1Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationGcpGar1Validator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerGroupNetworkingLoadBalancerValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateContainerValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateContainerGroupNetworkingValidator.cs",
+    "Salad.Cloud.SDK/Validation/ResourcesValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateContainerLoggingValidator.cs",
+    "Salad.Cloud.SDK/Validation/UpdateContainerRegistryAuthenticationValidator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingAxiom3Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingDatadog3Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingNewRelic3Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingSplunk3Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingTcp3Validator.cs",
+    "Salad.Cloud.SDK/Validation/LoggingHttp3Validator.cs",
+    "Salad.Cloud.SDK/Validation/DatadogTags3Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpFormat3Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpCompression3Validator.cs",
+    "Salad.Cloud.SDK/Validation/HttpHeaders4Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationBasic2Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationGcpGcr2Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationAwsEcr2Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationDockerHub2Validator.cs",
+    "Salad.Cloud.SDK/Validation/RegistryAuthenticationGcpGar2Validator.cs",
+    "Salad.Cloud.SDK/Validation/StateValidator.cs",
+    "Salad.Cloud.SDK/Validation/WorkloadErrorValidator.cs",
+    "Salad.Cloud.SDK/Validation/SystemLogValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueJobStatusValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueJobEventValidator.cs",
+    "Salad.Cloud.SDK/Validation/QueueJobEventActionValidator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerGroupsQuotasValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointJobStatusValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointJobEventValidator.cs",
+    "Salad.Cloud.SDK/Validation/InferenceEndpointJobEventActionValidator.cs",
+    "Salad.Cloud.SDK/Validation/GpuClassValidator.cs",
+    "Salad.Cloud.SDK/Validation/GpuClassPriceValidator.cs",
+    "Salad.Cloud.SDK/Http/ValidationException.cs",
+    "Salad.Cloud.SDK/Validation/FloatValidator.cs",
+    "Salad.Cloud.SDK/Validation/NumberValidator.cs",
+    "Salad.Cloud.SDK/Validation/StringValidator.cs",
+    "Salad.Cloud.SDK/Validation/ListValidator.cs",
+    "Salad.Cloud.SDK/Validation/Extensions/ValidationExtensions.cs",
+    "Salad.Cloud.SDK/Http/Extensions/UriExtensions.cs",
     "Salad.Cloud.SDK/Services/WebhookSecretKeyService.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupList.cs",
     "Salad.Cloud.SDK/Models/CreateContainerGroup.cs",
     "Salad.Cloud.SDK/Models/ContainerGroup.cs",
     "Salad.Cloud.SDK/Models/UpdateContainerGroup.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupInstances.cs",
+    "Salad.Cloud.SDK/Models/ContainerGroupInstance.cs",
     "Salad.Cloud.SDK/Models/WorkloadErrorList.cs",
+    "Salad.Cloud.SDK/Models/SystemLogList.cs",
     "Salad.Cloud.SDK/Models/QueueList.cs",
     "Salad.Cloud.SDK/Models/CreateQueue.cs",
     "Salad.Cloud.SDK/Models/Queue.cs",
     "Salad.Cloud.SDK/Models/UpdateQueue.cs",
     "Salad.Cloud.SDK/Models/QueueJobList.cs",
     "Salad.Cloud.SDK/Models/CreateQueueJob.cs",
+    "Salad.Cloud.SDK/Models/QueueJob.cs",
     "Salad.Cloud.SDK/Models/Quotas.cs",
     "Salad.Cloud.SDK/Models/InferenceEndpointsList.cs",
     "Salad.Cloud.SDK/Models/InferenceEndpoint.cs",
     "Salad.Cloud.SDK/Models/InferenceEndpointJobList.cs",
     "Salad.Cloud.SDK/Models/CreateInferenceEndpointJob.cs",
+    "Salad.Cloud.SDK/Models/InferenceEndpointJob.cs",
     "Salad.Cloud.SDK/Models/GpuClassesList.cs",
     "Salad.Cloud.SDK/Models/WebhookSecretKey.cs",
+    "Salad.Cloud.SDK/Models/Container.cs",
     "Salad.Cloud.SDK/Models/ContainerRestartPolicy.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupState.cs",
     "Salad.Cloud.SDK/Models/CountryCode.cs",
+    "Salad.Cloud.SDK/Models/ContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupLivenessProbe.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupReadinessProbe.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupStartupProbe.cs",
@@ -430,50 +840,111 @@
     "Salad.Cloud.SDK/Models/QueueAutoscaler.cs",
     "Salad.Cloud.SDK/Models/ContainerResourceRequirements.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupPriority.cs",
+    "Salad.Cloud.SDK/Models/ContainerLogging.cs",
+    "Salad.Cloud.SDK/Models/LoggingAxiom1.cs",
+    "Salad.Cloud.SDK/Models/LoggingDatadog1.cs",
+    "Salad.Cloud.SDK/Models/LoggingNewRelic1.cs",
+    "Salad.Cloud.SDK/Models/LoggingSplunk1.cs",
+    "Salad.Cloud.SDK/Models/LoggingTcp1.cs",
+    "Salad.Cloud.SDK/Models/LoggingHttp1.cs",
+    "Salad.Cloud.SDK/Models/DatadogTags1.cs",
+    "Salad.Cloud.SDK/Models/HttpFormat1.cs",
+    "Salad.Cloud.SDK/Models/HttpHeaders1.cs",
+    "Salad.Cloud.SDK/Models/HttpCompression1.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupStatus.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupInstanceStatusCount.cs",
     "Salad.Cloud.SDK/Models/ContainerNetworkingProtocol.cs",
+    "Salad.Cloud.SDK/Models/ContainerGroupNetworkingLoadBalancer.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeTcp.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeHttp.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeGrpc.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeExec.cs",
     "Salad.Cloud.SDK/Models/ContainerProbeHttpScheme.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeHttpHeaders2.cs",
+    "Salad.Cloud.SDK/Models/CreateContainer.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerGroupNetworking.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerLogging.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerRegistryAuthentication.cs",
+    "Salad.Cloud.SDK/Models/LoggingAxiom2.cs",
+    "Salad.Cloud.SDK/Models/LoggingDatadog2.cs",
+    "Salad.Cloud.SDK/Models/LoggingNewRelic2.cs",
+    "Salad.Cloud.SDK/Models/LoggingSplunk2.cs",
+    "Salad.Cloud.SDK/Models/LoggingTcp2.cs",
+    "Salad.Cloud.SDK/Models/LoggingHttp2.cs",
+    "Salad.Cloud.SDK/Models/DatadogTags2.cs",
+    "Salad.Cloud.SDK/Models/HttpFormat2.cs",
+    "Salad.Cloud.SDK/Models/HttpHeaders3.cs",
+    "Salad.Cloud.SDK/Models/HttpCompression2.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationBasic1.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationGcpGcr1.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationAwsEcr1.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationDockerHub1.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationGcpGar1.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerGroupNetworkingLoadBalancer.cs",
+    "Salad.Cloud.SDK/Models/UpdateContainer.cs",
     "Salad.Cloud.SDK/Models/UpdateContainerGroupNetworking.cs",
+    "Salad.Cloud.SDK/Models/Resources.cs",
+    "Salad.Cloud.SDK/Models/UpdateContainerLogging.cs",
+    "Salad.Cloud.SDK/Models/UpdateContainerRegistryAuthentication.cs",
+    "Salad.Cloud.SDK/Models/LoggingAxiom3.cs",
+    "Salad.Cloud.SDK/Models/LoggingDatadog3.cs",
+    "Salad.Cloud.SDK/Models/LoggingNewRelic3.cs",
+    "Salad.Cloud.SDK/Models/LoggingSplunk3.cs",
+    "Salad.Cloud.SDK/Models/LoggingTcp3.cs",
+    "Salad.Cloud.SDK/Models/LoggingHttp3.cs",
+    "Salad.Cloud.SDK/Models/DatadogTags3.cs",
+    "Salad.Cloud.SDK/Models/HttpFormat3.cs",
+    "Salad.Cloud.SDK/Models/HttpHeaders4.cs",
+    "Salad.Cloud.SDK/Models/HttpCompression3.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationBasic2.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationGcpGcr2.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationAwsEcr2.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationDockerHub2.cs",
+    "Salad.Cloud.SDK/Models/RegistryAuthenticationGcpGar2.cs",
+    "Salad.Cloud.SDK/Models/State.cs",
     "Salad.Cloud.SDK/Models/WorkloadError.cs",
+    "Salad.Cloud.SDK/Models/SystemLog.cs",
+    "Salad.Cloud.SDK/Models/QueueJobStatus.cs",
+    "Salad.Cloud.SDK/Models/QueueJobEvent.cs",
+    "Salad.Cloud.SDK/Models/QueueJobEventAction.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupsQuotas.cs",
+    "Salad.Cloud.SDK/Models/InferenceEndpointJobStatus.cs",
+    "Salad.Cloud.SDK/Models/InferenceEndpointJobEvent.cs",
+    "Salad.Cloud.SDK/Models/InferenceEndpointJobEventAction.cs",
     "Salad.Cloud.SDK/Models/GpuClass.cs",
     "Salad.Cloud.SDK/Models/GpuClassPrice.cs",
+    "documentation/services/WorkloadErrorsService.md",
     "documentation/models/ContainerGroupInstance.md",
     "documentation/models/QueueJob.md",
     "documentation/models/InferenceEndpointJob.md",
     "documentation/models/ContainerGroupNetworking.md",
+    "documentation/models/LoggingDatadog1.md",
     "documentation/models/CreateContainerGroupNetworking.md",
+    "documentation/models/LoggingDatadog2.md",
+    "documentation/models/LoggingDatadog3.md",
     "documentation/models/QueueJobEvent.md",
     "documentation/models/InferenceEndpointJobEvent.md",
-    "documentation/services/WorkloadErrorsService.md",
+    "documentation/services/SystemLogsService.md",
     "documentation/services/QuotasService.md",
     "documentation/services/OrganizationDataService.md",
-    "Salad.Cloud.SDK/Models/ContainerGroupInstance.cs",
-    "Salad.Cloud.SDK/Models/QueueJob.cs",
-    "Salad.Cloud.SDK/Models/InferenceEndpointJob.cs",
-    "Salad.Cloud.SDK/Models/ContainerGroupNetworking.cs",
-    "Salad.Cloud.SDK/Models/CreateContainerGroupNetworking.cs",
-    "Salad.Cloud.SDK/Models/QueueJobEvent.cs",
-    "Salad.Cloud.SDK/Models/InferenceEndpointJobEvent.cs",
     "documentation/services/WebhookSecretKeyService.md",
+    "documentation/models/LoggingHttp1.md",
+    "documentation/models/LoggingHttp2.md",
+    "documentation/models/LoggingHttp3.md",
     "Salad.Cloud.SDK/Services/InferenceEndpointsService.cs",
+    "documentation/models/CreateContainerRegistryAuthentication.md",
+    "documentation/models/UpdateContainerRegistryAuthentication.md",
     "documentation/services/InferenceEndpointsService.md",
     "Salad.Cloud.SDK/Services/QueuesService.cs",
     "README.md",
     "documentation/services/QueuesService.md",
+    "documentation/models/ContainerLogging.md",
+    "documentation/models/CreateContainerLogging.md",
+    "documentation/models/UpdateContainerLogging.md",
     "Salad.Cloud.SDK/Services/ContainerGroupsService.cs",
     "documentation/models/Container.md",
     "documentation/services/ContainerGroupsService.md",
     "documentation/models/CreateContainer.md",
-    "documentation/models/UpdateContainer.md",
-    "Salad.Cloud.SDK/Models/Container.cs",
-    "Salad.Cloud.SDK/Models/CreateContainer.cs",
-    "Salad.Cloud.SDK/Models/UpdateContainer.cs"
+    "documentation/models/UpdateContainer.md"
   ]
 }

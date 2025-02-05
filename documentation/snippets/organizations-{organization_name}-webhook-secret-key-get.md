@@ -1,9 +1,15 @@
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("mouv4w914sp420zyiuo43jexocjzq6rnxf04dqmccakipx9g3a72svbj");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("ligmbu0fdje049b02qi1m-z0vs1teiglhclcygv1wqqusk00zsx");
 
 Console.WriteLine(response);
 

@@ -1,6 +1,8 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
+using Salad.Cloud.SDK.Http.Extensions;
 using Salad.Cloud.SDK.Http.Serialization;
 
 namespace Salad.Cloud.SDK.Http;
@@ -116,6 +118,65 @@ public class RequestBuilder
     )
     {
         _content = JsonContent.Create(content, mediaType, options);
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the content of the request as Text.
+    /// </summary>
+    public RequestBuilder SetContentAsText(
+        string content,
+        string mediaType,
+        Encoding? encoding = null
+    )
+    {
+        encoding ??= Encoding.UTF8;
+        _content = new StringContent(content, encoding, mediaType);
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the content of the request as Binary.
+    /// </summary>
+    public RequestBuilder SetContentAsBinary(byte[] content, MediaTypeHeaderValue mediaType)
+    {
+        _content = new ByteArrayContent(content);
+        _content.Headers.ContentType = mediaType;
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the content of the request as application/x-www-form-urlencoded.
+    /// </summary>
+    public RequestBuilder SetUrlEncodedContent(
+        object content,
+        JsonSerializerOptions? options = null
+    )
+    {
+        var jsonContent = JsonSerializer.Serialize(content, options);
+        var dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(
+            jsonContent,
+            options
+        );
+
+        if (dictionary is null)
+        {
+            throw new ArgumentException("Invalid content for form-urlencoded content type.");
+        }
+
+        _content = new FormUrlEncodedContent(dictionary);
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the content of the request as multipart/form-data.
+    /// </summary>
+    public RequestBuilder SetContentAsMultipartFormData(
+        object content,
+        JsonSerializerOptions? options = null
+    )
+    {
+        _content = new MultipartFormDataContent().AddObject(content, options);
         return this;
     }
 
