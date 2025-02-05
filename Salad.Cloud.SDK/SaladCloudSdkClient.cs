@@ -1,4 +1,5 @@
 using Salad.Cloud.SDK.Config;
+using Salad.Cloud.SDK.Http.Extensions;
 using Salad.Cloud.SDK.Http.Handlers;
 using Salad.Cloud.SDK.Services;
 using Environment = Salad.Cloud.SDK.Http.Environment;
@@ -12,6 +13,7 @@ public class SaladCloudSdkClient : IDisposable
 
     public ContainerGroupsService ContainerGroups { get; private set; }
     public WorkloadErrorsService WorkloadErrors { get; private set; }
+    public SystemLogsService SystemLogs { get; private set; }
     public QueuesService Queues { get; private set; }
     public QuotasService Quotas { get; private set; }
     public InferenceEndpointsService InferenceEndpoints { get; private set; }
@@ -25,17 +27,18 @@ public class SaladCloudSdkClient : IDisposable
         {
             Header = config?.ApiKeyAuth?.ApiKeyHeader ?? ApiKeyAuthConfig.DefaultApiKeyHeader,
             Prefix = "",
-            Token = config?.ApiKeyAuth?.ApiKey
+            Token = config?.ApiKeyAuth?.ApiKey,
         };
 
         _httpClient = new HttpClient(_apiKeyHandler)
         {
             BaseAddress = config?.Environment?.Uri ?? Environment.Default.Uri,
-            DefaultRequestHeaders = { { "user-agent", "dotnet/7.0" } }
+            DefaultRequestHeaders = { { "user-agent", "dotnet/7.0" } },
         };
 
         ContainerGroups = new ContainerGroupsService(_httpClient);
         WorkloadErrors = new WorkloadErrorsService(_httpClient);
+        SystemLogs = new SystemLogsService(_httpClient);
         Queues = new QueuesService(_httpClient);
         Quotas = new QuotasService(_httpClient);
         InferenceEndpoints = new InferenceEndpointsService(_httpClient);
@@ -52,7 +55,7 @@ public class SaladCloudSdkClient : IDisposable
     }
 
     /// <summary>
-    /// Sets the base URL for entire SDK.
+    /// Sets the base URL for the entire SDK.
     /// </summary>
     public void SetBaseUrl(string baseUrl)
     {
@@ -64,7 +67,7 @@ public class SaladCloudSdkClient : IDisposable
     /// </summary>
     public void SetBaseUrl(Uri uri)
     {
-        _httpClient.BaseAddress = uri;
+        _httpClient.BaseAddress = uri.EnsureTrailingSlash();
     }
 
     /// <summary>

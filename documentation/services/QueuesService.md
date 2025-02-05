@@ -36,10 +36,16 @@ Gets the list of queues in the given project.
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.Queues.ListQueuesAsync("xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e", "xk27gbnpmwk5xor49bk4ujk7");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.Queues.ListQueuesAsync("z8lshc09tfagbfsl8ku-8hu25hwiw5a6dobimir3lfppusjbs", "ohun5ki");
 
 Console.WriteLine(response);
 ```
@@ -67,13 +73,19 @@ Creates a new queue in the given project.
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var input = new CreateQueue("ho4d79h7bg0vpngqc8hz5pxjwi");
+var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.CreateQueueAsync(input, "xtp82b9jzwqov1insghigvfq0donadhrrdqx-2redu46g7e", "xk27gbnpmwk5xor49bk4ujk7");
+var input = new CreateQueue("name", "xN", "description");
+
+var response = await client.Queues.CreateQueueAsync(input, "z8lshc09tfagbfsl8ku-8hu25hwiw5a6dobimir3lfppusjbs", "ohun5ki");
 
 Console.WriteLine(response);
 ```
@@ -101,10 +113,16 @@ Gets an existing queue in the given project.
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.Queues.GetQueueAsync("bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.Queues.GetQueueAsync("vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
 
 Console.WriteLine(response);
 ```
@@ -133,13 +151,19 @@ Updates an existing queue in the given project.
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var input = new UpdateQueue();
+var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.UpdateQueueAsync(input, "bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
+var input = new UpdateQueue("6XVt W", "description");
+
+var response = await client.Queues.UpdateQueueAsync(input, "vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
 
 Console.WriteLine(response);
 ```
@@ -163,10 +187,16 @@ Deletes an existing queue in the given project.
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-await client.Queues.DeleteQueueAsync("bb5wprcvb9628akhug9lnd2", "bw-4bdb9jsi-f1xex70mdgjf5n-5ua-e28xyu9ujbls0vsy", "wilo12xl52y9c178cmdya6ykpby-hunb0b6s7s2l");
+var client = new SaladCloudSdkClient(config);
+
+await client.Queues.DeleteQueueAsync("vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
 ```
 
 ## ListQueueJobsAsync
@@ -194,10 +224,16 @@ Gets the list of jobs in a queue
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.Queues.ListQueueJobsAsync("wcaz2jbu5pfmpygxffsf4bh4e6", "dzh9lv6afpamv8cx0x6", "s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2", 706148771, 45);
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.Queues.ListQueueJobsAsync("fq0wo6novfjdzwlrie4vz30ajqzk-v6-gctcty9mhydvsq3", "mifj6w-lqsfbkn7h5yqw7l6vm-idada-k-zkc6zg", "lwd1wwfrdxt8y8y8pp161yh3", 492268819, 18);
 
 Console.WriteLine(response);
 ```
@@ -226,13 +262,19 @@ Creates a new job
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var input = new CreateQueueJob(new object {});
+var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.CreateQueueJobAsync(input, "wcaz2jbu5pfmpygxffsf4bh4e6", "dzh9lv6afpamv8cx0x6", "s9f4ikmr0j6c3n18n4djttkqmgzb46dd5wogzrfe2pq12s2");
+var input = new CreateQueueJob(new object {}, new object {}, "webhook");
+
+var response = await client.Queues.CreateQueueJobAsync(input, "fq0wo6novfjdzwlrie4vz30ajqzk-v6-gctcty9mhydvsq3", "mifj6w-lqsfbkn7h5yqw7l6vm-idada-k-zkc6zg", "lwd1wwfrdxt8y8y8pp161yh3");
 
 Console.WriteLine(response);
 ```
@@ -261,10 +303,16 @@ Gets a job in a queue
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.Queues.GetQueueJobAsync("zm-jv", "tq26", "je5dpzbgsk8gvp", "queue_job_id");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.Queues.GetQueueJobAsync("oo-uft3mtt7tcxqcq1m0iarq", "b1qjwjc4vf99pxxwtres8z9zwaod8ipjrui87jo", "m2s0izl8d-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4l", "queue_job_id");
 
 Console.WriteLine(response);
 ```
@@ -289,8 +337,14 @@ Cancels a job in a queue
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-await client.Queues.DeleteQueueJobAsync("zm-jv", "tq26", "je5dpzbgsk8gvp", "queue_job_id");
+var client = new SaladCloudSdkClient(config);
+
+await client.Queues.DeleteQueueJobAsync("oo-uft3mtt7tcxqcq1m0iarq", "b1qjwjc4vf99pxxwtres8z9zwaod8ipjrui87jo", "m2s0izl8d-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4l", "queue_job_id");
 ```

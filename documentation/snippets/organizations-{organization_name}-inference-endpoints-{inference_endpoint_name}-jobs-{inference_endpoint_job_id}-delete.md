@@ -1,9 +1,15 @@
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("kdhvnhwadaqzuh18", "eiusmod dolore do", "inference_endpoint_job_id");
+var client = new SaladCloudSdkClient(config);
+
+await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
 
 
 ```

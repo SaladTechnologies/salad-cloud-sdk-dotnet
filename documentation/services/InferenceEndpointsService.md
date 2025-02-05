@@ -34,10 +34,16 @@ Gets the list of inference endpoints
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("wtxd1j0ixuhfk-hdff3n3-hbtsigyh53bt0g4gjh8mcz4", 121822981, 37);
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("r1i8h22k", 16044711, 60);
 
 Console.WriteLine(response);
 ```
@@ -64,10 +70,16 @@ Gets an inference endpoint
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("u5ke3wy-5gl1809s8so", "et tempor sint");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("z3wkzvsf8j09617fgmalxey", "inference_endpoint_name");
 
 Console.WriteLine(response);
 ```
@@ -96,10 +108,16 @@ Retrieves a list of an inference endpoint jobs
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("yg0u13rmnwb7eyumc25lm4prwopvwr-1961f", "consectetur occaecat", 355955712, 39);
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("qpc5tx4o58", "inference_endpoint_name", 1865186515, 83);
 
 Console.WriteLine(response);
 ```
@@ -127,13 +145,19 @@ Creates a new job
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var input = new CreateInferenceEndpointJob(new object {});
+var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "yg0u13rmnwb7eyumc25lm4prwopvwr-1961f", "consectetur occaecat");
+var input = new CreateInferenceEndpointJob(new object {}, new object {}, "webhook");
+
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "qpc5tx4o58", "inference_endpoint_name");
 
 Console.WriteLine(response);
 ```
@@ -161,10 +185,16 @@ Retrieves a job in an inference endpoint
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("kdhvnhwadaqzuh18", "eiusmod dolore do", "inference_endpoint_job_id");
+var client = new SaladCloudSdkClient(config);
+
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
 
 Console.WriteLine(response);
 ```
@@ -188,8 +218,14 @@ Deletes an inference endpoint job
 
 ```csharp
 using Salad.Cloud.SDK;
+using Salad.Cloud.SDK.Config;
+using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var client = new SaladCloudSdkClient();
+var config = new SaladCloudSdkConfig{
+    Environment = Environment.Default
+};
 
-await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("kdhvnhwadaqzuh18", "eiusmod dolore do", "inference_endpoint_job_id");
+var client = new SaladCloudSdkClient(config);
+
+await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
 ```

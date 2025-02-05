@@ -13,7 +13,7 @@ public class BaseService
         _httpClient = httpClient;
         _jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web)
         {
-            Converters = { new ValueEnumJsonConverterFactory() }
+            Converters = { new ValueEnumJsonConverterFactory() },
         };
     }
 }

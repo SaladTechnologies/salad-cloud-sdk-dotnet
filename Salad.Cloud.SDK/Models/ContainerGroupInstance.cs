@@ -13,7 +13,7 @@ public record ContainerGroupInstance(
         string MachineId,
     /// <value>The state of the container group instance</value>
     [property: JsonPropertyName("state")]
-        ContainerGroupInstance.State State_,
+        State State1,
     /// <value>The UTC date & time when the workload on this machine transitioned to the current state</value>
     [property: JsonPropertyName("update_time")]
         string UpdateTime,
@@ -32,21 +32,4 @@ public record ContainerGroupInstance(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         bool? Started = null
-)
-{
-    /// <summary>The state of the container group instance</summary>
-    public record State : ValueEnum<string>
-    {
-        internal State(string value)
-            : base(value) { }
-
-        public State()
-            : base("allocating") { }
-
-        public static State Allocating = new("allocating");
-        public static State Downloading = new("downloading");
-        public static State Creating = new("creating");
-        public static State Running = new("running");
-        public static State Stopping = new("stopping");
-    }
-}
+);

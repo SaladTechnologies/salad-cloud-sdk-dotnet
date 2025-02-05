@@ -12,7 +12,7 @@ public record InferenceEndpointJob(
     /// <value>The inference endpoint name</value>
     [property: JsonPropertyName("inference_endpoint_name")]
         string InferenceEndpointName,
-    [property: JsonPropertyName("status")] InferenceEndpointJob.InferenceEndpointJobStatus Status,
+    [property: JsonPropertyName("status")] InferenceEndpointJobStatus Status,
     [property: JsonPropertyName("events")] List<InferenceEndpointJobEvent> Events,
     /// <value>The organization name</value>
     [property: JsonPropertyName("organization_name")]
@@ -27,20 +27,4 @@ public record InferenceEndpointJob(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         object? Output = null
-)
-{
-    public record InferenceEndpointJobStatus : ValueEnum<string>
-    {
-        internal InferenceEndpointJobStatus(string value)
-            : base(value) { }
-
-        public InferenceEndpointJobStatus()
-            : base("pending") { }
-
-        public static InferenceEndpointJobStatus Pending = new("pending");
-        public static InferenceEndpointJobStatus Running = new("running");
-        public static InferenceEndpointJobStatus Succeeded = new("succeeded");
-        public static InferenceEndpointJobStatus Cancelled = new("cancelled");
-        public static InferenceEndpointJobStatus Failed = new("failed");
-    }
-}
+);

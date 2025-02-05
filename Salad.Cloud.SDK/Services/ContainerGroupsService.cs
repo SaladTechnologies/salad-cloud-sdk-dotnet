@@ -5,6 +5,8 @@ using Salad.Cloud.SDK.Http.Exceptions;
 using Salad.Cloud.SDK.Http.Extensions;
 using Salad.Cloud.SDK.Http.Serialization;
 using Salad.Cloud.SDK.Models;
+using Salad.Cloud.SDK.Validation;
+using Salad.Cloud.SDK.Validation.Extensions;
 
 namespace Salad.Cloud.SDK.Services;
 
@@ -24,6 +26,32 @@ public class ContainerGroupsService : BaseService
     {
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Get,
@@ -59,6 +87,32 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(input, nameof(input));
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
@@ -96,6 +150,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Get,
@@ -135,6 +225,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Patch,
@@ -177,6 +303,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Delete,
@@ -208,6 +370,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
@@ -239,6 +437,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
@@ -270,6 +504,42 @@ public class ContainerGroupsService : BaseService
         ArgumentNullException.ThrowIfNull(organizationName, nameof(organizationName));
         ArgumentNullException.ThrowIfNull(projectName, nameof(projectName));
         ArgumentNullException.ThrowIfNull(containerGroupName, nameof(containerGroupName));
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Get,
@@ -313,6 +583,49 @@ public class ContainerGroupsService : BaseService
             containerGroupInstanceId,
             nameof(containerGroupInstanceId)
         );
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+        ;
+        var containerGroupInstanceIdValidationResult =
+            new StringValidator().ValidateRequired<string?>((string?)containerGroupInstanceId);
+        if (containerGroupInstanceIdValidationResult != null)
+        {
+            validationResults.Add(containerGroupInstanceIdValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Get,
@@ -357,6 +670,49 @@ public class ContainerGroupsService : BaseService
             containerGroupInstanceId,
             nameof(containerGroupInstanceId)
         );
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+        ;
+        var containerGroupInstanceIdValidationResult =
+            new StringValidator().ValidateRequired<string?>((string?)containerGroupInstanceId);
+        if (containerGroupInstanceIdValidationResult != null)
+        {
+            validationResults.Add(containerGroupInstanceIdValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
@@ -395,6 +751,49 @@ public class ContainerGroupsService : BaseService
             containerGroupInstanceId,
             nameof(containerGroupInstanceId)
         );
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+        ;
+        var containerGroupInstanceIdValidationResult =
+            new StringValidator().ValidateRequired<string?>((string?)containerGroupInstanceId);
+        if (containerGroupInstanceIdValidationResult != null)
+        {
+            validationResults.Add(containerGroupInstanceIdValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
@@ -433,6 +832,49 @@ public class ContainerGroupsService : BaseService
             containerGroupInstanceId,
             nameof(containerGroupInstanceId)
         );
+        var validationResults = new List<FluentValidation.Results.ValidationResult> { };
+        var organizationNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)organizationName);
+        if (organizationNameValidationResult != null)
+        {
+            validationResults.Add(organizationNameValidationResult);
+        }
+        ;
+        var projectNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)projectName);
+        if (projectNameValidationResult != null)
+        {
+            validationResults.Add(projectNameValidationResult);
+        }
+        ;
+        var containerGroupNameValidationResult = new StringValidator()
+            .WithMaximumLength(63)
+            .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .ValidateRequired<string?>((string?)containerGroupName);
+        if (containerGroupNameValidationResult != null)
+        {
+            validationResults.Add(containerGroupNameValidationResult);
+        }
+        ;
+        var containerGroupInstanceIdValidationResult =
+            new StringValidator().ValidateRequired<string?>((string?)containerGroupInstanceId);
+        if (containerGroupInstanceIdValidationResult != null)
+        {
+            validationResults.Add(containerGroupInstanceIdValidationResult);
+        }
+
+        var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
+        if (combinedFailures.Any())
+        {
+            throw new Http.Exceptions.ValidationException(combinedFailures);
+        }
 
         var request = new RequestBuilder(
             HttpMethod.Post,
