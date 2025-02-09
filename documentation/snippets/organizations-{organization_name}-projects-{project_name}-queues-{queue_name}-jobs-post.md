@@ -12,7 +12,7 @@ var client = new SaladCloudSdkClient(config);
 
 var input = new CreateQueueJob(new object {}, new object {}, "webhook");
 
-var response = await client.Queues.CreateQueueJobAsync(input, "fq0wo6novfjdzwlrie4vz30ajqzk-v6-gctcty9mhydvsq3", "mifj6w-lqsfbkn7h5yqw7l6vm-idada-k-zkc6zg", "lwd1wwfrdxt8y8y8pp161yh3");
+var response = await client.Queues.CreateQueueJobAsync(input, "acme-corp", "dev-env", "fifo-queue");
 
 Console.WriteLine(response);
 

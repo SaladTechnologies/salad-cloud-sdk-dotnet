@@ -146,7 +146,7 @@ public class InferenceEndpointsService : BaseService
     /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     /// <param name="page">The page number</param>
     /// <param name="pageSize">The number of items per page</param>
-    public async Task<InferenceEndpointJobList> GetInferenceEndpointJobsAsync(
+    public async Task<InferenceEndpointJobList> ListInferenceEndpointJobsAsync(
         string organizationName,
         string inferenceEndpointName,
         long? page = null,

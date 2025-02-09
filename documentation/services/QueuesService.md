@@ -45,7 +45,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.ListQueuesAsync("z8lshc09tfagbfsl8ku-8hu25hwiw5a6dobimir3lfppusjbs", "ohun5ki");
+var response = await client.Queues.ListQueuesAsync("acme-corp", "dev-env");
 
 Console.WriteLine(response);
 ```
@@ -83,9 +83,9 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new CreateQueue("name", "xN", "description");
+var input = new CreateQueue("name", "D4LmZEiVGB", "description");
 
-var response = await client.Queues.CreateQueueAsync(input, "z8lshc09tfagbfsl8ku-8hu25hwiw5a6dobimir3lfppusjbs", "ohun5ki");
+var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 
 Console.WriteLine(response);
 ```
@@ -122,7 +122,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.GetQueueAsync("vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
+var response = await client.Queues.GetQueueAsync("acme-corp", "dev-env", "fifo-queue");
 
 Console.WriteLine(response);
 ```
@@ -161,9 +161,9 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new UpdateQueue("6XVt W", "description");
+var input = new UpdateQueue("ISbuv8r", "description");
 
-var response = await client.Queues.UpdateQueueAsync(input, "vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
+var response = await client.Queues.UpdateQueueAsync(input, "acme-corp", "dev-env", "fifo-queue");
 
 Console.WriteLine(response);
 ```
@@ -196,7 +196,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.Queues.DeleteQueueAsync("vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
+await client.Queues.DeleteQueueAsync("acme-corp", "dev-env", "fifo-queue");
 ```
 
 ## ListQueueJobsAsync
@@ -233,7 +233,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.ListQueueJobsAsync("fq0wo6novfjdzwlrie4vz30ajqzk-v6-gctcty9mhydvsq3", "mifj6w-lqsfbkn7h5yqw7l6vm-idada-k-zkc6zg", "lwd1wwfrdxt8y8y8pp161yh3", 492268819, 18);
+var response = await client.Queues.ListQueueJobsAsync("acme-corp", "dev-env", "fifo-queue", 1675858596, 52);
 
 Console.WriteLine(response);
 ```
@@ -274,7 +274,7 @@ var client = new SaladCloudSdkClient(config);
 
 var input = new CreateQueueJob(new object {}, new object {}, "webhook");
 
-var response = await client.Queues.CreateQueueJobAsync(input, "fq0wo6novfjdzwlrie4vz30ajqzk-v6-gctcty9mhydvsq3", "mifj6w-lqsfbkn7h5yqw7l6vm-idada-k-zkc6zg", "lwd1wwfrdxt8y8y8pp161yh3");
+var response = await client.Queues.CreateQueueJobAsync(input, "acme-corp", "dev-env", "fifo-queue");
 
 Console.WriteLine(response);
 ```
@@ -312,7 +312,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.GetQueueJobAsync("oo-uft3mtt7tcxqcq1m0iarq", "b1qjwjc4vf99pxxwtres8z9zwaod8ipjrui87jo", "m2s0izl8d-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4l", "queue_job_id");
+var response = await client.Queues.GetQueueJobAsync("acme-corp", "dev-env", "fifo-queue", "7dcd6922-50e9-4d56-89b5-91cde26f0211");
 
 Console.WriteLine(response);
 ```
@@ -346,5 +346,5 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.Queues.DeleteQueueJobAsync("oo-uft3mtt7tcxqcq1m0iarq", "b1qjwjc4vf99pxxwtres8z9zwaod8ipjrui87jo", "m2s0izl8d-g9wqh8bjget2tyh4q9ni9h81tilnlnf5i-r38a8vv5h4l", "queue_job_id");
+await client.Queues.DeleteQueueJobAsync("acme-corp", "dev-env", "fifo-queue", "7dcd6922-50e9-4d56-89b5-91cde26f0211");
 ```

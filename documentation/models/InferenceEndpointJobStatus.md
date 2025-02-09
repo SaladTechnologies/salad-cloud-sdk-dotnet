@@ -1,5 +1,7 @@
 # InferenceEndpointJobStatus
 
+The current status.
+
 **Properties**
 
 | Name      | Type   | Required | Description |

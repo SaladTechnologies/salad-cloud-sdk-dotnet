@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Quotas.GetQuotasAsync("j5rb91fzs3spaw4grzs1ulr8elj96ymws");
+var response = await client.Quotas.GetQuotasAsync("acme-corp");
 
 Console.WriteLine(response);
 

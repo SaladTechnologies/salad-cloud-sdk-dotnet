@@ -6,7 +6,7 @@ A list of all methods in the `InferenceEndpointsService` service. Click on the m
 | :------------------------------------------------------------------ | :--------------------------------------------- |
 | [ListInferenceEndpointsAsync](#listinferenceendpointsasync)         | Gets the list of inference endpoints           |
 | [GetInferenceEndpointAsync](#getinferenceendpointasync)             | Gets an inference endpoint                     |
-| [GetInferenceEndpointJobsAsync](#getinferenceendpointjobsasync)     | Retrieves a list of an inference endpoint jobs |
+| [ListInferenceEndpointJobsAsync](#listinferenceendpointjobsasync)   | Retrieves a list of an inference endpoint jobs |
 | [CreateInferenceEndpointJobAsync](#createinferenceendpointjobasync) | Creates a new job                              |
 | [GetInferenceEndpointJobAsync](#getinferenceendpointjobasync)       | Retrieves a job in an inference endpoint       |
 | [DeleteInferenceEndpointJobAsync](#deleteinferenceendpointjobasync) | Deletes an inference endpoint job              |
@@ -43,7 +43,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("r1i8h22k", 16044711, 60);
+var response = await client.InferenceEndpoints.ListInferenceEndpointsAsync("acme-corp", 361997408, 44);
 
 Console.WriteLine(response);
 ```
@@ -79,12 +79,12 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("z3wkzvsf8j09617fgmalxey", "inference_endpoint_name");
+var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("acme-corp", "inference_endpoint_name");
 
 Console.WriteLine(response);
 ```
 
-## GetInferenceEndpointJobsAsync
+## ListInferenceEndpointJobsAsync
 
 Retrieves a list of an inference endpoint jobs
 
@@ -117,7 +117,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobsAsync("qpc5tx4o58", "inference_endpoint_name", 1865186515, 83);
+var response = await client.InferenceEndpoints.ListInferenceEndpointJobsAsync("acme-corp", "inference_endpoint_name", 693199848, 96);
 
 Console.WriteLine(response);
 ```
@@ -157,7 +157,7 @@ var client = new SaladCloudSdkClient(config);
 
 var input = new CreateInferenceEndpointJob(new object {}, new object {}, "webhook");
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "qpc5tx4o58", "inference_endpoint_name");
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "acme-corp", "inference_endpoint_name");
 
 Console.WriteLine(response);
 ```
@@ -194,7 +194,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
+var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("acme-corp", "inference_endpoint_name", "inference_endpoint_job_id");
 
 Console.WriteLine(response);
 ```
@@ -227,5 +227,5 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
+await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("acme-corp", "inference_endpoint_name", "inference_endpoint_job_id");
 ```
