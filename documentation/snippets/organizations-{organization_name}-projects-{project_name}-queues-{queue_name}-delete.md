@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.Queues.DeleteQueueAsync("vcald25asb53i96upv27f-nkhe1", "j6cwfayvsnaqsjq73vtxobiq9pxtqhnf3s0hg9gm", "vt");
+await client.Queues.DeleteQueueAsync("acme-corp", "dev-env", "fifo-queue");
 
 
 ```

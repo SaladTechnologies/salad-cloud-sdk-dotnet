@@ -14,6 +14,8 @@ public class GpuClassValidator : AbstractValidator<GpuClass?>
             .WithMessage("Minimum length for name is 2.")
             .MaximumLength(63)
             .WithMessage("Minimum length for name is 2.")
+            .Matches(@"^[ -~]{2,63}$")
+            .WithMessage(@"Pattern for name must match ^[ -~]{2,63}$.")
             .NotNull()
             .WithMessage("Field name is required.");
         RuleFor(GpuClass => GpuClass.Prices).NotNull().WithMessage("Field prices is required.");

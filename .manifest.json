@@ -1,13 +1,13 @@
 {
-  "liblabVersion": "2.13.0",
-  "date": "2025-02-05T02:35:49.000Z",
+  "liblabVersion": "2.14.0",
+  "date": "2025-02-10T21:32:16.394Z",
   "config": {
     "apiId": 1737,
     "sdkName": "salad-cloud-sdk",
     "sdkVersion": "0.9.0-alpha.6",
     "languages": ["csharp"],
     "auth": ["apikey"],
-    "docs": ["snippets"],
+    "docs": ["enhancedApiSpec", "snippets"],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "rawConfig": {
@@ -15,11 +15,22 @@
       "specFilePath": "spec.yaml",
       "languages": ["csharp", "go", "java", "python", "typescript"],
       "auth": ["apikey"],
-      "docs": ["snippets"],
+      "docs": ["enhancedApiSpec"],
       "customizations": {
         "authentication": {
           "apiKey": {
             "header": "Salad-Api-Key"
+          }
+        },
+        "documentation": {
+          "enhancedApiSpec": {
+            "customOutputName": "salad-cloud.yaml",
+            "provider": "mintlify",
+            "githubRepoName": "salad-cloud-docs",
+            "targetBranch": "main",
+            "mintlify": {
+              "codeSamplesLanguages": ["python", "typescript", "go", "csharp"]
+            }
           }
         },
         "license": {
@@ -478,6 +489,11 @@
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
+      }
+    },
+    "documentation": {
+      "enhancedApiSpec": {
+        "customOutputName": "salad-cloud.yaml"
       }
     },
     "devContainer": true,

@@ -12,7 +12,7 @@ var client = new SaladCloudSdkClient(config);
 
 var input = new CreateInferenceEndpointJob(new object {}, new object {}, "webhook");
 
-var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "qpc5tx4o58", "inference_endpoint_name");
+var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "acme-corp", "inference_endpoint_name");
 
 Console.WriteLine(response);
 

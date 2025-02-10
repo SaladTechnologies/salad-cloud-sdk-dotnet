@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("z3wkzvsf8j09617fgmalxey", "inference_endpoint_name");
+var response = await client.InferenceEndpoints.GetInferenceEndpointAsync("acme-corp", "inference_endpoint_name");
 
 Console.WriteLine(response);
 

@@ -38,7 +38,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.SystemLogs.GetSystemLogsAsync("swsj5dkyyw", "a5xp2xbkltsrb1gyvruaqvvwd5onmy71o9wj-qe9t5ayz4g85", "jm88ew1l7vlqq7ldjxvyv2t81idvvr61j8rx5e7nek5ai");
+var response = await client.SystemLogs.GetSystemLogsAsync("acme-corp", "dev-env", "a40v4uec9stndv1t4v2c9ytnldjc0jenoa7-st6miphpfp4jw");
 
 Console.WriteLine(response);
 ```

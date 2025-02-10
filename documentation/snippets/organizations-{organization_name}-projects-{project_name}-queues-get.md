@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.Queues.ListQueuesAsync("z8lshc09tfagbfsl8ku-8hu25hwiw5a6dobimir3lfppusjbs", "ohun5ki");
+var response = await client.Queues.ListQueuesAsync("acme-corp", "dev-env");
 
 Console.WriteLine(response);
 

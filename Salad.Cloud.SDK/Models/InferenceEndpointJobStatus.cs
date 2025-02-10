@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>The current status.</summary>
 public record InferenceEndpointJobStatus : ValueEnum<string>
 {
     internal InferenceEndpointJobStatus(string value)

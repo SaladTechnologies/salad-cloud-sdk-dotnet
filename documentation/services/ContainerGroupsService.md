@@ -48,7 +48,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.ContainerGroups.ListContainerGroupsAsync("jnuv8vtkwt5jf", "br--nh24d-sd3k8zhse2b17rr6qt35mgt0w7nmi1bhe");
+var response = await client.ContainerGroups.ListContainerGroupsAsync("acme-corp", "dev-env");
 
 Console.WriteLine(response);
 ```
@@ -87,7 +87,7 @@ var config = new SaladCloudSdkConfig{
 var client = new SaladCloudSdkClient(config);
 
 var gpuClasses = new List<string>() { "gpu_classes" };
-var resources = new ContainerResourceRequirements(1, 32270, gpuClasses, 6128631772);
+var resources = new ContainerResourceRequirements(13, 42307, gpuClasses, 50087092344);
 var command = new List<string>() { "command" };
 var axiom = new LoggingAxiom2("host", "api_token", "dataset");
 var tagsItem = new DatadogTags2("name", "value");
@@ -95,10 +95,10 @@ var tags = new List<DatadogTags2>() { tagsItem };
 var datadog = new LoggingDatadog2("host", "api_key", tags);
 var newRelic = new LoggingNewRelic2("host", "ingestion_key");
 var splunk = new LoggingSplunk2("host", "token");
-var tcp = new LoggingTcp2("host", 48352);
+var tcp = new LoggingTcp2("host", 58873);
 var headersItem = new HttpHeaders3("name", "value");
 var headers = new List<HttpHeaders3>() { headersItem };
-var http = new LoggingHttp2("host", 36166, HttpFormat2.Json, HttpCompression2.None, "user", "password", "path", headers);
+var http = new LoggingHttp2("host", 23762, HttpFormat2.Json, HttpCompression2.None, "user", "password", "path", headers);
 var logging = new CreateContainerLogging(axiom, datadog, newRelic, splunk, tcp, http);
 var basic = new RegistryAuthenticationBasic1("username", "password");
 var gcpGcr = new RegistryAuthenticationGcpGcr1("service_key");
@@ -108,36 +108,36 @@ var gcpGar = new RegistryAuthenticationGcpGar1("service_key");
 var registryAuthentication = new CreateContainerRegistryAuthentication(basic, gcpGcr, awsEcr, dockerHub, gcpGar);
 var container = new CreateContainer("image", resources, command, ContainerGroupPriority.High, new object(), logging, registryAuthentication);
 var countryCodes = new List<CountryCode>() { CountryCode.Af };
-var networking = new CreateContainerGroupNetworking(ContainerNetworkingProtocol.Http, 14188, true, CreateContainerGroupNetworkingLoadBalancer.RoundRobin, false, 100000, 100000);
-var tcp = new ContainerGroupProbeTcp(17650);
+var networking = new CreateContainerGroupNetworking(ContainerNetworkingProtocol.Http, 42340, false, CreateContainerGroupNetworkingLoadBalancer.RoundRobin, false, 100000, 100000);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var livenessProbe = new ContainerGroupLivenessProbe(10, 10, 30, 1, 3, tcp, http, grpc, exec);
-var tcp = new ContainerGroupProbeTcp(17650);
+var livenessProbe = new ContainerGroupLivenessProbe(4, 10, 30, 1, 3, tcp, http, grpc, exec);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var readinessProbe = new ContainerGroupReadinessProbe(2, 1, 1, 1, 3, tcp, http, grpc, exec);
-var tcp = new ContainerGroupProbeTcp(17650);
+var readinessProbe = new ContainerGroupReadinessProbe(3, 1, 1, 1, 3, tcp, http, grpc, exec);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var startupProbe = new ContainerGroupStartupProbe(7, 3, 10, 2, 1200, tcp, http, grpc, exec);
-var queueConnection = new ContainerGroupQueueConnection("path", 38507, "ck4rvoh7pe38igjftqxc0");
-var queueAutoscaler = new QueueAutoscaler(95, 169, 22, 322, 92, 26);
-var input = new CreateContainerGroup("name", container, false, ContainerRestartPolicy.Always, 207, "O-c4RUm7J", countryCodes, networking, livenessProbe, readinessProbe, startupProbe, queueConnection, queueAutoscaler);
+var startupProbe = new ContainerGroupStartupProbe(2, 3, 10, 2, 1200, tcp, http, grpc, exec);
+var queueConnection = new ContainerGroupQueueConnection("path", 42517, "ag");
+var queueAutoscaler = new QueueAutoscaler(23, 46, 36, 1723, 41, 96);
+var input = new CreateContainerGroup("name", container, true, ContainerRestartPolicy.Always, 79, "2h", countryCodes, networking, livenessProbe, readinessProbe, startupProbe, queueConnection, queueAutoscaler);
 
-var response = await client.ContainerGroups.CreateContainerGroupAsync(input, "jnuv8vtkwt5jf", "br--nh24d-sd3k8zhse2b17rr6qt35mgt0w7nmi1bhe");
+var response = await client.ContainerGroups.CreateContainerGroupAsync(input, "acme-corp", "dev-env");
 
 Console.WriteLine(response);
 ```
@@ -174,7 +174,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.ContainerGroups.GetContainerGroupAsync("phrf4wto3t0ce53c802dx4pj8udmjz-qc19k7j728", "sbqyjl1cz", "eiyuixb-h8eedpdp8k1km7fet2re1c36magozmsg");
+var response = await client.ContainerGroups.GetContainerGroupAsync("acme-corp", "dev-env", "dtediyiq06xdhi419x1-qxggstra232ermkpky80pttw977-5xv6fsvjlccb2");
 
 Console.WriteLine(response);
 ```
@@ -214,7 +214,7 @@ var config = new SaladCloudSdkConfig{
 var client = new SaladCloudSdkClient(config);
 
 var gpuClasses = new List<string>() { "gpu_classes" };
-var resources1 = new Resources(11, 11298, gpuClasses, 46759285941);
+var resources1 = new Resources(13, 29771, gpuClasses, 18452770366);
 var command = new List<string>() { "command" };
 var axiom = new LoggingAxiom3("host", "api_token", "dataset");
 var tagsItem = new DatadogTags3("name", "value");
@@ -222,10 +222,10 @@ var tags = new List<DatadogTags3>() { tagsItem };
 var datadog = new LoggingDatadog3("host", "api_key", tags);
 var newRelic = new LoggingNewRelic3("host", "ingestion_key");
 var splunk = new LoggingSplunk3("host", "token");
-var tcp = new LoggingTcp3("host", 10152);
+var tcp = new LoggingTcp3("host", 55519);
 var headersItem = new HttpHeaders4("name", "value");
 var headers = new List<HttpHeaders4>() { headersItem };
-var http = new LoggingHttp3("host", 35767, HttpFormat3.Json, HttpCompression3.None, "user", "password", "path", headers);
+var http = new LoggingHttp3("host", 13262, HttpFormat3.Json, HttpCompression3.None, "user", "password", "path", headers);
 var logging = new UpdateContainerLogging(axiom, datadog, newRelic, splunk, tcp, http);
 var basic = new RegistryAuthenticationBasic2("username", "password");
 var gcpGcr = new RegistryAuthenticationGcpGcr2("service_key");
@@ -235,35 +235,35 @@ var gcpGar = new RegistryAuthenticationGcpGar2("service_key");
 var registryAuthentication = new UpdateContainerRegistryAuthentication(basic, gcpGcr, awsEcr, dockerHub, gcpGar);
 var container = new UpdateContainer("image", resources1, command, ContainerGroupPriority.High, new object(), logging, registryAuthentication);
 var countryCodes = new List<CountryCode>() { CountryCode.Af };
-var networking = new UpdateContainerGroupNetworking(42727);
-var tcp = new ContainerGroupProbeTcp(17650);
+var networking = new UpdateContainerGroupNetworking(55899);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var livenessProbe = new ContainerGroupLivenessProbe(10, 10, 30, 1, 3, tcp, http, grpc, exec);
-var tcp = new ContainerGroupProbeTcp(17650);
+var livenessProbe = new ContainerGroupLivenessProbe(4, 10, 30, 1, 3, tcp, http, grpc, exec);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var readinessProbe = new ContainerGroupReadinessProbe(2, 1, 1, 1, 3, tcp, http, grpc, exec);
-var tcp = new ContainerGroupProbeTcp(17650);
+var readinessProbe = new ContainerGroupReadinessProbe(3, 1, 1, 1, 3, tcp, http, grpc, exec);
+var tcp = new ContainerGroupProbeTcp(57459);
 var headersItem = new ContainerGroupProbeHttpHeaders2("name", "value");
 var headers = new List<ContainerGroupProbeHttpHeaders2>() { headersItem };
-var http = new ContainerGroupProbeHttp("path", 18332, ContainerProbeHttpScheme.Http, headers);
-var grpc = new ContainerGroupProbeGrpc("service", 34595);
+var http = new ContainerGroupProbeHttp("path", 16271, ContainerProbeHttpScheme.Http, headers);
+var grpc = new ContainerGroupProbeGrpc("service", 8389);
 var command = new List<string>() { "command" };
 var exec = new ContainerGroupProbeExec(command);
-var startupProbe = new ContainerGroupStartupProbe(7, 3, 10, 2, 1200, tcp, http, grpc, exec);
-var queueAutoscaler = new QueueAutoscaler(95, 169, 22, 322, 92, 26);
-var input = new UpdateContainerGroup("tDW4Ah", container, 78, countryCodes, networking, livenessProbe, readinessProbe, startupProbe, queueAutoscaler);
+var startupProbe = new ContainerGroupStartupProbe(2, 3, 10, 2, 1200, tcp, http, grpc, exec);
+var queueAutoscaler = new QueueAutoscaler(23, 46, 36, 1723, 41, 96);
+var input = new UpdateContainerGroup("QVx.iywWj", container, 83, countryCodes, networking, livenessProbe, readinessProbe, startupProbe, queueAutoscaler);
 
-var response = await client.ContainerGroups.UpdateContainerGroupAsync(input, "phrf4wto3t0ce53c802dx4pj8udmjz-qc19k7j728", "sbqyjl1cz", "eiyuixb-h8eedpdp8k1km7fet2re1c36magozmsg");
+var response = await client.ContainerGroups.UpdateContainerGroupAsync(input, "acme-corp", "dev-env", "dtediyiq06xdhi419x1-qxggstra232ermkpky80pttw977-5xv6fsvjlccb2");
 
 Console.WriteLine(response);
 ```
@@ -296,7 +296,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.DeleteContainerGroupAsync("phrf4wto3t0ce53c802dx4pj8udmjz-qc19k7j728", "sbqyjl1cz", "eiyuixb-h8eedpdp8k1km7fet2re1c36magozmsg");
+await client.ContainerGroups.DeleteContainerGroupAsync("acme-corp", "dev-env", "dtediyiq06xdhi419x1-qxggstra232ermkpky80pttw977-5xv6fsvjlccb2");
 ```
 
 ## StartContainerGroupAsync
@@ -327,7 +327,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.StartContainerGroupAsync("xzb5h40r3d-tbpmdwz42hxn6mm7gyt2lmzz4brddw4nq6cv0x76n2zwuhx", "z6a9qgyutmphvjh8k01czhll2fdh", "j3eo");
+await client.ContainerGroups.StartContainerGroupAsync("acme-corp", "dev-env", "gftm9dd5sl3zq4c9ycai8jt4kduxxniyomose4errderfez5m6znpd");
 ```
 
 ## StopContainerGroupAsync
@@ -358,7 +358,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.StopContainerGroupAsync("wnsjao1m6q6-so4tp1yhwjdpa4rchjtb6qp-hyt0s34pmjpl9", "pax9xqfzcvrc7mgqfff4pyapsn5bpfu5tn1dw9fek5en16s", "spxtjyr20teh5er84k");
+await client.ContainerGroups.StopContainerGroupAsync("acme-corp", "dev-env", "ugutjsc-eeb-g61dqs-g7rhc02o8jjt90-2ydw1-558n");
 ```
 
 ## ListContainerGroupInstancesAsync
@@ -393,7 +393,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.ContainerGroups.ListContainerGroupInstancesAsync("syhixarx9", "n2f3v2k", "mqs513hwceoink7v5jbtans22e-s9a9g");
+var response = await client.ContainerGroups.ListContainerGroupInstancesAsync("acme-corp", "dev-env", "bg6j2");
 
 Console.WriteLine(response);
 ```
@@ -431,7 +431,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("h2vf5j9bl68odxyrub2vzqrpq", "dz0l0ksd13duaemr1bl6h3cfj", "qt5kcqqmsto9eh5guxaf9", "container_group_instance_id");
+var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("acme-corp", "dev-env", "i1dudtfzncfa0uwgetfw", "container_group_instance_id");
 
 Console.WriteLine(response);
 ```
@@ -465,7 +465,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.ReallocateContainerGroupInstanceAsync("zysw-tw2j90oxr-iu0br008wldxnn5wweelngjy-e4653f7g56e1xtjxxabek", "ilq3woz0e08jg-wlalvrmhj6xzap3kodtp7vguu", "bu0ebi0d6boaz4q0eaasthaluhnqd9xq6h5216lsww", "container_group_instance_id");
+await client.ContainerGroups.ReallocateContainerGroupInstanceAsync("acme-corp", "dev-env", "znxljm6955vvzpqzcl9ecarfj0io7z8aow", "container_group_instance_id");
 ```
 
 ## RecreateContainerGroupInstanceAsync
@@ -497,7 +497,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.RecreateContainerGroupInstanceAsync("es2bv9qahh8", "t11t96rt97nfp9ty6rdemn82q46bz0o-09fev9p45si7totf5aobxwodsb44xub", "cok7vgd5d7rlx-e9sc8oj3xc", "container_group_instance_id");
+await client.ContainerGroups.RecreateContainerGroupInstanceAsync("acme-corp", "dev-env", "dt-lsrj", "container_group_instance_id");
 ```
 
 ## RestartContainerGroupInstanceAsync
@@ -529,5 +529,5 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.RestartContainerGroupInstanceAsync("b57migu1lyx2k-vmo4k1art82l9sdmly5tasmph2ghb5osc8i5s", "egpw6pdom937z6qj42uo7yis0ws", "c1x72p43xkkp5xyjtjud-whejhmajx6at62-3go1ea-qh", "container_group_instance_id");
+await client.ContainerGroups.RestartContainerGroupInstanceAsync("acme-corp", "dev-env", "btakgw5ouh1kk18z9-qc1axejwdwn9nev06b8db1hw", "container_group_instance_id");
 ```

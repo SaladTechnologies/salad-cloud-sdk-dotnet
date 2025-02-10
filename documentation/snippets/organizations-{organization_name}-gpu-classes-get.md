@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.OrganizationData.ListGpuClassesAsync("s9g7lyyu-j0-p29ti");
+var response = await client.OrganizationData.ListGpuClassesAsync("acme-corp");
 
 Console.WriteLine(response);
 

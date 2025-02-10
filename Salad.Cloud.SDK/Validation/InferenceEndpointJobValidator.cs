@@ -24,6 +24,14 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
             .NotNull()
             .WithMessage("Field events is required.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.OrganizationName)
+            .MinimumLength(2)
+            .WithMessage("Minimum length for organization_name is 2.")
+            .MaximumLength(63)
+            .WithMessage("Minimum length for organization_name is 2.")
+            .Matches(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
+            .WithMessage(
+                @"Pattern for organization_name must match ^[a-z][a-z0-9-]{0,61}[a-z0-9]$."
+            )
             .NotNull()
             .WithMessage("Field organization_name is required.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.CreateTime)
