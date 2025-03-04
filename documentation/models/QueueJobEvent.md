@@ -4,12 +4,12 @@ Represents an event for queue job
 
 **Properties**
 
-| Name   | Type                | Required | Description |
-| :----- | :------------------ | :------- | :---------- |
-| Action | QueueJobEventAction | ✅       |             |
-| Time   | string              | ✅       |             |
+| Name    | Type   | Required | Description |
+| :------ | :----- | :------- | :---------- |
+| Action1 | Action | ✅       |             |
+| Time    | string | ✅       |             |
 
-# QueueJobEventAction
+# Action
 
 **Properties**
 

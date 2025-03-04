@@ -18,8 +18,8 @@ public class QueueAutoscalerValidator : AbstractValidator<QueueAutoscaler?>
         RuleFor(QueueAutoscaler => QueueAutoscaler.MaxReplicas)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for max_replicas is 1.")
-            .LessThanOrEqualTo(250)
-            .WithMessage("Minimum for max_replicas is 250.")
+            .LessThanOrEqualTo(500)
+            .WithMessage("Minimum for max_replicas is 500.")
             .NotNull()
             .WithMessage("Field max_replicas is required.");
         RuleFor(QueueAutoscaler => QueueAutoscaler.DesiredQueueLength)

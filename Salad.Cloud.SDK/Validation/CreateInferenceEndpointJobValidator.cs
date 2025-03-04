@@ -13,7 +13,10 @@ public class CreateInferenceEndpointJobValidator : AbstractValidator<CreateInfer
             .WithMessage("Field input is required.");
 
         RuleFor(CreateInferenceEndpointJob => CreateInferenceEndpointJob.Webhook)
-            .MaximumLength(2000)
+            .MaximumLength(2048)
             .WithMessage("Minimum length for webhook is undefined.");
+        RuleFor(CreateInferenceEndpointJob => CreateInferenceEndpointJob.WebhookUrl)
+            .MaximumLength(2048)
+            .WithMessage("Minimum length for webhook_url is undefined.");
     }
 }

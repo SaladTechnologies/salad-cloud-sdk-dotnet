@@ -14,11 +14,9 @@ public class InferenceEndpointsService : BaseService
     internal InferenceEndpointsService(HttpClient httpClient)
         : base(httpClient) { }
 
-    /// <summary>Gets the list of inference endpoints</summary>
+    /// <summary>Lists inference endpoints.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="page">The page number</param>
-    /// <param name="pageSize">The number of items per page</param>
-    public async Task<InferenceEndpointsList> ListInferenceEndpointsAsync(
+    public async Task<InferenceEndpointList> ListInferenceEndpointsAsync(
         string organizationName,
         long? page = null,
         long? pageSize = null,
@@ -66,8 +64,8 @@ public class InferenceEndpointsService : BaseService
             "organizations/{organization_name}/inference-endpoints"
         )
             .SetPathParameter("organization_name", organizationName)
-            .SetQueryParameter("page", page)
-            .SetQueryParameter("page_size", pageSize)
+            .SetOptionalQueryParameter("page", page)
+            .SetOptionalQueryParameter("page_size", pageSize)
             .Build();
 
         var response = await _httpClient
@@ -76,16 +74,15 @@ public class InferenceEndpointsService : BaseService
 
         return await response
                 .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpointsList>(
+                .Content.ReadFromJsonAsync<InferenceEndpointList>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Gets an inference endpoint</summary>
+    /// <summary>Gets an inference endpoint.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     public async Task<InferenceEndpoint> GetInferenceEndpointAsync(
         string organizationName,
         string inferenceEndpointName,
@@ -108,6 +105,7 @@ public class InferenceEndpointsService : BaseService
         var inferenceEndpointNameValidationResult = new StringValidator()
             .WithMaximumLength(63)
             .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .ValidateRequired<string?>((string?)inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
@@ -141,12 +139,9 @@ public class InferenceEndpointsService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Retrieves a list of an inference endpoint jobs</summary>
+    /// <summary>Lists inference endpoint jobs.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
-    /// <param name="page">The page number</param>
-    /// <param name="pageSize">The number of items per page</param>
-    public async Task<InferenceEndpointJobList> GetInferenceEndpointJobsAsync(
+    public async Task<InferenceEndpointJobList> ListInferenceEndpointJobsAsync(
         string organizationName,
         string inferenceEndpointName,
         long? page = null,
@@ -170,6 +165,7 @@ public class InferenceEndpointsService : BaseService
         var inferenceEndpointNameValidationResult = new StringValidator()
             .WithMaximumLength(63)
             .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .ValidateRequired<string?>((string?)inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
@@ -206,8 +202,8 @@ public class InferenceEndpointsService : BaseService
         )
             .SetPathParameter("organization_name", organizationName)
             .SetPathParameter("inference_endpoint_name", inferenceEndpointName)
-            .SetQueryParameter("page", page)
-            .SetQueryParameter("page_size", pageSize)
+            .SetOptionalQueryParameter("page", page)
+            .SetOptionalQueryParameter("page_size", pageSize)
             .Build();
 
         var response = await _httpClient
@@ -223,9 +219,8 @@ public class InferenceEndpointsService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Creates a new job</summary>
+    /// <summary>Creates a new inference endpoint job.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
     public async Task<InferenceEndpointJob> CreateInferenceEndpointJobAsync(
         CreateInferenceEndpointJob input,
         string organizationName,
@@ -250,6 +245,7 @@ public class InferenceEndpointsService : BaseService
         var inferenceEndpointNameValidationResult = new StringValidator()
             .WithMaximumLength(63)
             .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .ValidateRequired<string?>((string?)inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
@@ -284,10 +280,8 @@ public class InferenceEndpointsService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Retrieves a job in an inference endpoint</summary>
+    /// <summary>Gets an inference endpoint job.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
-    /// <param name="inferenceEndpointJobId">The unique job id</param>
     public async Task<InferenceEndpointJob> GetInferenceEndpointJobAsync(
         string organizationName,
         string inferenceEndpointName,
@@ -312,6 +306,7 @@ public class InferenceEndpointsService : BaseService
         var inferenceEndpointNameValidationResult = new StringValidator()
             .WithMaximumLength(63)
             .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .ValidateRequired<string?>((string?)inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
@@ -353,11 +348,9 @@ public class InferenceEndpointsService : BaseService
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
-    /// <summary>Deletes an inference endpoint job</summary>
+    /// <summary>Cancels an inference endpoint job.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
-    /// <param name="inferenceEndpointName">The unique inference endpoint name</param>
-    /// <param name="inferenceEndpointJobId">The unique job id</param>
-    public async Task DeleteInferenceEndpointJobAsync(
+    public async Task CancelInferenceEndpointJobAsync(
         string organizationName,
         string inferenceEndpointName,
         string inferenceEndpointJobId,
@@ -381,6 +374,7 @@ public class InferenceEndpointsService : BaseService
         var inferenceEndpointNameValidationResult = new StringValidator()
             .WithMaximumLength(63)
             .WithMinimumLength(2)
+            .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .ValidateRequired<string?>((string?)inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {

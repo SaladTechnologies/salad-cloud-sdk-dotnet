@@ -20,5 +20,10 @@ public record CreateContainer(
         object? EnvironmentVariables = null,
     [property: JsonPropertyName("logging")] CreateContainerLogging? Logging = null,
     [property: JsonPropertyName("registry_authentication")]
-        CreateContainerRegistryAuthentication? RegistryAuthentication = null
+        CreateContainerRegistryAuthentication? RegistryAuthentication = null,
+    [property:
+        JsonPropertyName("image_caching"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        bool? ImageCaching = null
 );

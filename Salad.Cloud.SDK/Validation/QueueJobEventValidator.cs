@@ -8,7 +8,7 @@ public class QueueJobEventValidator : AbstractValidator<QueueJobEvent?>
 {
     public QueueJobEventValidator()
     {
-        RuleFor(QueueJobEvent => QueueJobEvent.Action)
+        RuleFor(QueueJobEvent => QueueJobEvent.Action1)
             .NotNull()
             .WithMessage("Field action is required.");
         RuleFor(QueueJobEvent => QueueJobEvent.Time)
