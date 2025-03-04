@@ -4,7 +4,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class QueueJobEventActionValidator : AbstractValidator<QueueJobEventAction?>
+public class StatusValidator : AbstractValidator<Status?>
 {
-    public QueueJobEventActionValidator() { }
+    public StatusValidator() { }
 }

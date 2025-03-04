@@ -13,6 +13,7 @@ Represents a container
 | EnvironmentVariables   | object                                | ❌       |                                                                                                  |
 | Logging                | CreateContainerLogging                | ❌       |                                                                                                  |
 | RegistryAuthentication | CreateContainerRegistryAuthentication | ❌       |                                                                                                  |
+| ImageCaching           | bool                                  | ❌       |                                                                                                  |
 
 # CreateContainerLogging
 

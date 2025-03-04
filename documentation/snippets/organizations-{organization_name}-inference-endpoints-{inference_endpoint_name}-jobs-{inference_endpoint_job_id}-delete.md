@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("g0i5w146fxc3k", "inference_endpoint_name", "inference_endpoint_job_id");
+await client.InferenceEndpoints.CancelInferenceEndpointJobAsync("acme-corp", "transcribe", "2fc459a1-1c09-4a34-ade7-54d03fc51d6a");
 
 
 ```

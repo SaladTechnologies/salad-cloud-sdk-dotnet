@@ -7,6 +7,19 @@ public record CreateInferenceEndpointJob(
     /// <value>The job input. May be any valid JSON.</value>
     [property: JsonPropertyName("input")]
         object Input_,
-    [property: JsonPropertyName("metadata")] object? Metadata = null,
-    [property: JsonPropertyName("webhook")] string? Webhook = null
+    [property:
+        JsonPropertyName("metadata"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        object? Metadata = null,
+    [property:
+        JsonPropertyName("webhook"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        string? Webhook = null,
+    [property:
+        JsonPropertyName("webhook_url"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        string? WebhookUrl = null
 );

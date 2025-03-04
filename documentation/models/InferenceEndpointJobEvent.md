@@ -8,15 +8,3 @@ Represents an event for inference endpoint job
 | :----- | :------------------------------ | :------- | :---------- |
 | Action | InferenceEndpointJobEventAction | ✅       |             |
 | Time   | string                          | ✅       |             |
-
-# InferenceEndpointJobEventAction
-
-**Properties**
-
-| Name      | Type   | Required | Description |
-| :-------- | :----- | :------- | :---------- |
-| Created   | string | ✅       | "created"   |
-| Started   | string | ✅       | "started"   |
-| Succeeded | string | ✅       | "succeeded" |
-| Cancelled | string | ✅       | "cancelled" |
-| Failed    | string | ✅       | "failed"    |

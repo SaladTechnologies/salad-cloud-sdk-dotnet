@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("ligmbu0fdje049b02qi1m-z0vs1teiglhclcygv1wqqusk00zsx");
+var response = await client.WebhookSecretKey.GetWebhookSecretKeyAsync("acme-corp");
 
 Console.WriteLine(response);
 

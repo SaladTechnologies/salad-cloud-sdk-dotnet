@@ -26,5 +26,10 @@ public record Container(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         object? EnvironmentVariables = null,
-    [property: JsonPropertyName("logging")] ContainerLogging? Logging = null
+    [property: JsonPropertyName("logging")] ContainerLogging? Logging = null,
+    [property:
+        JsonPropertyName("image_caching"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        bool? ImageCaching = null
 );

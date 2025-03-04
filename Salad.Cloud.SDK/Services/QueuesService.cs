@@ -348,8 +348,6 @@ public class QueuesService : BaseService
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="queueName">The queue name.</param>
-    /// <param name="page">The page number</param>
-    /// <param name="pageSize">The number of items per page</param>
     public async Task<QueueJobList> ListQueueJobsAsync(
         string organizationName,
         string projectName,
@@ -424,8 +422,8 @@ public class QueuesService : BaseService
             .SetPathParameter("organization_name", organizationName)
             .SetPathParameter("project_name", projectName)
             .SetPathParameter("queue_name", queueName)
-            .SetQueryParameter("page", page)
-            .SetQueryParameter("page_size", pageSize)
+            .SetOptionalQueryParameter("page", page)
+            .SetOptionalQueryParameter("page_size", pageSize)
             .Build();
 
         var response = await _httpClient

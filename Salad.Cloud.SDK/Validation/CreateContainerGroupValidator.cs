@@ -46,8 +46,8 @@ public class CreateContainerGroupValidator : AbstractValidator<CreateContainerGr
         RuleFor(CreateContainerGroup => CreateContainerGroup.Replicas)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for replicas is 0.")
-            .LessThanOrEqualTo(250)
-            .WithMessage("Minimum for replicas is 250.")
+            .LessThanOrEqualTo(500)
+            .WithMessage("Minimum for replicas is 500.")
             .NotNull()
             .WithMessage("Field replicas is required.");
         RuleFor(CreateContainerGroup => CreateContainerGroup.DisplayName)

@@ -18,5 +18,10 @@ public record UpdateContainer(
         object? EnvironmentVariables = null,
     [property: JsonPropertyName("logging")] UpdateContainerLogging? Logging = null,
     [property: JsonPropertyName("registry_authentication")]
-        UpdateContainerRegistryAuthentication? RegistryAuthentication = null
+        UpdateContainerRegistryAuthentication? RegistryAuthentication = null,
+    [property:
+        JsonPropertyName("image_caching"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        bool? ImageCaching = null
 );
