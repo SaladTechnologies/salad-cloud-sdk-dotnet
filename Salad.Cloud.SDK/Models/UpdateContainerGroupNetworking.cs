@@ -4,5 +4,7 @@ namespace Salad.Cloud.SDK.Models;
 
 /// <summary>Represents update container group networking parameters</summary>
 public record UpdateContainerGroupNetworking(
-    [property: JsonPropertyName("port")] long? Port = null
+    /// <value>The port number to expose on the container group</value>
+    [property: JsonPropertyName("port")]
+        long? Port = null
 );

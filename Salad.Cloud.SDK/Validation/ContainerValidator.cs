@@ -8,11 +8,14 @@ public class ContainerValidator : AbstractValidator<Container?>
 {
     public ContainerValidator()
     {
+        RuleFor(Container => Container.Command).NotNull().WithMessage("Field command is required.");
         RuleFor(Container => Container.Image)
             .MinimumLength(1)
             .WithMessage("Minimum length for image is 1.")
-            .MaximumLength(1024)
+            .MaximumLength(2048)
             .WithMessage("Minimum length for image is 1.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for image must match ^.*$.")
             .NotNull()
             .WithMessage("Field image is required.");
         RuleFor(Container => Container.Resources)
@@ -35,16 +38,23 @@ public class ContainerValidator : AbstractValidator<Container?>
             )
             .NotNull()
             .WithMessage("Field resources is required.");
-        RuleFor(Container => Container.Command).NotNull().WithMessage("Field command is required.");
+
+        RuleFor(Container => Container.Hash)
+            .MinimumLength(64)
+            .WithMessage("Minimum length for hash is 64.")
+            .MaximumLength(64)
+            .WithMessage("Minimum length for hash is 64.")
+            .Matches(@"^[a-fA-F0-9]{64}$")
+            .WithMessage(@"Pattern for hash must match ^[a-fA-F0-9]{64}$.");
 
         RuleFor(Container => Container.Logging)
             .Custom(
-                (containerLogging, context) =>
+                (containerLoggingConfiguration, context) =>
                 {
-                    if (containerLogging != null)
+                    if (containerLoggingConfiguration != null)
                     {
-                        var validator = new ContainerLoggingValidator();
-                        var result = validator.Validate(containerLogging);
+                        var validator = new ContainerLoggingConfigurationValidator();
+                        var result = validator.Validate(containerLoggingConfiguration);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -55,5 +65,10 @@ public class ContainerValidator : AbstractValidator<Container?>
                     }
                 }
             );
+        RuleFor(Container => Container.Size)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for size is 0.")
+            .LessThanOrEqualTo(9223372036854776000)
+            .WithMessage("Minimum for size is 9223372036854776000.");
     }
 }

@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.DeleteContainerGroupAsync("acme-corp", "dev-env", "ja8mepeueo5-1hcilmn8m1ouq40vp547cf-8");
+await client.ContainerGroups.DeleteContainerGroupAsync("acme-corp", "dev-env", "mandlebrot");
 
 
 ```

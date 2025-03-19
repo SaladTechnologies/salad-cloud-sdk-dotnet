@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.ContainerGroups.RestartContainerGroupInstanceAsync("acme-corp", "dev-env", "p1adeb-w3gjttgd7m2r1wt99qo455", "container_group_instance_id");
+await client.ContainerGroups.RestartContainerGroupInstanceAsync("acme-corp", "dev-env", "mandlebrot", "db3a4591-efc3-46c0-b06a-3d820c0ec100");
 
 
 ```

@@ -1,5 +1,7 @@
 # Action
 
+The action that was taken on the queue job
+
 **Properties**
 
 | Name      | Type   | Required | Description |

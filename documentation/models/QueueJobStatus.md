@@ -1,5 +1,7 @@
 # QueueJobStatus
 
+The job status
+
 **Properties**
 
 | Name      | Type   | Required | Description |

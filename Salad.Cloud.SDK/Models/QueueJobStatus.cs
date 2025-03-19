@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>The job status</summary>
 public record QueueJobStatus : ValueEnum<string>
 {
     internal QueueJobStatus(string value)

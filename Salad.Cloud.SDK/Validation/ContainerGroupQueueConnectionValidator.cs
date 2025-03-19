@@ -14,6 +14,8 @@ public class ContainerGroupQueueConnectionValidator
             .WithMessage("Minimum length for path is 1.")
             .MaximumLength(1024)
             .WithMessage("Minimum length for path is 1.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for path must match ^.*$.")
             .NotNull()
             .WithMessage("Field path is required.");
         RuleFor(ContainerGroupQueueConnection => ContainerGroupQueueConnection.Port)

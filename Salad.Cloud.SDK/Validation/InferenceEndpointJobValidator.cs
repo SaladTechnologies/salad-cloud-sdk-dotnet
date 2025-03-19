@@ -48,5 +48,16 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.UpdateTime)
             .NotNull()
             .WithMessage("Field update_time is required.");
+
+        RuleFor(InferenceEndpointJob => InferenceEndpointJob.Webhook)
+            .MinimumLength(1)
+            .WithMessage("Minimum length for webhook is 1.")
+            .MaximumLength(2048)
+            .WithMessage("Minimum length for webhook is 1.");
+        RuleFor(InferenceEndpointJob => InferenceEndpointJob.WebhookUrl)
+            .MinimumLength(1)
+            .WithMessage("Minimum length for webhook_url is 1.")
+            .MaximumLength(2048)
+            .WithMessage("Minimum length for webhook_url is 1.");
     }
 }

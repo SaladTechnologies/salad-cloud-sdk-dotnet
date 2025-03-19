@@ -18,7 +18,7 @@ public class QueuesService : BaseService
     /// <summary>Gets the list of queues in the given project.</summary>
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
-    public async Task<QueueList> ListQueuesAsync(
+    public async Task<QueueCollection> ListQueuesAsync(
         string organizationName,
         string projectName,
         CancellationToken cancellationToken = default
@@ -67,7 +67,10 @@ public class QueuesService : BaseService
 
         return await response
                 .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<QueueList>(_jsonSerializerOptions, cancellationToken)
+                .Content.ReadFromJsonAsync<QueueCollection>(
+                    _jsonSerializerOptions,
+                    cancellationToken
+                )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
@@ -75,7 +78,7 @@ public class QueuesService : BaseService
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     public async Task<Queue> CreateQueueAsync(
-        CreateQueue input,
+        QueuePrototype input,
         string organizationName,
         string projectName,
         CancellationToken cancellationToken = default
@@ -205,7 +208,7 @@ public class QueuesService : BaseService
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="queueName">The queue name.</param>
     public async Task<Queue> UpdateQueueAsync(
-        UpdateQueue input,
+        QueuePatch input,
         string organizationName,
         string projectName,
         string queueName,
@@ -348,7 +351,9 @@ public class QueuesService : BaseService
     /// <param name="organizationName">Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization.</param>
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="queueName">The queue name.</param>
-    public async Task<QueueJobList> ListQueueJobsAsync(
+    /// <param name="page">The page number.</param>
+    /// <param name="pageSize">The maximum number of items per page.</param>
+    public async Task<QueueJobCollection> ListQueueJobsAsync(
         string organizationName,
         string projectName,
         string queueName,
@@ -432,7 +437,10 @@ public class QueuesService : BaseService
 
         return await response
                 .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<QueueJobList>(_jsonSerializerOptions, cancellationToken)
+                .Content.ReadFromJsonAsync<QueueJobCollection>(
+                    _jsonSerializerOptions,
+                    cancellationToken
+                )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
     }
 
@@ -441,7 +449,7 @@ public class QueuesService : BaseService
     /// <param name="projectName">Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.</param>
     /// <param name="queueName">The queue name.</param>
     public async Task<QueueJob> CreateQueueJobAsync(
-        CreateQueueJob input,
+        QueueJobPrototype input,
         string organizationName,
         string projectName,
         string queueName,

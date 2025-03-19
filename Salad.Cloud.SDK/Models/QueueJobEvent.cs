@@ -5,6 +5,10 @@ namespace Salad.Cloud.SDK.Models;
 
 /// <summary>Represents an event for queue job</summary>
 public record QueueJobEvent(
-    [property: JsonPropertyName("action")] Action Action1,
-    [property: JsonPropertyName("time")] string Time
+    /// <value>The action that was taken on the queue job</value>
+    [property: JsonPropertyName("action")]
+        Action Action1,
+    /// <value>The time the action was taken on the queue job</value>
+    [property: JsonPropertyName("time")]
+        string Time
 );

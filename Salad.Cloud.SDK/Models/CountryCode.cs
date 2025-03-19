@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>ISO 3166-1 alpha-2 country codes</summary>
 public record CountryCode : ValueEnum<string>
 {
     internal CountryCode(string value)

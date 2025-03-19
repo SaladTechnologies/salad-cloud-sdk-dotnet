@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>The action that was taken on the inference endpoint job.</summary>
 public record InferenceEndpointJobEventAction : ValueEnum<string>
 {
     internal InferenceEndpointJobEventAction(string value)

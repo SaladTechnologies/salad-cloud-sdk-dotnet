@@ -9,21 +9,41 @@ public class ContainerGroupsQuotasValidator : AbstractValidator<ContainerGroupsQ
     public ContainerGroupsQuotasValidator()
     {
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.MaxCreatedContainerGroups)
-            .NotNull()
-            .WithMessage("Field max_created_container_groups is required.");
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for max_created_container_groups is 0.")
+            .LessThanOrEqualTo(10000)
+            .WithMessage("Minimum for max_created_container_groups is 10000.");
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerInstanceQuota)
-            .NotNull()
-            .WithMessage("Field container_instance_quota is required.");
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for container_instance_quota is 0.")
+            .LessThanOrEqualTo(500)
+            .WithMessage("Minimum for container_instance_quota is 500.");
+        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicaQuota)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for container_replica_quota is 0.")
+            .LessThanOrEqualTo(500)
+            .WithMessage("Minimum for container_replica_quota is 500.");
+        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicasUsed)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for container_replicas_used is 0.")
+            .LessThanOrEqualTo(500)
+            .WithMessage("Minimum for container_replicas_used is 500.");
         RuleFor(ContainerGroupsQuotas =>
                 ContainerGroupsQuotas.MaxContainerGroupReallocationsPerMinute
             )
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_container_group_reallocations_per_minute is 0.");
+            .WithMessage("Minimum for max_container_group_reallocations_per_minute is 0.")
+            .LessThanOrEqualTo(100)
+            .WithMessage("Minimum for max_container_group_reallocations_per_minute is 100.");
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.MaxContainerGroupRecreatesPerMinute)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_container_group_recreates_per_minute is 0.");
+            .WithMessage("Minimum for max_container_group_recreates_per_minute is 0.")
+            .LessThanOrEqualTo(100)
+            .WithMessage("Minimum for max_container_group_recreates_per_minute is 100.");
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.MaxContainerGroupRestartsPerMinute)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_container_group_restarts_per_minute is 0.");
+            .WithMessage("Minimum for max_container_group_restarts_per_minute is 0.")
+            .LessThanOrEqualTo(100)
+            .WithMessage("Minimum for max_container_group_restarts_per_minute is 100.");
     }
 }

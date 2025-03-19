@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.SystemLogs.GetSystemLogsAsync("acme-corp", "dev-env", "lh6n7tvx-tc09f1h-3z01x-i8ye07harfhdj");
+var response = await client.SystemLogs.GetSystemLogsAsync("acme-corp", "dev-env", "mandlebrot");
 
 Console.WriteLine(response);
 

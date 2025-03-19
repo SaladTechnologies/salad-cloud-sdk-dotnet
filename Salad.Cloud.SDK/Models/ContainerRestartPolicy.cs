@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>Specifies the policy for restarting containers when they exit or fail.</summary>
 public record ContainerRestartPolicy : ValueEnum<string>
 {
     internal ContainerRestartPolicy(string value)
