@@ -9,57 +9,49 @@ public class ContainerGroupReadinessProbeValidator
 {
     public ContainerGroupReadinessProbeValidator()
     {
+        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.FailureThreshold)
+            .GreaterThanOrEqualTo(1)
+            .WithMessage("Minimum for failure_threshold is 1.")
+            .LessThanOrEqualTo(20)
+            .WithMessage("Minimum for failure_threshold is 20.")
+            .NotNull()
+            .WithMessage("Field failure_threshold is required.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.InitialDelaySeconds)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for initial_delay_seconds is 0.")
+            .LessThanOrEqualTo(1200)
+            .WithMessage("Minimum for initial_delay_seconds is 1200.")
             .NotNull()
             .WithMessage("Field initial_delay_seconds is required.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.PeriodSeconds)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for period_seconds is 1.")
+            .LessThanOrEqualTo(120)
+            .WithMessage("Minimum for period_seconds is 120.")
             .NotNull()
             .WithMessage("Field period_seconds is required.");
-        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.TimeoutSeconds)
-            .GreaterThanOrEqualTo(1)
-            .WithMessage("Minimum for timeout_seconds is 1.")
-            .NotNull()
-            .WithMessage("Field timeout_seconds is required.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.SuccessThreshold)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for success_threshold is 1.")
+            .LessThanOrEqualTo(10)
+            .WithMessage("Minimum for success_threshold is 10.")
             .NotNull()
             .WithMessage("Field success_threshold is required.");
-        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.FailureThreshold)
+        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.TimeoutSeconds)
             .GreaterThanOrEqualTo(1)
-            .WithMessage("Minimum for failure_threshold is 1.")
+            .WithMessage("Minimum for timeout_seconds is 1.")
+            .LessThanOrEqualTo(60)
+            .WithMessage("Minimum for timeout_seconds is 60.")
             .NotNull()
-            .WithMessage("Field failure_threshold is required.");
-        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Tcp)
+            .WithMessage("Field timeout_seconds is required.");
+        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Exec)
             .Custom(
-                (containerGroupProbeTcp, context) =>
+                (containerGroupProbeExec, context) =>
                 {
-                    if (containerGroupProbeTcp != null)
+                    if (containerGroupProbeExec != null)
                     {
-                        var validator = new ContainerGroupProbeTcpValidator();
-                        var result = validator.Validate(containerGroupProbeTcp);
-                        if (!result.IsValid)
-                        {
-                            foreach (var failure in result.Errors)
-                            {
-                                context.AddFailure(failure.PropertyName, failure.ErrorMessage);
-                            }
-                        }
-                    }
-                }
-            );
-        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Http)
-            .Custom(
-                (containerGroupProbeHttp, context) =>
-                {
-                    if (containerGroupProbeHttp != null)
-                    {
-                        var validator = new ContainerGroupProbeHttpValidator();
-                        var result = validator.Validate(containerGroupProbeHttp);
+                        var validator = new ContainerGroupProbeExecValidator();
+                        var result = validator.Validate(containerGroupProbeExec);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -72,12 +64,12 @@ public class ContainerGroupReadinessProbeValidator
             );
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Grpc)
             .Custom(
-                (containerGroupProbeGrpc, context) =>
+                (containerGroupGRpcProbe, context) =>
                 {
-                    if (containerGroupProbeGrpc != null)
+                    if (containerGroupGRpcProbe != null)
                     {
-                        var validator = new ContainerGroupProbeGrpcValidator();
-                        var result = validator.Validate(containerGroupProbeGrpc);
+                        var validator = new ContainerGroupGRpcProbeValidator();
+                        var result = validator.Validate(containerGroupGRpcProbe);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -88,14 +80,32 @@ public class ContainerGroupReadinessProbeValidator
                     }
                 }
             );
-        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Exec)
+        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Http)
             .Custom(
-                (containerGroupProbeExec, context) =>
+                (containerGroupHttpProbeConfiguration, context) =>
                 {
-                    if (containerGroupProbeExec != null)
+                    if (containerGroupHttpProbeConfiguration != null)
                     {
-                        var validator = new ContainerGroupProbeExecValidator();
-                        var result = validator.Validate(containerGroupProbeExec);
+                        var validator = new ContainerGroupHttpProbeConfigurationValidator();
+                        var result = validator.Validate(containerGroupHttpProbeConfiguration);
+                        if (!result.IsValid)
+                        {
+                            foreach (var failure in result.Errors)
+                            {
+                                context.AddFailure(failure.PropertyName, failure.ErrorMessage);
+                            }
+                        }
+                    }
+                }
+            );
+        RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Tcp)
+            .Custom(
+                (containerGroupTcpProbe, context) =>
+                {
+                    if (containerGroupTcpProbe != null)
+                    {
+                        var validator = new ContainerGroupTcpProbeValidator();
+                        var result = validator.Validate(containerGroupTcpProbe);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)

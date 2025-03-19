@@ -9,9 +9,9 @@ public class CreateContainerGroupNetworkingValidator
 {
     public CreateContainerGroupNetworkingValidator()
     {
-        RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Protocol)
+        RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Auth)
             .NotNull()
-            .WithMessage("Field protocol is required.");
+            .WithMessage("Field auth is required.");
         RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
@@ -19,10 +19,9 @@ public class CreateContainerGroupNetworkingValidator
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
             .WithMessage("Field port is required.");
-        RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Auth)
+        RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Protocol)
             .NotNull()
-            .WithMessage("Field auth is required.");
-
+            .WithMessage("Field protocol is required.");
         RuleFor(CreateContainerGroupNetworking =>
                 CreateContainerGroupNetworking.ClientRequestTimeout
             )
@@ -30,6 +29,7 @@ public class CreateContainerGroupNetworkingValidator
             .WithMessage("Minimum for client_request_timeout is 1.")
             .LessThanOrEqualTo(100000)
             .WithMessage("Minimum for client_request_timeout is 100000.");
+
         RuleFor(CreateContainerGroupNetworking =>
                 CreateContainerGroupNetworking.ServerResponseTimeout
             )

@@ -23,7 +23,9 @@ public class ContainerResourceRequirementsValidator
             .WithMessage("Minimum for memory is 61440.")
             .NotNull()
             .WithMessage("Field memory is required.");
-
+        RuleFor(ContainerResourceRequirements => ContainerResourceRequirements.GpuClasses)
+            .NotNull()
+            .WithMessage("Field gpu_classes is required.");
         RuleFor(ContainerResourceRequirements => ContainerResourceRequirements.StorageAmount)
             .GreaterThanOrEqualTo(1073741824)
             .WithMessage("Minimum for storage_amount is 1073741824.")

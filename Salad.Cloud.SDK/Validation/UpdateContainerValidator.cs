@@ -12,15 +12,18 @@ public class UpdateContainerValidator : AbstractValidator<UpdateContainer?>
             .MinimumLength(1)
             .WithMessage("Minimum length for image is 1.")
             .MaximumLength(1024)
-            .WithMessage("Minimum length for image is 1.");
-        RuleFor(UpdateContainer => UpdateContainer.Resources1)
+            .WithMessage("Minimum length for image is 1.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for image must match ^.*$.");
+
+        RuleFor(UpdateContainer => UpdateContainer.Logging)
             .Custom(
-                (resources, context) =>
+                (containerLoggingConfiguration, context) =>
                 {
-                    if (resources != null)
+                    if (containerLoggingConfiguration != null)
                     {
-                        var validator = new ResourcesValidator();
-                        var result = validator.Validate(resources);
+                        var validator = new ContainerLoggingConfigurationValidator();
+                        var result = validator.Validate(containerLoggingConfiguration);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -32,14 +35,14 @@ public class UpdateContainerValidator : AbstractValidator<UpdateContainer?>
                 }
             );
 
-        RuleFor(UpdateContainer => UpdateContainer.Logging)
+        RuleFor(UpdateContainer => UpdateContainer.RegistryAuthentication)
             .Custom(
-                (updateContainerLogging, context) =>
+                (containerRegistryAuthentication, context) =>
                 {
-                    if (updateContainerLogging != null)
+                    if (containerRegistryAuthentication != null)
                     {
-                        var validator = new UpdateContainerLoggingValidator();
-                        var result = validator.Validate(updateContainerLogging);
+                        var validator = new ContainerRegistryAuthenticationValidator();
+                        var result = validator.Validate(containerRegistryAuthentication);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -50,14 +53,14 @@ public class UpdateContainerValidator : AbstractValidator<UpdateContainer?>
                     }
                 }
             );
-        RuleFor(UpdateContainer => UpdateContainer.RegistryAuthentication)
+        RuleFor(UpdateContainer => UpdateContainer.Resources)
             .Custom(
-                (updateContainerRegistryAuthentication, context) =>
+                (containerResourceUpdateSchema, context) =>
                 {
-                    if (updateContainerRegistryAuthentication != null)
+                    if (containerResourceUpdateSchema != null)
                     {
-                        var validator = new UpdateContainerRegistryAuthenticationValidator();
-                        var result = validator.Validate(updateContainerRegistryAuthentication);
+                        var validator = new ContainerResourceUpdateSchemaValidator();
+                        var result = validator.Validate(containerResourceUpdateSchema);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)

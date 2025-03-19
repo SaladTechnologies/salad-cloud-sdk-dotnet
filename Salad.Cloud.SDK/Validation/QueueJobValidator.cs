@@ -18,5 +18,15 @@ public class QueueJobValidator : AbstractValidator<QueueJob?>
         RuleFor(QueueJob => QueueJob.UpdateTime)
             .NotNull()
             .WithMessage("Field update_time is required.");
+
+        RuleFor(QueueJob => QueueJob.Webhook)
+            .MinimumLength(20)
+            .WithMessage("Minimum length for webhook is 20.")
+            .MaximumLength(27)
+            .WithMessage("Minimum length for webhook is 20.")
+            .Matches(@"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$")
+            .WithMessage(
+                @"Pattern for webhook must match ^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$."
+            );
     }
 }

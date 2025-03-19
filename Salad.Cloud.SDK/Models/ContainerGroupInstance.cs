@@ -1,35 +1,40 @@
 using System.Text.Json.Serialization;
-using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
-/// <summary>Represents the details of a single container group instance</summary>
+/// <summary>A Container Group Instance represents a running instance of a container group on a specific machine. It provides information about the execution state, readiness, and version of the deployed container group.</summary>
 public record ContainerGroupInstance(
-    /// <value>The unique instance ID</value>
-    [property: JsonPropertyName("instance_id")]
-        string InstanceId,
-    /// <value>The machine ID</value>
+    /// <value>The container group instance identifier.</value>
+    [property: JsonPropertyName("id")]
+        string Id,
+    /// <value>The container group machine identifier.</value>
     [property: JsonPropertyName("machine_id")]
         string MachineId,
     /// <value>The state of the container group instance</value>
     [property: JsonPropertyName("state")]
-        State State1,
-    /// <value>The UTC date & time when the workload on this machine transitioned to the current state</value>
+        TheContainerGroupInstanceState State,
+    /// <value>The UTC timestamp when the container group instance last changed its state. This helps track the lifecycle and state transitions of the instance.</value>
     [property: JsonPropertyName("update_time")]
         string UpdateTime,
-    /// <value>The version of the running container group</value>
+    /// <value>The version of the container group definition currently running on this instance. Used to track deployment and update progress across the container group fleet.</value>
     [property: JsonPropertyName("version")]
         long Version,
-    /// <value>Specifies whether the container group instance is currently passing its readiness check. If no readiness probe is defined, is true once fully started.</value>
+    /// <value>Indicates whether the container group instance is currently passing its readiness checks and is able to receive traffic or perform its intended function. If no readiness probe is defined, this will be true once the instance is fully started.</value>
     [property:
         JsonPropertyName("ready"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         bool? Ready = null,
-    /// <value>Specifies whether the container group instance passed its startup probe. Is always true when no startup probe is defined.</value>
+    /// <value>Indicates whether the container group instance has successfully completed its startup sequence and passed any configured startup probes. This will always be true when no startup probe is defined for the container group.</value>
     [property:
         JsonPropertyName("started"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        bool? Started = null
+        bool? Started = null,
+    /// <value>The cost of deleting the container group instance</value>
+    [property:
+        JsonPropertyName("deletion_cost"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        long? DeletionCost = null
 );

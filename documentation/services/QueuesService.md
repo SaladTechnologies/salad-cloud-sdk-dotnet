@@ -30,7 +30,7 @@ Gets the list of queues in the given project.
 
 **Return Type**
 
-`QueueList`
+`QueueCollection`
 
 **Example Usage Code Snippet**
 
@@ -59,11 +59,11 @@ Creates a new queue in the given project.
 
 **Parameters**
 
-| Name             | Type        | Required | Description                                                                                                                                                                                                                                         |
-| :--------------- | :---------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input            | CreateQueue | ✅       | The request body.                                                                                                                                                                                                                                   |
-| organizationName | string      | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| projectName      | string      | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| Name             | Type           | Required | Description                                                                                                                                                                                                                                         |
+| :--------------- | :------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input            | QueuePrototype | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organizationName | string         | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| projectName      | string         | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
 
 **Return Type**
 
@@ -83,7 +83,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new CreateQueue("name", "EM0fH", "description");
+var input = new QueuePrototype("name", "Qskie", "description");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 
@@ -136,12 +136,12 @@ Updates an existing queue in the given project.
 
 **Parameters**
 
-| Name             | Type        | Required | Description                                                                                                                                                                                                                                         |
-| :--------------- | :---------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input            | UpdateQueue | ✅       | The request body.                                                                                                                                                                                                                                   |
-| organizationName | string      | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| projectName      | string      | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
-| queueName        | string      | ✅       | The queue name.                                                                                                                                                                                                                                     |
+| Name             | Type       | Required | Description                                                                                                                                                                                                                                         |
+| :--------------- | :--------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input            | QueuePatch | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organizationName | string     | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| projectName      | string     | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queueName        | string     | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -161,7 +161,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new UpdateQueue("PW IA8V H31", "description");
+var input = new QueuePatch("i2VcwOa", "description");
 
 var response = await client.Queues.UpdateQueueAsync(input, "acme-corp", "dev-env", "fifo-queue");
 
@@ -218,7 +218,7 @@ Gets the list of jobs in a queue
 
 **Return Type**
 
-`QueueJobList`
+`QueueJobCollection`
 
 **Example Usage Code Snippet**
 
@@ -247,12 +247,12 @@ Creates a new job
 
 **Parameters**
 
-| Name             | Type           | Required | Description                                                                                                                                                                                                                                         |
-| :--------------- | :------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input            | CreateQueueJob | ✅       | The request body.                                                                                                                                                                                                                                   |
-| organizationName | string         | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| projectName      | string         | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
-| queueName        | string         | ✅       | The queue name.                                                                                                                                                                                                                                     |
+| Name             | Type              | Required | Description                                                                                                                                                                                                                                         |
+| :--------------- | :---------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input            | QueueJobPrototype | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organizationName | string            | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| projectName      | string            | ✅       | Your project name. This represents a collection of related SaladCloud resources. The project must be created before using the API.                                                                                                                  |
+| queueName        | string            | ✅       | The queue name.                                                                                                                                                                                                                                     |
 
 **Return Type**
 
@@ -272,7 +272,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new CreateQueueJob(new object {}, new object {}, "webhook");
+var input = new QueueJobPrototype(new object {}, new object {}, "webhook");
 
 var response = await client.Queues.CreateQueueJobAsync(input, "acme-corp", "dev-env", "fifo-queue");
 

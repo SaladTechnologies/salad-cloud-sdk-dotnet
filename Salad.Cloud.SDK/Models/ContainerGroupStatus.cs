@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>Represents the current operational state of a container group within the Salad platform.</summary>
 public record ContainerGroupStatus : ValueEnum<string>
 {
     internal ContainerGroupStatus(string value)

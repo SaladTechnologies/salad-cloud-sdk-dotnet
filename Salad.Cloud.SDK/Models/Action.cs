@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>The action that was taken on the queue job</summary>
 public record Action : ValueEnum<string>
 {
     internal Action(string value)

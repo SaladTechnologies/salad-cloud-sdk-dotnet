@@ -8,13 +8,13 @@ public class ContainerGroupInstanceValidator : AbstractValidator<ContainerGroupI
 {
     public ContainerGroupInstanceValidator()
     {
-        RuleFor(ContainerGroupInstance => ContainerGroupInstance.InstanceId)
+        RuleFor(ContainerGroupInstance => ContainerGroupInstance.Id)
             .NotNull()
-            .WithMessage("Field instance_id is required.");
+            .WithMessage("Field id is required.");
         RuleFor(ContainerGroupInstance => ContainerGroupInstance.MachineId)
             .NotNull()
             .WithMessage("Field machine_id is required.");
-        RuleFor(ContainerGroupInstance => ContainerGroupInstance.State1)
+        RuleFor(ContainerGroupInstance => ContainerGroupInstance.State)
             .NotNull()
             .WithMessage("Field state is required.");
         RuleFor(ContainerGroupInstance => ContainerGroupInstance.UpdateTime)
@@ -23,7 +23,15 @@ public class ContainerGroupInstanceValidator : AbstractValidator<ContainerGroupI
         RuleFor(ContainerGroupInstance => ContainerGroupInstance.Version)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for version is 1.")
+            .LessThanOrEqualTo(2147483647)
+            .WithMessage("Minimum for version is 2147483647.")
             .NotNull()
             .WithMessage("Field version is required.");
+
+        RuleFor(ContainerGroupInstance => ContainerGroupInstance.DeletionCost)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for deletion_cost is 0.")
+            .LessThanOrEqualTo(100000)
+            .WithMessage("Minimum for deletion_cost is 100000.");
     }
 }

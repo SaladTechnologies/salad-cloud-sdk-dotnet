@@ -34,6 +34,8 @@ public class QueueValidator : AbstractValidator<Queue?>
         RuleFor(Queue => Queue.UpdateTime).NotNull().WithMessage("Field update_time is required.");
         RuleFor(Queue => Queue.Description)
             .MaximumLength(500)
-            .WithMessage("Minimum length for description is 0.");
+            .WithMessage("Minimum length for description is 0.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for description must match ^.*$.");
     }
 }

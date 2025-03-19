@@ -3,6 +3,7 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence.</summary>
 public record ContainerGroupPriority : ValueEnum<string>
 {
     internal ContainerGroupPriority(string value)

@@ -4,6 +4,7 @@ namespace Salad.Cloud.SDK.Models;
 
 /// <summary>Represents the organization quotas</summary>
 public record Quotas(
+    /// <value>Represents the organization quotas for container groups</value>
     [property: JsonPropertyName("container_groups_quotas")]
         ContainerGroupsQuotas ContainerGroupsQuotas,
     /// <value>The time the resource was created</value>

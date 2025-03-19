@@ -8,12 +8,6 @@ public class ContainerGroupStateValidator : AbstractValidator<ContainerGroupStat
 {
     public ContainerGroupStateValidator()
     {
-        RuleFor(ContainerGroupState => ContainerGroupState.Status)
-            .NotNull()
-            .WithMessage("Field status is required.");
-        RuleFor(ContainerGroupState => ContainerGroupState.StartTime)
-            .NotNull()
-            .WithMessage("Field start_time is required.");
         RuleFor(ContainerGroupState => ContainerGroupState.FinishTime)
             .NotNull()
             .WithMessage("Field finish_time is required.");
@@ -37,5 +31,16 @@ public class ContainerGroupStateValidator : AbstractValidator<ContainerGroupStat
             )
             .NotNull()
             .WithMessage("Field instance_status_counts is required.");
+        RuleFor(ContainerGroupState => ContainerGroupState.StartTime)
+            .NotNull()
+            .WithMessage("Field start_time is required.");
+        RuleFor(ContainerGroupState => ContainerGroupState.Status)
+            .NotNull()
+            .WithMessage("Field status is required.");
+        RuleFor(ContainerGroupState => ContainerGroupState.Description)
+            .MaximumLength(1000)
+            .WithMessage("Minimum length for description is 0.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for description must match ^.*$.");
     }
 }

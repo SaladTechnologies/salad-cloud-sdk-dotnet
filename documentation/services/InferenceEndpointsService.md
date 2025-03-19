@@ -9,7 +9,7 @@ A list of all methods in the `InferenceEndpointsService` service. Click on the m
 | [ListInferenceEndpointJobsAsync](#listinferenceendpointjobsasync)   | Lists inference endpoint jobs.        |
 | [CreateInferenceEndpointJobAsync](#createinferenceendpointjobasync) | Creates a new inference endpoint job. |
 | [GetInferenceEndpointJobAsync](#getinferenceendpointjobasync)       | Gets an inference endpoint job.       |
-| [CancelInferenceEndpointJobAsync](#cancelinferenceendpointjobasync) | Cancels an inference endpoint job.    |
+| [DeleteInferenceEndpointJobAsync](#deleteinferenceendpointjobasync) | Cancels an inference endpoint job.    |
 
 ## ListInferenceEndpointsAsync
 
@@ -28,7 +28,7 @@ Lists inference endpoints.
 
 **Return Type**
 
-`InferenceEndpointList`
+`InferenceEndpointCollection`
 
 **Example Usage Code Snippet**
 
@@ -102,7 +102,7 @@ Lists inference endpoint jobs.
 
 **Return Type**
 
-`InferenceEndpointJobList`
+`InferenceEndpointJobCollection`
 
 **Example Usage Code Snippet**
 
@@ -131,11 +131,11 @@ Creates a new inference endpoint job.
 
 **Parameters**
 
-| Name                  | Type                       | Required | Description                                                                                                                                                                                                                                         |
-| :-------------------- | :------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input                 | CreateInferenceEndpointJob | ✅       | The request body.                                                                                                                                                                                                                                   |
-| organizationName      | string                     | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
-| inferenceEndpointName | string                     | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
+| Name                  | Type                          | Required | Description                                                                                                                                                                                                                                         |
+| :-------------------- | :---------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input                 | InferenceEndpointJobPrototype | ✅       | The request body.                                                                                                                                                                                                                                   |
+| organizationName      | string                        | ✅       | Your organization name. This identifies the billing context for the API operation and represents a security boundary for SaladCloud resources. The organization must be created before using the API, and you must be a member of the organization. |
+| inferenceEndpointName | string                        | ✅       | The inference endpoint name.                                                                                                                                                                                                                        |
 
 **Return Type**
 
@@ -155,7 +155,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new CreateInferenceEndpointJob(new object {}, new object {}, "webhook_url");
+var input = new InferenceEndpointJobPrototype(new object {}, new object {}, "https://webhook.example.com/events");
 
 var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "acme-corp", "transcribe");
 
@@ -199,7 +199,7 @@ var response = await client.InferenceEndpoints.GetInferenceEndpointJobAsync("acm
 Console.WriteLine(response);
 ```
 
-## CancelInferenceEndpointJobAsync
+## DeleteInferenceEndpointJobAsync
 
 Cancels an inference endpoint job.
 
@@ -227,5 +227,5 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-await client.InferenceEndpoints.CancelInferenceEndpointJobAsync("acme-corp", "transcribe", "2fc459a1-1c09-4a34-ade7-54d03fc51d6a");
+await client.InferenceEndpoints.DeleteInferenceEndpointJobAsync("acme-corp", "transcribe", "2fc459a1-1c09-4a34-ade7-54d03fc51d6a");
 ```

@@ -16,6 +16,8 @@ public class GpuClassPriceValidator : AbstractValidator<GpuClassPrice?>
             .WithMessage("Minimum length for price is 1.")
             .MaximumLength(20)
             .WithMessage("Minimum length for price is 1.")
+            .Matches(@"^.*$")
+            .WithMessage(@"Pattern for price must match ^.*$.")
             .NotNull()
             .WithMessage("Field price is required.");
     }

@@ -9,7 +9,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("acme-corp", "dev-env", "djh4s8hz0soygun3m687oust14ot1pk0icevxf5izkd-rds", "container_group_instance_id");
+var response = await client.ContainerGroups.GetContainerGroupInstanceAsync("acme-corp", "dev-env", "mandlebrot", "db3a4591-efc3-46c0-b06a-3d820c0ec100");
 
 Console.WriteLine(response);
 

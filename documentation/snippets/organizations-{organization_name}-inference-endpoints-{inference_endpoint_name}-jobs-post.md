@@ -10,7 +10,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new CreateInferenceEndpointJob(new object {}, new object {}, "webhook_url");
+var input = new InferenceEndpointJobPrototype(new object {}, new object {}, "https://webhook.example.com/events");
 
 var response = await client.InferenceEndpoints.CreateInferenceEndpointJobAsync(input, "acme-corp", "transcribe");
 
