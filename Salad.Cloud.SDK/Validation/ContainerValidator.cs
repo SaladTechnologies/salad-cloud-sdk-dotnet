@@ -40,21 +40,21 @@ public class ContainerValidator : AbstractValidator<Container?>
             .WithMessage("Field resources is required.");
 
         RuleFor(Container => Container.Hash)
-            .MinimumLength(64)
-            .WithMessage("Minimum length for hash is 64.")
-            .MaximumLength(64)
-            .WithMessage("Minimum length for hash is 64.")
-            .Matches(@"^[a-fA-F0-9]{64}$")
-            .WithMessage(@"Pattern for hash must match ^[a-fA-F0-9]{64}$.");
+            .MinimumLength(47)
+            .WithMessage("Minimum length for hash is 47.")
+            .MaximumLength(135)
+            .WithMessage("Minimum length for hash is 47.")
+            .Matches(@"^sha\d{1,3}:[a-fA-F0-9]{40,135}$")
+            .WithMessage(@"Pattern for hash must match ^sha\d{1,3}:[a-fA-F0-9]{40,135}$.");
 
         RuleFor(Container => Container.Logging)
             .Custom(
-                (containerLoggingConfiguration, context) =>
+                (containerLogging, context) =>
                 {
-                    if (containerLoggingConfiguration != null)
+                    if (containerLogging != null)
                     {
-                        var validator = new ContainerLoggingConfigurationValidator();
-                        var result = validator.Validate(containerLoggingConfiguration);
+                        var validator = new ContainerLoggingValidator();
+                        var result = validator.Validate(containerLogging);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -68,7 +68,7 @@ public class ContainerValidator : AbstractValidator<Container?>
         RuleFor(Container => Container.Size)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for size is 0.")
-            .LessThanOrEqualTo(9223372036854776000)
-            .WithMessage("Minimum for size is 9223372036854776000.");
+            .LessThanOrEqualTo(9223372036854775807)
+            .WithMessage("Minimum for size is 9223372036854775807.");
     }
 }

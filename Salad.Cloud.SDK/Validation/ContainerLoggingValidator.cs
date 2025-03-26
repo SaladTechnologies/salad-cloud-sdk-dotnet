@@ -4,12 +4,11 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class ContainerLoggingConfigurationValidator
-    : AbstractValidator<ContainerLoggingConfiguration?>
+public class ContainerLoggingValidator : AbstractValidator<ContainerLogging?>
 {
-    public ContainerLoggingConfigurationValidator()
+    public ContainerLoggingValidator()
     {
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.Axiom)
+        RuleFor(ContainerLogging => ContainerLogging.Axiom)
             .Custom(
                 (axiomLoggingConfiguration, context) =>
                 {
@@ -27,7 +26,7 @@ public class ContainerLoggingConfigurationValidator
                     }
                 }
             );
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.Datadog)
+        RuleFor(ContainerLogging => ContainerLogging.Datadog)
             .Custom(
                 (datadogLoggingConfiguration, context) =>
                 {
@@ -45,14 +44,14 @@ public class ContainerLoggingConfigurationValidator
                     }
                 }
             );
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.Http)
+        RuleFor(ContainerLogging => ContainerLogging.Http)
             .Custom(
-                (containerHttpLoggingConfiguration, context) =>
+                (containerLoggingConfigurationHttp1, context) =>
                 {
-                    if (containerHttpLoggingConfiguration != null)
+                    if (containerLoggingConfigurationHttp1 != null)
                     {
-                        var validator = new ContainerHttpLoggingConfigurationValidator();
-                        var result = validator.Validate(containerHttpLoggingConfiguration);
+                        var validator = new ContainerLoggingConfigurationHttp1Validator();
+                        var result = validator.Validate(containerLoggingConfigurationHttp1);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
@@ -63,7 +62,7 @@ public class ContainerLoggingConfigurationValidator
                     }
                 }
             );
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.NewRelic)
+        RuleFor(ContainerLogging => ContainerLogging.NewRelic)
             .Custom(
                 (newRelicLoggingConfiguration, context) =>
                 {
@@ -81,7 +80,7 @@ public class ContainerLoggingConfigurationValidator
                     }
                 }
             );
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.Splunk)
+        RuleFor(ContainerLogging => ContainerLogging.Splunk)
             .Custom(
                 (containerLoggingSplunkConfiguration, context) =>
                 {
@@ -99,7 +98,7 @@ public class ContainerLoggingConfigurationValidator
                     }
                 }
             );
-        RuleFor(ContainerLoggingConfiguration => ContainerLoggingConfiguration.Tcp)
+        RuleFor(ContainerLogging => ContainerLogging.Tcp)
             .Custom(
                 (tcpLoggingConfiguration, context) =>
                 {

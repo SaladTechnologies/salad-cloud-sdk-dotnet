@@ -4,7 +4,7 @@ using Salad.Cloud.SDK.Json;
 namespace Salad.Cloud.SDK.Models;
 
 /// <summary>Configuration for sending container logs to an HTTP endpoint. Defines how logs are formatted, compressed, and transmitted.</summary>
-public record ContainerHttpLoggingConfiguration(
+public record ContainerLoggingConfigurationHttp2(
     /// <value>The hostname or IP address of the HTTP logging endpoint</value>
     [property: JsonPropertyName("host")]
         string Host,
@@ -13,13 +13,10 @@ public record ContainerHttpLoggingConfiguration(
         long Port,
     /// <value>The format in which logs will be delivered</value>
     [property: JsonPropertyName("format")]
-        Format Format1,
-    /// <value>Optional HTTP headers to include in log transmission requests</value>
-    [property: JsonPropertyName("headers")]
-        List<ContainerLoggingHttpHeader> Headers,
+        ContainerHttpLoggingConfigurationFormat2 Format,
     /// <value>The compression algorithm to apply to logs before transmission</value>
     [property: JsonPropertyName("compression")]
-        Compression Compression1,
+        ContainerHttpLoggingConfigurationCompression2 Compression,
     /// <value>Optional username for HTTP authentication</value>
     [property: JsonPropertyName("user")]
         string? User = null,
@@ -28,5 +25,11 @@ public record ContainerHttpLoggingConfiguration(
         string? Password = null,
     /// <value>Optional URL path for the HTTP endpoint</value>
     [property: JsonPropertyName("path")]
-        string? Path = null
+        string? Path = null,
+    /// <value>Optional HTTP headers to include in log transmission requests</value>
+    [property:
+        JsonPropertyName("headers"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        List<ContainerLoggingHttpHeader>? Headers = null
 );

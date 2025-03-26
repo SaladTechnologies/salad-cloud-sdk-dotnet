@@ -10,7 +10,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "Qskie", "description");
+var input = new QueuePrototype("name", "WYAV3y", "description");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 

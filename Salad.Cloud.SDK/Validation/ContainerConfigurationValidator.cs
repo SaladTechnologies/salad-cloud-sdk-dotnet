@@ -40,12 +40,12 @@ public class ContainerConfigurationValidator : AbstractValidator<ContainerConfig
 
         RuleFor(ContainerConfiguration => ContainerConfiguration.Logging)
             .Custom(
-                (containerLoggingConfiguration, context) =>
+                (containerConfigurationLogging, context) =>
                 {
-                    if (containerLoggingConfiguration != null)
+                    if (containerConfigurationLogging != null)
                     {
-                        var validator = new ContainerLoggingConfigurationValidator();
-                        var result = validator.Validate(containerLoggingConfiguration);
+                        var validator = new ContainerConfigurationLoggingValidator();
+                        var result = validator.Validate(containerConfigurationLogging);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
