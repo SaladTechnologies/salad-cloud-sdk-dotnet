@@ -18,12 +18,12 @@ public class UpdateContainerValidator : AbstractValidator<UpdateContainer?>
 
         RuleFor(UpdateContainer => UpdateContainer.Logging)
             .Custom(
-                (containerLoggingConfiguration, context) =>
+                (updateContainerLogging, context) =>
                 {
-                    if (containerLoggingConfiguration != null)
+                    if (updateContainerLogging != null)
                     {
-                        var validator = new ContainerLoggingConfigurationValidator();
-                        var result = validator.Validate(containerLoggingConfiguration);
+                        var validator = new UpdateContainerLoggingValidator();
+                        var result = validator.Validate(updateContainerLogging);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)

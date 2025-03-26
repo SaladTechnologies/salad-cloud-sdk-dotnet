@@ -4,12 +4,12 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class ContainerHttpLoggingConfigurationValidator
-    : AbstractValidator<ContainerHttpLoggingConfiguration?>
+public class ContainerLoggingConfigurationHttp1Validator
+    : AbstractValidator<ContainerLoggingConfigurationHttp1?>
 {
-    public ContainerHttpLoggingConfigurationValidator()
+    public ContainerLoggingConfigurationHttp1Validator()
     {
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Host)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Host)
             .MinimumLength(1)
             .WithMessage("Minimum length for host is 1.")
             .MaximumLength(1000)
@@ -18,37 +18,39 @@ public class ContainerHttpLoggingConfigurationValidator
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
             .WithMessage("Field host is required.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Port)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
             .WithMessage("Field port is required.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Format1)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Format)
             .NotNull()
             .WithMessage("Field format is required.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Headers)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Headers)
             .NotNull()
             .WithMessage("Field headers is required.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Compression1)
+        RuleFor(ContainerLoggingConfigurationHttp1 =>
+                ContainerLoggingConfigurationHttp1.Compression
+            )
             .NotNull()
             .WithMessage("Field compression is required.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.User)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.User)
             .MinimumLength(1)
             .WithMessage("Minimum length for user is 1.")
             .MaximumLength(1000)
             .WithMessage("Minimum length for user is 1.")
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for user must match ^.*$.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Password)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Password)
             .MinimumLength(1)
             .WithMessage("Minimum length for password is 1.")
             .MaximumLength(1000)
             .WithMessage("Minimum length for password is 1.")
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for password must match ^.*$.");
-        RuleFor(ContainerHttpLoggingConfiguration => ContainerHttpLoggingConfiguration.Path)
+        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Path)
             .MinimumLength(1)
             .WithMessage("Minimum length for path is 1.")
             .MaximumLength(1000)

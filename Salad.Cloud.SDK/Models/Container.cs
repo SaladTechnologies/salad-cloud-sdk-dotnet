@@ -36,7 +36,7 @@ public record Container(
         JsonPropertyName("logging"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        ContainerLoggingConfiguration? Logging = null,
+        ContainerLogging? Logging = null,
     /// <value>Size of the container in bytes.</value>
     [property:
         JsonPropertyName("size"),

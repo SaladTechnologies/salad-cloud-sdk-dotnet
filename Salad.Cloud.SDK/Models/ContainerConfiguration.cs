@@ -30,7 +30,7 @@ public record ContainerConfiguration(
         JsonPropertyName("logging"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        ContainerLoggingConfiguration? Logging = null,
+        ContainerConfigurationLogging? Logging = null,
     /// <value>Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence.</value>
     [property: JsonPropertyName("priority")]
         ContainerGroupPriority? Priority = null,
