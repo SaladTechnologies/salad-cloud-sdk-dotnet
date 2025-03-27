@@ -1,10 +1,10 @@
 {
-  "liblabVersion": "2.24.0",
-  "date": "2025-03-26T23:21:50.100Z",
+  "liblabVersion": "2.25.0",
+  "date": "2025-03-27T19:05:36.708Z",
   "config": {
-    "apiId": 1944,
+    "apiId": 1945,
     "sdkName": "salad-cloud-sdk",
-    "sdkVersion": "0.9.0-alpha.9",
+    "sdkVersion": "0.9.0-alpha.10",
     "languages": ["csharp"],
     "auth": ["apikey"],
     "docs": ["enhancedApiSpec", "snippets"],
@@ -49,7 +49,7 @@
           "githubRepoName": "salad-cloud-sdk-dotnet",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.9",
+          "sdkVersion": "0.9.0-alpha.10",
           "authors": [
             {
               "name": "salad"
@@ -66,7 +66,7 @@
           "githubRepoName": "salad-cloud-sdk-go",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.9",
+          "sdkVersion": "0.9.0-alpha.10",
           "goModuleName": "github.com/saladtechnologies/salad-cloud-sdk-go"
         },
         "java": {
@@ -74,7 +74,7 @@
           "githubRepoName": "salad-cloud-sdk-java",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.10",
+          "sdkVersion": "0.9.0-alpha.11",
           "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
           "groupId": "com.salad.cloud",
           "artifactId": "sdk",
@@ -98,7 +98,7 @@
           "githubRepoName": "salad-cloud-sdk-python",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.9",
+          "sdkVersion": "0.9.0-alpha.10",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -153,7 +153,7 @@
           "githubRepoName": "salad-cloud-sdk-javascript",
           "targetBranch": "main",
           "ignoreFiles": [".gitignore", "./LICENSE"],
-          "sdkVersion": "0.9.0-alpha.10",
+          "sdkVersion": "0.9.0-alpha.11",
           "authors": [
             {
               "name": "SaladCloud Developers",
@@ -278,7 +278,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-dotnet",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.9",
+        "sdkVersion": "0.9.0-alpha.10",
         "targetBranch": "main"
       },
       "go": {
@@ -286,7 +286,7 @@
         "githubRepoName": "salad-cloud-sdk-go",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.9",
+        "sdkVersion": "0.9.0-alpha.10",
         "targetBranch": "main"
       },
       "java": {
@@ -311,7 +311,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-java",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.10",
+        "sdkVersion": "0.9.0-alpha.11",
         "targetBranch": "main"
       },
       "python": {
@@ -354,7 +354,7 @@
         "githubRepoName": "salad-cloud-sdk-python",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.9",
+        "sdkVersion": "0.9.0-alpha.10",
         "targetBranch": "main"
       },
       "terraform": {
@@ -391,7 +391,7 @@
         "homepage": "https://github.com/saladtechnologies/salad-cloud-sdk-javascript",
         "ignoreFiles": [".gitignore", "./LICENSE"],
         "liblabVersion": "2",
-        "sdkVersion": "0.9.0-alpha.10",
+        "sdkVersion": "0.9.0-alpha.11",
         "targetBranch": "main",
         "generateEnumAs": "enum"
       }
@@ -486,7 +486,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.9",
+    "apiVersion": "0.9.0-alpha.10",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -654,13 +654,13 @@
     "documentation/models/ContainerResourceRequirements.md",
     "documentation/models/AxiomLoggingConfiguration.md",
     "documentation/models/DatadogLoggingConfiguration.md",
+    "documentation/models/ContainerLoggingConfigurationHttp1.md",
     "documentation/models/NewRelicLoggingConfiguration.md",
     "documentation/models/ContainerLoggingSplunkConfiguration.md",
     "documentation/models/TcpLoggingConfiguration.md",
     "documentation/models/DatadogTagForContainerLogging.md",
-    "documentation/models/ContainerHttpLoggingConfigurationFormat1.md",
+    "documentation/models/ContainerLoggingHttpFormat.md",
     "documentation/models/ContainerLoggingHttpHeader.md",
-    "documentation/models/ContainerHttpLoggingConfigurationCompression1.md",
     "documentation/models/ContainerGroupInstanceStatusCount.md",
     "documentation/models/ContainerGroupStatus.md",
     "documentation/models/ContainerGroupProbeExec.md",
@@ -675,8 +675,7 @@
     "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/ContainerConfigurationLogging.md",
     "documentation/models/ContainerRegistryAuthentication.md",
-    "documentation/models/ContainerHttpLoggingConfigurationFormat2.md",
-    "documentation/models/ContainerHttpLoggingConfigurationCompression2.md",
+    "documentation/models/ContainerLoggingConfigurationHttp2.md",
     "documentation/models/ContainerRegistryAuthenticationAwsEcr.md",
     "documentation/models/ContainerRegistryAuthenticationBasic.md",
     "documentation/models/ContainerRegistryAuthenticationDockerHub.md",
@@ -745,9 +744,8 @@
     "Salad.Cloud.SDK/Validation/ContainerLoggingSplunkConfigurationValidator.cs",
     "Salad.Cloud.SDK/Validation/TcpLoggingConfigurationValidator.cs",
     "Salad.Cloud.SDK/Validation/DatadogTagForContainerLoggingValidator.cs",
-    "Salad.Cloud.SDK/Validation/ContainerHttpLoggingConfigurationFormat1Validator.cs",
+    "Salad.Cloud.SDK/Validation/ContainerLoggingHttpFormatValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerLoggingHttpHeaderValidator.cs",
-    "Salad.Cloud.SDK/Validation/ContainerHttpLoggingConfigurationCompression1Validator.cs",
     "Salad.Cloud.SDK/Validation/ContainerGroupInstanceStatusCountValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerGroupStatusValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerGroupProbeExecValidator.cs",
@@ -763,8 +761,6 @@
     "Salad.Cloud.SDK/Validation/ContainerConfigurationLoggingValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerRegistryAuthenticationValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerLoggingConfigurationHttp2Validator.cs",
-    "Salad.Cloud.SDK/Validation/ContainerHttpLoggingConfigurationFormat2Validator.cs",
-    "Salad.Cloud.SDK/Validation/ContainerHttpLoggingConfigurationCompression2Validator.cs",
     "Salad.Cloud.SDK/Validation/ContainerRegistryAuthenticationAwsEcrValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerRegistryAuthenticationBasicValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerRegistryAuthenticationDockerHubValidator.cs",
@@ -838,9 +834,8 @@
     "Salad.Cloud.SDK/Models/ContainerLoggingSplunkConfiguration.cs",
     "Salad.Cloud.SDK/Models/TcpLoggingConfiguration.cs",
     "Salad.Cloud.SDK/Models/DatadogTagForContainerLogging.cs",
-    "Salad.Cloud.SDK/Models/ContainerHttpLoggingConfigurationFormat1.cs",
+    "Salad.Cloud.SDK/Models/ContainerLoggingHttpFormat.cs",
     "Salad.Cloud.SDK/Models/ContainerLoggingHttpHeader.cs",
-    "Salad.Cloud.SDK/Models/ContainerHttpLoggingConfigurationCompression1.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupInstanceStatusCount.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupStatus.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupProbeExec.cs",
@@ -856,8 +851,6 @@
     "Salad.Cloud.SDK/Models/ContainerConfigurationLogging.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthentication.cs",
     "Salad.Cloud.SDK/Models/ContainerLoggingConfigurationHttp2.cs",
-    "Salad.Cloud.SDK/Models/ContainerHttpLoggingConfigurationFormat2.cs",
-    "Salad.Cloud.SDK/Models/ContainerHttpLoggingConfigurationCompression2.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthenticationAwsEcr.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthenticationBasic.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthenticationDockerHub.cs",
@@ -885,8 +878,6 @@
     "documentation/services/SystemLogsService.md",
     "documentation/services/QuotasService.md",
     "documentation/services/OrganizationDataService.md",
-    "documentation/models/ContainerLoggingConfigurationHttp1.md",
-    "documentation/models/ContainerLoggingConfigurationHttp2.md",
     "documentation/services/WebhookSecretKeyService.md",
     "Salad.Cloud.SDK/Services/InferenceEndpointsService.cs",
     "documentation/services/InferenceEndpointsService.md",

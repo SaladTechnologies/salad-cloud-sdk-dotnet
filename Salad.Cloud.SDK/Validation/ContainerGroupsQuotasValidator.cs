@@ -8,26 +8,20 @@ public class ContainerGroupsQuotasValidator : AbstractValidator<ContainerGroupsQ
 {
     public ContainerGroupsQuotasValidator()
     {
-        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.MaxCreatedContainerGroups)
+        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicasQuota)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_created_container_groups is 0.")
-            .LessThanOrEqualTo(10000)
-            .WithMessage("Minimum for max_created_container_groups is 10000.");
-        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerInstanceQuota)
-            .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for container_instance_quota is 0.")
+            .WithMessage("Minimum for container_replicas_quota is 0.")
             .LessThanOrEqualTo(500)
-            .WithMessage("Minimum for container_instance_quota is 500.");
-        RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicaQuota)
-            .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for container_replica_quota is 0.")
-            .LessThanOrEqualTo(500)
-            .WithMessage("Minimum for container_replica_quota is 500.");
+            .WithMessage("Minimum for container_replicas_quota is 500.")
+            .NotNull()
+            .WithMessage("Field container_replicas_quota is required.");
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicasUsed)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for container_replicas_used is 0.")
             .LessThanOrEqualTo(500)
-            .WithMessage("Minimum for container_replicas_used is 500.");
+            .WithMessage("Minimum for container_replicas_used is 500.")
+            .NotNull()
+            .WithMessage("Field container_replicas_used is required.");
         RuleFor(ContainerGroupsQuotas =>
                 ContainerGroupsQuotas.MaxContainerGroupReallocationsPerMinute
             )
