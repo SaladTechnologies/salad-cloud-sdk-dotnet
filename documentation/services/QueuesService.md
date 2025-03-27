@@ -83,7 +83,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "WYAV3y", "description");
+var input = new QueuePrototype("name", "Qskie", "description");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 
@@ -161,7 +161,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePatch("QqN5Ecnfeq", "description");
+var input = new QueuePatch("i2VcwOa", "description");
 
 var response = await client.Queues.UpdateQueueAsync(input, "acme-corp", "dev-env", "fifo-queue");
 

@@ -68,7 +68,7 @@ public class ContainerValidator : AbstractValidator<Container?>
         RuleFor(Container => Container.Size)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for size is 0.")
-            .LessThanOrEqualTo(9223372036854775807)
-            .WithMessage("Minimum for size is 9223372036854775807.");
+            .LessThanOrEqualTo(9223372036854776000)
+            .WithMessage("Minimum for size is 9223372036854776000.");
     }
 }

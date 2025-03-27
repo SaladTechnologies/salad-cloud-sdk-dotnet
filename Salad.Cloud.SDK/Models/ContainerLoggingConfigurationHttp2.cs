@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
@@ -13,10 +12,8 @@ public record ContainerLoggingConfigurationHttp2(
         long Port,
     /// <value>The format in which logs will be delivered</value>
     [property: JsonPropertyName("format")]
-        ContainerHttpLoggingConfigurationFormat2 Format,
-    /// <value>The compression algorithm to apply to logs before transmission</value>
-    [property: JsonPropertyName("compression")]
-        ContainerHttpLoggingConfigurationCompression2 Compression,
+        ContainerLoggingHttpFormat Format,
+    [property: JsonPropertyName("compression")] object Compression,
     /// <value>Optional username for HTTP authentication</value>
     [property: JsonPropertyName("user")]
         string? User = null,
