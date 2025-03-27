@@ -16,7 +16,9 @@ public record ContainerLoggingConfigurationHttp1(
     /// <value>Optional HTTP headers to include in log transmission requests</value>
     [property: JsonPropertyName("headers")]
         List<ContainerLoggingHttpHeader> Headers,
-    [property: JsonPropertyName("compression")] object Compression,
+    /// <value>The compression algorithm to apply to logs before transmission</value>
+    [property: JsonPropertyName("compression")]
+        ContainerLoggingHttpCompression Compression,
     /// <value>Optional username for HTTP authentication</value>
     [property: JsonPropertyName("user")]
         string? User = null,

@@ -13,7 +13,9 @@ public record ContainerLoggingConfigurationHttp2(
     /// <value>The format in which logs will be delivered</value>
     [property: JsonPropertyName("format")]
         ContainerLoggingHttpFormat Format,
-    [property: JsonPropertyName("compression")] object Compression,
+    /// <value>The compression algorithm to apply to logs before transmission</value>
+    [property: JsonPropertyName("compression")]
+        ContainerLoggingHttpCompression Compression,
     /// <value>Optional username for HTTP authentication</value>
     [property: JsonPropertyName("user")]
         string? User = null,

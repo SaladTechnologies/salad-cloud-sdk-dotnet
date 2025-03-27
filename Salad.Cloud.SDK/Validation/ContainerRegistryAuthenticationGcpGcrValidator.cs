@@ -14,7 +14,7 @@ public class ContainerRegistryAuthenticationGcpGcrValidator
             )
             .MinimumLength(1)
             .WithMessage("Minimum length for service_key is 1.")
-            .MaximumLength(1000)
+            .MaximumLength(10000)
             .WithMessage("Minimum length for service_key is 1.")
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for service_key must match ^.*$.")
