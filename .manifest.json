@@ -1,8 +1,8 @@
 {
-  "liblabVersion": "2.25.1",
-  "date": "2025-03-29T05:58:56.566Z",
+  "liblabVersion": "2.25.14",
+  "date": "2025-05-10T22:51:23.529Z",
   "config": {
-    "apiId": 1950,
+    "apiId": 2164,
     "sdkName": "salad-cloud-sdk",
     "sdkVersion": "0.9.0-alpha.12",
     "languages": ["csharp"],
@@ -370,6 +370,7 @@
         "generateEnumAs": "enum"
       }
     },
+    "mcpServer": false,
     "publishing": {
       "githubOrg": "SaladTechnologies"
     },
@@ -460,7 +461,7 @@
       }
     ],
     "apiName": "SaladCloud API",
-    "apiVersion": "0.9.0-alpha.12",
+    "apiVersion": "0.9.0-alpha.13",
     "authentication": {
       "apiKey": {
         "header": "Salad-Api-Key"
@@ -528,7 +529,8 @@
       "rawQueries": [],
       "queriesData": []
     },
-    "ai": false
+    "ai": false,
+    "specType": "openapi"
   },
   "files": [
     "Salad.Cloud.SDK/Salad.Cloud.SDK.csproj",
@@ -650,6 +652,7 @@
     "documentation/models/CreateContainerGroupNetworking.md",
     "documentation/models/ContainerConfigurationLogging.md",
     "documentation/models/ContainerRegistryAuthentication.md",
+    "documentation/models/CreateContainerResourceRequirements.md",
     "documentation/models/ContainerLoggingConfigurationHttp2.md",
     "documentation/models/ContainerRegistryAuthenticationAwsEcr.md",
     "documentation/models/ContainerRegistryAuthenticationBasic.md",
@@ -734,6 +737,7 @@
     "Salad.Cloud.SDK/Validation/ContainerNetworkingProtocolValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerConfigurationValidator.cs",
     "Salad.Cloud.SDK/Validation/CreateContainerGroupNetworkingValidator.cs",
+    "Salad.Cloud.SDK/Validation/CreateContainerResourceRequirementsValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerConfigurationLoggingValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerRegistryAuthenticationValidator.cs",
     "Salad.Cloud.SDK/Validation/ContainerLoggingConfigurationHttp2Validator.cs",
@@ -765,6 +769,7 @@
     "Salad.Cloud.SDK/Validation/ListValidator.cs",
     "Salad.Cloud.SDK/Validation/Extensions/ValidationExtensions.cs",
     "Salad.Cloud.SDK/Http/Extensions/UriExtensions.cs",
+    "Example/README.md",
     "Salad.Cloud.SDK/Services/WebhookSecretKeyService.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupCollection.cs",
     "Salad.Cloud.SDK/Models/ContainerGroupCreationRequest.cs",
@@ -827,6 +832,7 @@
     "Salad.Cloud.SDK/Models/CreateContainerGroupNetworking.cs",
     "Salad.Cloud.SDK/Models/ContainerConfigurationLogging.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthentication.cs",
+    "Salad.Cloud.SDK/Models/CreateContainerResourceRequirements.cs",
     "Salad.Cloud.SDK/Models/ContainerLoggingConfigurationHttp2.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthenticationAwsEcr.cs",
     "Salad.Cloud.SDK/Models/ContainerRegistryAuthenticationBasic.cs",

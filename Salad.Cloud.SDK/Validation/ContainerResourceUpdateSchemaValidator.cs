@@ -23,7 +23,7 @@ public class ContainerResourceUpdateSchemaValidator
         RuleFor(ContainerResourceUpdateSchema => ContainerResourceUpdateSchema.StorageAmount)
             .GreaterThanOrEqualTo(1073741824)
             .WithMessage("Minimum for storage_amount is 1073741824.")
-            .LessThanOrEqualTo(53687091200)
-            .WithMessage("Minimum for storage_amount is 53687091200.");
+            .LessThanOrEqualTo(268435456000)
+            .WithMessage("Minimum for storage_amount is 268435456000.");
     }
 }

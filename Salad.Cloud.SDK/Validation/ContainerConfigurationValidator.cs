@@ -19,12 +19,12 @@ public class ContainerConfigurationValidator : AbstractValidator<ContainerConfig
             .WithMessage("Field image is required.");
         RuleFor(ContainerConfiguration => ContainerConfiguration.Resources)
             .Custom(
-                (containerResourceRequirements, context) =>
+                (createContainerResourceRequirements, context) =>
                 {
-                    if (containerResourceRequirements != null)
+                    if (createContainerResourceRequirements != null)
                     {
-                        var validator = new ContainerResourceRequirementsValidator();
-                        var result = validator.Validate(containerResourceRequirements);
+                        var validator = new CreateContainerResourceRequirementsValidator();
+                        var result = validator.Validate(createContainerResourceRequirements);
                         if (!result.IsValid)
                         {
                             foreach (var failure in result.Errors)
