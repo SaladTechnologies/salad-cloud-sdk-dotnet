@@ -212,6 +212,11 @@ public class ContainerGroupValidator : AbstractValidator<ContainerGroup?>
                     }
                 }
             );
+        RuleFor(ContainerGroup => ContainerGroup.Readme)
+            .MinimumLength(2)
+            .WithMessage("Minimum length for readme is 2.")
+            .MaximumLength(65000)
+            .WithMessage("Minimum length for readme is 2.");
         RuleFor(ContainerGroup => ContainerGroup.StartupProbe)
             .Custom(
                 (containerGroupStartupProbe, context) =>

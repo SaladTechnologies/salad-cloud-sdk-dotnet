@@ -13,7 +13,10 @@ public record ContainerResourceUpdateSchema(
     /// <value>List of GPU class identifiers that the container can use, specified as UUIDs.</value>
     [property: JsonPropertyName("gpu_classes")]
         List<string>? GpuClasses = null,
-    /// <value>The amount of storage to allocate to the container in bytes (between 1GB and 50GB).</value>
+    /// <value>The amount of storage to allocate to the container in bytes (between 1GB and 250GB).</value>
     [property: JsonPropertyName("storage_amount")]
-        long? StorageAmount = null
+        long? StorageAmount = null,
+    /// <value>The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB.</value>
+    [property: JsonPropertyName("shm_size")]
+        long? ShmSize = null
 );

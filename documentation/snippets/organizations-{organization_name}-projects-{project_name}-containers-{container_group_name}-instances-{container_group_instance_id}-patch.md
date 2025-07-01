@@ -10,7 +10,7 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new ContainerGroupInstancePatch(67962);
+var input = new ContainerGroupInstancePatch(75683);
 
 var response = await client.ContainerGroups.UpdateContainerGroupInstanceAsync(input, "acme-corp", "dev-env", "mandlebrot", "db3a4591-efc3-46c0-b06a-3d820c0ec100");
 

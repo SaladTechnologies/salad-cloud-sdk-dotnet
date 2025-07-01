@@ -76,6 +76,11 @@ public record ContainerGroup(
     /// <value>Defines how to check if a container is ready to serve traffic. The readiness probe determines whether the container's application is ready to accept traffic. If the readiness probe fails, the container is considered not ready and traffic will not be sent to it.</value>
     [property: JsonPropertyName("readiness_probe")]
         ContainerGroupReadinessProbe? ReadinessProbe = null,
+    [property:
+        JsonPropertyName("readme"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        string? Readme = null,
     /// <value>Defines a probe that checks if a container application has started successfully. Startup probes help prevent applications from being prematurely marked as unhealthy during initialization. The probe can use HTTP requests, TCP connections, gRPC calls, or shell commands to determine startup status.</value>
     [property: JsonPropertyName("startup_probe")]
         ContainerGroupStartupProbe? StartupProbe = null

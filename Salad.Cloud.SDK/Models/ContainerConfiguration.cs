@@ -7,9 +7,9 @@ public record ContainerConfiguration(
     /// <value>The container image.</value>
     [property: JsonPropertyName("image")]
         string Image,
-    /// <value>Specifies the resource requirements for a container.</value>
+    /// <value>Specifies the resource requirements for creating a container.</value>
     [property: JsonPropertyName("resources")]
-        ContainerResourceRequirements Resources,
+        CreateContainerResourceRequirements Resources,
     /// <value>Pass a command (and optional arguments) to override the ENTRYPOINT and CMD of a container image. Each element in the array represents a command segment or argument.</value>
     [property: JsonPropertyName("command")]
         List<string>? Command = null,
