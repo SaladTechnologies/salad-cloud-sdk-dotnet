@@ -10,9 +10,9 @@ var config = new SaladCloudSdkConfig{
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "NEdv", "description");
+var input = new LogEntryQuery("end_time", "query", "start_time", 1, LogEntryQuerySortOrder.Desc);
 
-var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
+var response = await client.Logs.QueryLogEntriesAsync(input, "acme-corp");
 
 Console.WriteLine(response);
 

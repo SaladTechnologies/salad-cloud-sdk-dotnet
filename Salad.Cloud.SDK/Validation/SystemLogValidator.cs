@@ -40,8 +40,8 @@ public class SystemLogValidator : AbstractValidator<SystemLog?>
         RuleFor(SystemLog => SystemLog.ResourceStorageAmount)
             .GreaterThanOrEqualTo(1073741824)
             .WithMessage("Minimum for resource_storage_amount is 1073741824.")
-            .LessThanOrEqualTo(53687091200)
-            .WithMessage("Minimum for resource_storage_amount is 53687091200.")
+            .LessThanOrEqualTo(268435456000)
+            .WithMessage("Minimum for resource_storage_amount is 268435456000.")
             .NotNull()
             .WithMessage("Field resource_storage_amount is required.");
         RuleFor(SystemLog => SystemLog.Version).NotNull().WithMessage("Field version is required.");

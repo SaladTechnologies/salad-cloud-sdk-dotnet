@@ -19,5 +19,17 @@ public class GpuClassValidator : AbstractValidator<GpuClass?>
             .NotNull()
             .WithMessage("Field name is required.");
         RuleFor(GpuClass => GpuClass.Prices).NotNull().WithMessage("Field prices is required.");
+
+        RuleFor(GpuClass => GpuClass.MinVcpu)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for min_vcpu is 0.");
+
+        RuleFor(GpuClass => GpuClass.MinRam)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for min_ram is 0.");
+
+        RuleFor(GpuClass => GpuClass.MinStorage)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for min_storage is 0.");
     }
 }

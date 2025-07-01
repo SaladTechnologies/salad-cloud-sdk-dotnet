@@ -19,6 +19,7 @@ public class SaladCloudSdkClient : IDisposable
     public InferenceEndpointsService InferenceEndpoints { get; private set; }
     public OrganizationDataService OrganizationData { get; private set; }
     public WebhookSecretKeyService WebhookSecretKey { get; private set; }
+    public LogsService Logs { get; private set; }
 
     public SaladCloudSdkClient(SaladCloudSdkConfig? config = null)
     {
@@ -44,6 +45,7 @@ public class SaladCloudSdkClient : IDisposable
         InferenceEndpoints = new InferenceEndpointsService(_httpClient);
         OrganizationData = new OrganizationDataService(_httpClient);
         WebhookSecretKey = new WebhookSecretKeyService(_httpClient);
+        Logs = new LogsService(_httpClient);
     }
 
     /// <summary>
