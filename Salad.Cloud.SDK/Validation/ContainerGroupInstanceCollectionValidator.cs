@@ -11,6 +11,6 @@ public class ContainerGroupInstanceCollectionValidator
     {
         RuleFor(ContainerGroupInstanceCollection => ContainerGroupInstanceCollection.Instances)
             .NotNull()
-            .WithMessage("Field instances is required.");
+            .WithMessage("Field instances is required and cannot be null.");
     }
 }

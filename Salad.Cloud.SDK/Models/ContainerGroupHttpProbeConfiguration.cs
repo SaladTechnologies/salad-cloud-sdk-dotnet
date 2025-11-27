@@ -15,5 +15,5 @@ public record ContainerGroupHttpProbeConfiguration(
         long Port,
     /// <value>The protocol scheme used for HTTP probe requests in container health checks.</value>
     [property: JsonPropertyName("scheme")]
-        HttpScheme Scheme
+        HttpScheme? Scheme
 );

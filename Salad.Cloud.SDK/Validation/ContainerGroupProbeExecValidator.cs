@@ -10,6 +10,6 @@ public class ContainerGroupProbeExecValidator : AbstractValidator<ContainerGroup
     {
         RuleFor(ContainerGroupProbeExec => ContainerGroupProbeExec.Command)
             .NotNull()
-            .WithMessage("Field command is required.");
+            .WithMessage("Field command is required and cannot be null.");
     }
 }

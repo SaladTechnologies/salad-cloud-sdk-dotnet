@@ -10,6 +10,6 @@ public class QueueJobCollectionValidator : AbstractValidator<QueueJobCollection?
     {
         RuleFor(QueueJobCollection => QueueJobCollection.Items)
             .NotNull()
-            .WithMessage("Field items is required.");
+            .WithMessage("Field items is required and cannot be null.");
     }
 }

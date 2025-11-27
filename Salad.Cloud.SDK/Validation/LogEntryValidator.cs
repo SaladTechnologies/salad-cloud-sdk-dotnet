@@ -10,7 +10,7 @@ public class LogEntryValidator : AbstractValidator<LogEntry?>
     {
         RuleFor(LogEntry => LogEntry.ReceiveTime)
             .NotNull()
-            .WithMessage("Field receive_time is required.");
+            .WithMessage("Field receive_time is required and cannot be null.");
         RuleFor(LogEntry => LogEntry.Resource)
             .Custom(
                 (logEntryResource, context) =>
@@ -30,11 +30,13 @@ public class LogEntryValidator : AbstractValidator<LogEntry?>
                 }
             )
             .NotNull()
-            .WithMessage("Field resource is required.");
+            .WithMessage("Field resource is required and cannot be null.");
         RuleFor(LogEntry => LogEntry.Severity_)
             .NotNull()
-            .WithMessage("Field severity is required.");
-        RuleFor(LogEntry => LogEntry.Time).NotNull().WithMessage("Field time is required.");
+            .WithMessage("Field severity is required and cannot be null.");
+        RuleFor(LogEntry => LogEntry.Time)
+            .NotNull()
+            .WithMessage("Field time is required and cannot be null.");
 
         RuleFor(LogEntry => LogEntry.ParentSpanId)
             .MinimumLength(1)

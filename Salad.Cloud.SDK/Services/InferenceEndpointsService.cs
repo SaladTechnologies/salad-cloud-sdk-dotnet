@@ -74,13 +74,17 @@ public class InferenceEndpointsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<InferenceEndpointCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets an inference endpoint.</summary>
@@ -133,13 +137,17 @@ public class InferenceEndpointsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<InferenceEndpoint>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Lists inference endpoint jobs.</summary>
@@ -216,13 +224,17 @@ public class InferenceEndpointsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<InferenceEndpointJobCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Creates a new inference endpoint job.</summary>
@@ -258,6 +270,10 @@ public class InferenceEndpointsService : BaseService
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
         }
+        ;
+        var validator = new InferenceEndpointJobPrototypeValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -278,13 +294,17 @@ public class InferenceEndpointsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<InferenceEndpointJob>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets an inference endpoint job.</summary>
@@ -348,13 +368,17 @@ public class InferenceEndpointsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<InferenceEndpointJob>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Cancels an inference endpoint job.</summary>

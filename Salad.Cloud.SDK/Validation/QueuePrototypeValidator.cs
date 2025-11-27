@@ -16,7 +16,7 @@ public class QueuePrototypeValidator : AbstractValidator<QueuePrototype?>
             .Matches(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .WithMessage(@"Pattern for name must match ^[a-z][a-z0-9-]{0,61}[a-z0-9]$.")
             .NotNull()
-            .WithMessage("Field name is required.");
+            .WithMessage("Field name is required and cannot be null.");
         RuleFor(QueuePrototype => QueuePrototype.DisplayName)
             .MinimumLength(2)
             .WithMessage("Minimum length for display_name is 2.")

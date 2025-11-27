@@ -11,17 +11,17 @@ public class CreateContainerGroupNetworkingValidator
     {
         RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Auth)
             .NotNull()
-            .WithMessage("Field auth is required.");
+            .WithMessage("Field auth is required and cannot be null.");
         RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
         RuleFor(CreateContainerGroupNetworking => CreateContainerGroupNetworking.Protocol)
             .NotNull()
-            .WithMessage("Field protocol is required.");
+            .WithMessage("Field protocol is required and cannot be null.");
         RuleFor(CreateContainerGroupNetworking =>
                 CreateContainerGroupNetworking.ClientRequestTimeout
             )

@@ -4,6 +4,6 @@ Represents a list of system logs
 
 **Properties**
 
-| Name  | Type            | Required | Description           |
-| :---- | :-------------- | :------- | :-------------------- |
-| Items | List<SystemLog> | ✅       | A list of system logs |
+| Name  | Type                            | Required | Description           |
+| :---- | :------------------------------ | :------- | :-------------------- |
+| Items | List<[SystemLog](SystemLog.md)> | ✅       | A list of system logs |

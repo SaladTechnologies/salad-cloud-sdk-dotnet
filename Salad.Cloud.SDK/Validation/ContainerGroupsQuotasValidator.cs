@@ -14,14 +14,14 @@ public class ContainerGroupsQuotasValidator : AbstractValidator<ContainerGroupsQ
             .LessThanOrEqualTo(2147483647)
             .WithMessage("Minimum for container_replicas_quota is 2147483647.")
             .NotNull()
-            .WithMessage("Field container_replicas_quota is required.");
+            .WithMessage("Field container_replicas_quota is required and cannot be null.");
         RuleFor(ContainerGroupsQuotas => ContainerGroupsQuotas.ContainerReplicasUsed)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for container_replicas_used is 0.")
             .LessThanOrEqualTo(2147483647)
             .WithMessage("Minimum for container_replicas_used is 2147483647.")
             .NotNull()
-            .WithMessage("Field container_replicas_used is required.");
+            .WithMessage("Field container_replicas_used is required and cannot be null.");
         RuleFor(ContainerGroupsQuotas =>
                 ContainerGroupsQuotas.MaxContainerGroupReallocationsPerMinute
             )

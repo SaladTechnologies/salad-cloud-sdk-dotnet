@@ -35,11 +35,8 @@ Lists inference endpoints.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -71,11 +68,8 @@ Gets an inference endpoint.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -109,11 +103,8 @@ Lists inference endpoint jobs.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -147,11 +138,8 @@ Creates a new inference endpoint job.
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -186,11 +174,8 @@ Gets an inference endpoint job.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -219,11 +204,8 @@ Cancels an inference endpoint job.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 

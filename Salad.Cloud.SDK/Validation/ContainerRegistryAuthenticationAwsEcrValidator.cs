@@ -19,7 +19,7 @@ public class ContainerRegistryAuthenticationAwsEcrValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for access_key_id must match ^.*$.")
             .NotNull()
-            .WithMessage("Field access_key_id is required.");
+            .WithMessage("Field access_key_id is required and cannot be null.");
         RuleFor(ContainerRegistryAuthenticationAwsEcr =>
                 ContainerRegistryAuthenticationAwsEcr.SecretAccessKey
             )
@@ -30,6 +30,6 @@ public class ContainerRegistryAuthenticationAwsEcrValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for secret_access_key must match ^.*$.")
             .NotNull()
-            .WithMessage("Field secret_access_key is required.");
+            .WithMessage("Field secret_access_key is required and cannot be null.");
     }
 }

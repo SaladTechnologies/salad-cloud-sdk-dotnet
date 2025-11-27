@@ -16,7 +16,7 @@ public class ContainerLoggingHttpHeaderValidator : AbstractValidator<ContainerLo
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for name must match ^.*$.")
             .NotNull()
-            .WithMessage("Field name is required.");
+            .WithMessage("Field name is required and cannot be null.");
         RuleFor(ContainerLoggingHttpHeader => ContainerLoggingHttpHeader.Value)
             .MinimumLength(1)
             .WithMessage("Minimum length for value is 1.")
@@ -25,6 +25,6 @@ public class ContainerLoggingHttpHeaderValidator : AbstractValidator<ContainerLo
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for value must match ^.*$.")
             .NotNull()
-            .WithMessage("Field value is required.");
+            .WithMessage("Field value is required and cannot be null.");
     }
 }

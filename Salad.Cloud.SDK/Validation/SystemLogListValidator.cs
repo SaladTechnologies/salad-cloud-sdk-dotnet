@@ -10,6 +10,6 @@ public class SystemLogListValidator : AbstractValidator<SystemLogList?>
     {
         RuleFor(SystemLogList => SystemLogList.Items)
             .NotNull()
-            .WithMessage("Field items is required.");
+            .WithMessage("Field items is required and cannot be null.");
     }
 }

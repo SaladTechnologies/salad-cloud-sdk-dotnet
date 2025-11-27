@@ -16,7 +16,7 @@ public class ContainerConfigurationValidator : AbstractValidator<ContainerConfig
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for image must match ^.*$.")
             .NotNull()
-            .WithMessage("Field image is required.");
+            .WithMessage("Field image is required and cannot be null.");
         RuleFor(ContainerConfiguration => ContainerConfiguration.Resources)
             .Custom(
                 (createContainerResourceRequirements, context) =>
@@ -36,7 +36,7 @@ public class ContainerConfigurationValidator : AbstractValidator<ContainerConfig
                 }
             )
             .NotNull()
-            .WithMessage("Field resources is required.");
+            .WithMessage("Field resources is required and cannot be null.");
 
         RuleFor(ContainerConfiguration => ContainerConfiguration.Logging)
             .Custom(

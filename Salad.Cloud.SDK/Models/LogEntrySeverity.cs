@@ -10,8 +10,9 @@ public record LogEntrySeverity : ValueEnum<string>
         : base(value) { }
 
     public LogEntrySeverity()
-        : base("debug") { }
+        : base("default") { }
 
+    public static LogEntrySeverity Default_ = new("default");
     public static LogEntrySeverity Debug = new("debug");
     public static LogEntrySeverity Info = new("info");
     public static LogEntrySeverity Notice = new("notice");

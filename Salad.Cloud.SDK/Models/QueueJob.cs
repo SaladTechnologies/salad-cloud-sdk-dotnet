@@ -3,7 +3,6 @@ using Salad.Cloud.SDK.Json;
 
 namespace Salad.Cloud.SDK.Models;
 
-/// <summary>Represents a queue job</summary>
 public record QueueJob(
     /// <value>The job identifier</value>
     [property: JsonPropertyName("id")]

@@ -25,7 +25,13 @@ public record GpuClass(
         JsonPropertyName("gpu_class_type"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        GpuClassType? GpuClassType1 = null,
+        GpuClassType? GpuClassType = null,
+    /// <value>The number of GPUs in the cluster</value>
+    [property:
+        JsonPropertyName("gpu_count"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        long? GpuCount = null,
     /// <value>The minimum vCPU count</value>
     [property:
         JsonPropertyName("min_vcpu"),
@@ -38,25 +44,25 @@ public record GpuClass(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? MaxVcpu = null,
-    /// <value>The minimum RAM amount in GB</value>
+    /// <value>The minimum RAM amount in MB</value>
     [property:
         JsonPropertyName("min_ram"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? MinRam = null,
-    /// <value>The maximum RAM amount in GB</value>
+    /// <value>The maximum RAM amount in MB</value>
     [property:
         JsonPropertyName("max_ram"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? MaxRam = null,
-    /// <value>The minimum storage amount in GB</value>
+    /// <value>The minimum storage amount in bytes</value>
     [property:
         JsonPropertyName("min_storage"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? MinStorage = null,
-    /// <value>The maximum storage amount in GB</value>
+    /// <value>The maximum storage amount in bytes</value>
     [property:
         JsonPropertyName("max_storage"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)

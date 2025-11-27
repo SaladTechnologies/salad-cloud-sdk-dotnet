@@ -17,21 +17,21 @@ public class QueueBasedAutoscalerConfigurationValidator
             .LessThanOrEqualTo(100)
             .WithMessage("Minimum for desired_queue_length is 100.")
             .NotNull()
-            .WithMessage("Field desired_queue_length is required.");
+            .WithMessage("Field desired_queue_length is required and cannot be null.");
         RuleFor(QueueBasedAutoscalerConfiguration => QueueBasedAutoscalerConfiguration.MaxReplicas)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for max_replicas is 1.")
             .LessThanOrEqualTo(500)
             .WithMessage("Minimum for max_replicas is 500.")
             .NotNull()
-            .WithMessage("Field max_replicas is required.");
+            .WithMessage("Field max_replicas is required and cannot be null.");
         RuleFor(QueueBasedAutoscalerConfiguration => QueueBasedAutoscalerConfiguration.MinReplicas)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for min_replicas is 0.")
             .LessThanOrEqualTo(100)
             .WithMessage("Minimum for min_replicas is 100.")
             .NotNull()
-            .WithMessage("Field min_replicas is required.");
+            .WithMessage("Field min_replicas is required and cannot be null.");
         RuleFor(QueueBasedAutoscalerConfiguration =>
                 QueueBasedAutoscalerConfiguration.MaxDownscalePerMinute
             )

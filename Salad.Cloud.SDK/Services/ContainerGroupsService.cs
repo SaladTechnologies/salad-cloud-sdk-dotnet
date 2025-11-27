@@ -65,13 +65,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroupCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Creates a new container group</summary>
@@ -107,6 +111,10 @@ public class ContainerGroupsService : BaseService
         {
             validationResults.Add(projectNameValidationResult);
         }
+        ;
+        var validator = new ContainerGroupCreationRequestValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -127,13 +135,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroup>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets a container group</summary>
@@ -200,13 +212,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroup>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Updates a container group</summary>
@@ -255,6 +271,10 @@ public class ContainerGroupsService : BaseService
         {
             validationResults.Add(containerGroupNameValidationResult);
         }
+        ;
+        var validator = new ContainerGroupPatchValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -280,13 +300,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroup>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Deletes a container group</summary>
@@ -554,13 +578,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroupInstanceCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets a container group instance</summary>
@@ -641,13 +669,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroupInstance>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Updates a container group instance</summary>
@@ -709,6 +741,10 @@ public class ContainerGroupsService : BaseService
         {
             validationResults.Add(containerGroupInstanceIdValidationResult);
         }
+        ;
+        var validator = new ContainerGroupInstancePatchValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -735,13 +771,17 @@ public class ContainerGroupsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<ContainerGroupInstance>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Reallocates a container group instance to run on a different Salad Node</summary>

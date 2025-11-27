@@ -16,6 +16,6 @@ public class WebhookSecretKeyValidator : AbstractValidator<WebhookSecretKey?>
             .Matches(@"^[+/=0-9A-Za-z]{44,172}$")
             .WithMessage(@"Pattern for secret_key must match ^[+/=0-9A-Za-z]{44,172}$.")
             .NotNull()
-            .WithMessage("Field secret_key is required.");
+            .WithMessage("Field secret_key is required and cannot be null.");
     }
 }

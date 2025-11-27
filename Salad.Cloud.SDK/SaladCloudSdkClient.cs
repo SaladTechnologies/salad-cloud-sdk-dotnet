@@ -12,7 +12,6 @@ public class SaladCloudSdkClient : IDisposable
     private readonly TokenHandler _apiKeyHandler;
 
     public ContainerGroupsService ContainerGroups { get; private set; }
-    public WorkloadErrorsService WorkloadErrors { get; private set; }
     public SystemLogsService SystemLogs { get; private set; }
     public QueuesService Queues { get; private set; }
     public QuotasService Quotas { get; private set; }
@@ -38,7 +37,6 @@ public class SaladCloudSdkClient : IDisposable
         };
 
         ContainerGroups = new ContainerGroupsService(_httpClient);
-        WorkloadErrors = new WorkloadErrorsService(_httpClient);
         SystemLogs = new SystemLogsService(_httpClient);
         Queues = new QueuesService(_httpClient);
         Quotas = new QuotasService(_httpClient);
@@ -70,6 +68,24 @@ public class SaladCloudSdkClient : IDisposable
     public void SetBaseUrl(Uri uri)
     {
         _httpClient.BaseAddress = uri.EnsureTrailingSlash();
+    }
+
+    /// <summary>
+    /// Sets the timeout for the entire SDK.
+    /// </summary>
+    /// <param name="timeout">The timeout value. Must be a positive TimeSpan or Timeout.InfiniteTimeSpan.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the timeout is not valid.</exception>
+    public void SetTimeout(TimeSpan timeout)
+    {
+        if (timeout <= TimeSpan.Zero && timeout != Timeout.InfiniteTimeSpan)
+        {
+            throw new ArgumentOutOfRangeException(
+                nameof(timeout),
+                "Timeout must be a positive value or Timeout.InfiniteTimeSpan."
+            );
+        }
+
+        _httpClient.Timeout = timeout;
     }
 
     /// <summary>

@@ -88,7 +88,13 @@ public class RequestBuilder
     /// </summary>
     public RequestBuilder SetHeader(string key, object? value, bool explode = false)
     {
-        var serializedValue = Serializer.Serialize(key, value, SerializationStyle.Simple, explode);
+        var serializedValue = Serializer.Serialize(
+            key,
+            value,
+            SerializationStyle.Simple,
+            explode,
+            false
+        );
         if (!string.IsNullOrEmpty(serializedValue))
         {
             _headers.Add(key, serializedValue);

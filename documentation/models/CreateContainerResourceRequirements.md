@@ -4,10 +4,10 @@ Specifies the resource requirements for creating a container.
 
 **Properties**
 
-| Name          | Type         | Required | Description                                                                                                                          |
-| :------------ | :----------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| Cpu           | long         | ✅       | The number of CPU cores required by the container. Must be between 1 and 16.                                                         |
-| Memory        | long         | ✅       | The amount of memory (in MB) required by the container. Must be between 1024 MB and 61440 MB.                                        |
-| GpuClasses    | List<string> | ❌       | A list of GPU class UUIDs required by the container. Can be null if no GPU is required.                                              |
-| StorageAmount | long         | ❌       | The amount of storage (in bytes) required by the container. Must be between 1 GB (1073741824 bytes) and 250 GB (268435456000 bytes). |
-| ShmSize       | long         | ❌       | The size of the shared memory (/dev/shm) in MB. If not specified, defaults to 64MB.                                                  |
+| Name          | Type         | Required | Description                                                                                                                                            |
+| :------------ | :----------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cpu           | long         | ✅       | The number of CPU cores to allocate to the container (between 1 and 1024).                                                                             |
+| Memory        | long         | ✅       | The amount of memory to allocate to the container in megabytes (between 1024 and 1073741824).                                                          |
+| GpuClasses    | List<string> | ❌       | A list of GPU class UUIDs required by the container. Can be null if no GPU is required.                                                                |
+| StorageAmount | long         | ❌       | The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB).                                                                   |
+| ShmSize       | long         | ❌       | The amount of shared memory to allocate to the container via `/dev/shm` in megabytes (between 64 and 1073741824). If not specified, defaults to 64 MB. |

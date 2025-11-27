@@ -4,11 +4,7 @@ using Environment = Salad.Cloud.SDK.Http.Environment;
 
 var apiKeyConfig = new ApiKeyAuthConfig("YOUR_API_KEY");
 
-var config = new SaladCloudSdkConfig
-{
-    Environment = Environment.Default,
-    ApiKeyAuth = apiKeyConfig,
-};
+var config = new SaladCloudSdkConfig { ApiKeyAuth = apiKeyConfig };
 
 var client = new SaladCloudSdkClient(config);
 

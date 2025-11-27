@@ -16,13 +16,13 @@ public class TcpLoggingConfigurationValidator : AbstractValidator<TcpLoggingConf
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(TcpLoggingConfiguration => TcpLoggingConfiguration.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
     }
 }

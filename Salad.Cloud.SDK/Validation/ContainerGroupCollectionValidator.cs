@@ -10,6 +10,6 @@ public class ContainerGroupCollectionValidator : AbstractValidator<ContainerGrou
     {
         RuleFor(ContainerGroupCollection => ContainerGroupCollection.Items)
             .NotNull()
-            .WithMessage("Field items is required.");
+            .WithMessage("Field items is required and cannot be null.");
     }
 }

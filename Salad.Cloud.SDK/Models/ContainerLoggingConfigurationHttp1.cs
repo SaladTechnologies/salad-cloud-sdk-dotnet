@@ -15,7 +15,7 @@ public record ContainerLoggingConfigurationHttp1(
         ContainerLoggingHttpFormat Format,
     /// <value>Optional HTTP headers to include in log transmission requests</value>
     [property: JsonPropertyName("headers")]
-        List<ContainerLoggingHttpHeader> Headers,
+        List<ContainerLoggingHttpHeader>? Headers,
     /// <value>The compression algorithm to apply to logs before transmission</value>
     [property: JsonPropertyName("compression")]
         ContainerLoggingHttpCompression Compression,

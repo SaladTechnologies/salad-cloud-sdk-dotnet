@@ -27,6 +27,6 @@ public class QuotasValidator : AbstractValidator<Quotas?>
                 }
             )
             .NotNull()
-            .WithMessage("Field container_groups_quotas is required.");
+            .WithMessage("Field container_groups_quotas is required and cannot be null.");
     }
 }

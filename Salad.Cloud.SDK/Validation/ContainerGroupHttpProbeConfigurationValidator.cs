@@ -13,7 +13,7 @@ public class ContainerGroupHttpProbeConfigurationValidator
                 ContainerGroupHttpProbeConfiguration.Headers
             )
             .NotNull()
-            .WithMessage("Field headers is required.");
+            .WithMessage("Field headers is required and cannot be null.");
         RuleFor(ContainerGroupHttpProbeConfiguration => ContainerGroupHttpProbeConfiguration.Path)
             .MinimumLength(1)
             .WithMessage("Minimum length for path is 1.")
@@ -22,16 +22,13 @@ public class ContainerGroupHttpProbeConfigurationValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for path must match ^.*$.")
             .NotNull()
-            .WithMessage("Field path is required.");
+            .WithMessage("Field path is required and cannot be null.");
         RuleFor(ContainerGroupHttpProbeConfiguration => ContainerGroupHttpProbeConfiguration.Port)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for port is 0.")
             .LessThanOrEqualTo(65536)
             .WithMessage("Minimum for port is 65536.")
             .NotNull()
-            .WithMessage("Field port is required.");
-        RuleFor(ContainerGroupHttpProbeConfiguration => ContainerGroupHttpProbeConfiguration.Scheme)
-            .NotNull()
-            .WithMessage("Field scheme is required.");
+            .WithMessage("Field port is required and cannot be null.");
     }
 }

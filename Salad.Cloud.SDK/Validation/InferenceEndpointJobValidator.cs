@@ -10,7 +10,7 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
     {
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Id)
             .NotNull()
-            .WithMessage("Field id is required.");
+            .WithMessage("Field id is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.InferenceEndpointName)
             .MinimumLength(2)
             .WithMessage("Minimum length for inference_endpoint_name is 2.")
@@ -21,7 +21,7 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
                 @"Pattern for inference_endpoint_name must match ^[a-z][a-z0-9-]{0,61}[a-z0-9]$."
             )
             .NotNull()
-            .WithMessage("Field inference_endpoint_name is required.");
+            .WithMessage("Field inference_endpoint_name is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.OrganizationName)
             .MinimumLength(2)
             .WithMessage("Minimum length for organization_name is 2.")
@@ -32,22 +32,22 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
                 @"Pattern for organization_name must match ^[a-z][a-z0-9-]{0,61}[a-z0-9]$."
             )
             .NotNull()
-            .WithMessage("Field organization_name is required.");
+            .WithMessage("Field organization_name is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Input_)
             .NotNull()
-            .WithMessage("Field input is required.");
+            .WithMessage("Field input is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Status)
             .NotNull()
-            .WithMessage("Field status is required.");
+            .WithMessage("Field status is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Events)
             .NotNull()
-            .WithMessage("Field events is required.");
+            .WithMessage("Field events is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.CreateTime)
             .NotNull()
-            .WithMessage("Field create_time is required.");
+            .WithMessage("Field create_time is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.UpdateTime)
             .NotNull()
-            .WithMessage("Field update_time is required.");
+            .WithMessage("Field update_time is required and cannot be null.");
 
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Webhook)
             .MinimumLength(1)

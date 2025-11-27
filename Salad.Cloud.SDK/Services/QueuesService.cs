@@ -65,13 +65,17 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<QueueCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Creates a new queue in the given project.</summary>
@@ -107,6 +111,10 @@ public class QueuesService : BaseService
         {
             validationResults.Add(projectNameValidationResult);
         }
+        ;
+        var validator = new QueuePrototypeValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -127,10 +135,14 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<Queue>(_jsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets an existing queue in the given project.</summary>
@@ -197,10 +209,14 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<Queue>(_jsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Updates an existing queue in the given project.</summary>
@@ -249,6 +265,10 @@ public class QueuesService : BaseService
         {
             validationResults.Add(queueNameValidationResult);
         }
+        ;
+        var validator = new QueuePatchValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -274,10 +294,14 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<Queue>(_jsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Deletes an existing queue in the given project.</summary>
@@ -435,13 +459,17 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<QueueJobCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Creates a new job</summary>
@@ -490,6 +518,10 @@ public class QueuesService : BaseService
         {
             validationResults.Add(queueNameValidationResult);
         }
+        ;
+        var validator = new QueueJobPrototypeValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -511,10 +543,14 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<QueueJob>(_jsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Gets a job in a queue</summary>
@@ -593,10 +629,14 @@ public class QueuesService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<QueueJob>(_jsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 
     /// <summary>Cancels a job in a queue</summary>

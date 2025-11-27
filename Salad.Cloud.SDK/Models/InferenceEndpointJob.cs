@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Models;
 
-/// <summary>Represents a inference endpoint job</summary>
 public record InferenceEndpointJob(
     /// <value>The inference endpoint job identifier.</value>
     [property: JsonPropertyName("id")]

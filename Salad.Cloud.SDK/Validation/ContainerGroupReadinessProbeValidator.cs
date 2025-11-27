@@ -15,35 +15,35 @@ public class ContainerGroupReadinessProbeValidator
             .LessThanOrEqualTo(20)
             .WithMessage("Minimum for failure_threshold is 20.")
             .NotNull()
-            .WithMessage("Field failure_threshold is required.");
+            .WithMessage("Field failure_threshold is required and cannot be null.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.InitialDelaySeconds)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for initial_delay_seconds is 0.")
             .LessThanOrEqualTo(1200)
             .WithMessage("Minimum for initial_delay_seconds is 1200.")
             .NotNull()
-            .WithMessage("Field initial_delay_seconds is required.");
+            .WithMessage("Field initial_delay_seconds is required and cannot be null.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.PeriodSeconds)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for period_seconds is 1.")
             .LessThanOrEqualTo(120)
             .WithMessage("Minimum for period_seconds is 120.")
             .NotNull()
-            .WithMessage("Field period_seconds is required.");
+            .WithMessage("Field period_seconds is required and cannot be null.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.SuccessThreshold)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for success_threshold is 1.")
             .LessThanOrEqualTo(10)
             .WithMessage("Minimum for success_threshold is 10.")
             .NotNull()
-            .WithMessage("Field success_threshold is required.");
+            .WithMessage("Field success_threshold is required and cannot be null.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.TimeoutSeconds)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for timeout_seconds is 1.")
             .LessThanOrEqualTo(60)
             .WithMessage("Minimum for timeout_seconds is 60.")
             .NotNull()
-            .WithMessage("Field timeout_seconds is required.");
+            .WithMessage("Field timeout_seconds is required and cannot be null.");
         RuleFor(ContainerGroupReadinessProbe => ContainerGroupReadinessProbe.Exec)
             .Custom(
                 (containerGroupProbeExec, context) =>

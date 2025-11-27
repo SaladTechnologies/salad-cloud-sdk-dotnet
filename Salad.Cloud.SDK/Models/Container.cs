@@ -6,7 +6,7 @@ namespace Salad.Cloud.SDK.Models;
 public record Container(
     /// <value>List of commands to run inside the container. Each command is a string representing a command-line instruction.</value>
     [property: JsonPropertyName("command")]
-        List<string> Command,
+        List<string>? Command,
     /// <value>The container image.</value>
     [property: JsonPropertyName("image")]
         string Image,

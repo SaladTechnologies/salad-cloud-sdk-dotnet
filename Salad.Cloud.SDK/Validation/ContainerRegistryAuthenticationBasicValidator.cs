@@ -19,7 +19,7 @@ public class ContainerRegistryAuthenticationBasicValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for username must match ^.*$.")
             .NotNull()
-            .WithMessage("Field username is required.");
+            .WithMessage("Field username is required and cannot be null.");
         RuleFor(ContainerRegistryAuthenticationBasic =>
                 ContainerRegistryAuthenticationBasic.Password
             )
@@ -30,6 +30,6 @@ public class ContainerRegistryAuthenticationBasicValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for password must match ^.*$.")
             .NotNull()
-            .WithMessage("Field password is required.");
+            .WithMessage("Field password is required and cannot be null.");
     }
 }

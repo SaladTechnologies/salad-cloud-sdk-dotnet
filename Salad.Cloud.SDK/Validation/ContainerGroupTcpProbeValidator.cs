@@ -14,6 +14,6 @@ public class ContainerGroupTcpProbeValidator : AbstractValidator<ContainerGroupT
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
     }
 }

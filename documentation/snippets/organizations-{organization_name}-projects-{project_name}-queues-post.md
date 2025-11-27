@@ -2,15 +2,12 @@
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "NEdv", "description");
+var input = new QueuePrototype("name", "AV3ysQq", "description");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 

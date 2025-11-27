@@ -16,7 +16,7 @@ public class AxiomLoggingConfigurationValidator : AbstractValidator<AxiomLogging
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(AxiomLoggingConfiguration => AxiomLoggingConfiguration.ApiToken)
             .MinimumLength(1)
             .WithMessage("Minimum length for api_token is 1.")
@@ -25,7 +25,7 @@ public class AxiomLoggingConfigurationValidator : AbstractValidator<AxiomLogging
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for api_token must match ^.*$.")
             .NotNull()
-            .WithMessage("Field api_token is required.");
+            .WithMessage("Field api_token is required and cannot be null.");
         RuleFor(AxiomLoggingConfiguration => AxiomLoggingConfiguration.Dataset)
             .MinimumLength(1)
             .WithMessage("Minimum length for dataset is 1.")
@@ -34,6 +34,6 @@ public class AxiomLoggingConfigurationValidator : AbstractValidator<AxiomLogging
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for dataset must match ^.*$.")
             .NotNull()
-            .WithMessage("Field dataset is required.");
+            .WithMessage("Field dataset is required and cannot be null.");
     }
 }

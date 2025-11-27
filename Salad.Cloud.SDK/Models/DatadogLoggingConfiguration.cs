@@ -12,5 +12,5 @@ public record DatadogLoggingConfiguration(
         string ApiKey,
     /// <value>Optional metadata tags to attach to logs for filtering and categorization in Datadog.</value>
     [property: JsonPropertyName("tags")]
-        List<DatadogTagForContainerLogging> Tags
+        List<DatadogTagForContainerLogging>? Tags
 );

@@ -11,7 +11,7 @@ public class ContainerGroupCreationRequestValidator
     {
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.AutostartPolicy)
             .NotNull()
-            .WithMessage("Field autostart_policy is required.");
+            .WithMessage("Field autostart_policy is required and cannot be null.");
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.Container)
             .Custom(
                 (containerConfiguration, context) =>
@@ -31,7 +31,7 @@ public class ContainerGroupCreationRequestValidator
                 }
             )
             .NotNull()
-            .WithMessage("Field container is required.");
+            .WithMessage("Field container is required and cannot be null.");
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.Name)
             .MinimumLength(2)
             .WithMessage("Minimum length for name is 2.")
@@ -40,17 +40,17 @@ public class ContainerGroupCreationRequestValidator
             .Matches(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
             .WithMessage(@"Pattern for name must match ^[a-z][a-z0-9-]{0,61}[a-z0-9]$.")
             .NotNull()
-            .WithMessage("Field name is required.");
+            .WithMessage("Field name is required and cannot be null.");
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.Replicas)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for replicas is 0.")
             .LessThanOrEqualTo(500)
             .WithMessage("Minimum for replicas is 500.")
             .NotNull()
-            .WithMessage("Field replicas is required.");
+            .WithMessage("Field replicas is required and cannot be null.");
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.RestartPolicy)
             .NotNull()
-            .WithMessage("Field restart_policy is required.");
+            .WithMessage("Field restart_policy is required and cannot be null.");
 
         RuleFor(ContainerGroupCreationRequest => ContainerGroupCreationRequest.DisplayName)
             .MinimumLength(2)

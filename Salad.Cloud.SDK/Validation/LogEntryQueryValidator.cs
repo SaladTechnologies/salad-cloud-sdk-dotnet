@@ -10,15 +10,15 @@ public class LogEntryQueryValidator : AbstractValidator<LogEntryQuery?>
     {
         RuleFor(LogEntryQuery => LogEntryQuery.EndTime)
             .NotNull()
-            .WithMessage("Field end_time is required.");
+            .WithMessage("Field end_time is required and cannot be null.");
         RuleFor(LogEntryQuery => LogEntryQuery.Query)
             .MaximumLength(20000)
             .WithMessage("Minimum length for query is 0.")
             .NotNull()
-            .WithMessage("Field query is required.");
+            .WithMessage("Field query is required and cannot be null.");
         RuleFor(LogEntryQuery => LogEntryQuery.StartTime)
             .NotNull()
-            .WithMessage("Field start_time is required.");
+            .WithMessage("Field start_time is required and cannot be null.");
         RuleFor(LogEntryQuery => LogEntryQuery.PageSize)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for page_size is 1.")

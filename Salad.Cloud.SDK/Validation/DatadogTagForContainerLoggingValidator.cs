@@ -17,7 +17,7 @@ public class DatadogTagForContainerLoggingValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for name must match ^.*$.")
             .NotNull()
-            .WithMessage("Field name is required.");
+            .WithMessage("Field name is required and cannot be null.");
         RuleFor(DatadogTagForContainerLogging => DatadogTagForContainerLogging.Value)
             .MinimumLength(1)
             .WithMessage("Minimum length for value is 1.")
@@ -26,6 +26,6 @@ public class DatadogTagForContainerLoggingValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for value must match ^.*$.")
             .NotNull()
-            .WithMessage("Field value is required.");
+            .WithMessage("Field value is required and cannot be null.");
     }
 }

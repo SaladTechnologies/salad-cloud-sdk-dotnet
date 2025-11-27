@@ -17,6 +17,6 @@ public class ContainerRegistryAuthenticationGcpGarValidator
             .MaximumLength(10000)
             .WithMessage("Minimum length for service_key is 1.")
             .NotNull()
-            .WithMessage("Field service_key is required.");
+            .WithMessage("Field service_key is required and cannot be null.");
     }
 }

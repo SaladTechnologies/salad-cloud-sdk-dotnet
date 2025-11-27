@@ -11,7 +11,7 @@ public class InferenceEndpointJobPrototypeValidator
     {
         RuleFor(InferenceEndpointJobPrototype => InferenceEndpointJobPrototype.Input_)
             .NotNull()
-            .WithMessage("Field input is required.");
+            .WithMessage("Field input is required and cannot be null.");
 
         RuleFor(InferenceEndpointJobPrototype => InferenceEndpointJobPrototype.Webhook)
             .MinimumLength(1)

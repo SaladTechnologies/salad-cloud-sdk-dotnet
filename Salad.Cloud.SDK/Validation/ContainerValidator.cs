@@ -1,4 +1,4 @@
-﻿namespace Salad.Cloud.SDK.Validation;
+namespace Salad.Cloud.SDK.Validation;
 
 using FluentValidation;
 using FluentValidation.Results;
@@ -8,7 +8,6 @@ public class ContainerValidator : AbstractValidator<Container?>
 {
     public ContainerValidator()
     {
-        RuleFor(Container => Container.Command).NotNull().WithMessage("Field command is required.");
         RuleFor(Container => Container.Image)
             .MinimumLength(1)
             .WithMessage("Minimum length for image is 1.")
@@ -17,7 +16,7 @@ public class ContainerValidator : AbstractValidator<Container?>
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for image must match ^.*$.")
             .NotNull()
-            .WithMessage("Field image is required.");
+            .WithMessage("Field image is required and cannot be null.");
         RuleFor(Container => Container.Resources)
             .Custom(
                 (containerResourceRequirements, context) =>
@@ -37,7 +36,7 @@ public class ContainerValidator : AbstractValidator<Container?>
                 }
             )
             .NotNull()
-            .WithMessage("Field resources is required.");
+            .WithMessage("Field resources is required and cannot be null.");
 
         RuleFor(Container => Container.Hash)
             .MinimumLength(47)

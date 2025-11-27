@@ -10,7 +10,7 @@ public class QueueJobPrototypeValidator : AbstractValidator<QueueJobPrototype?>
     {
         RuleFor(QueueJobPrototype => QueueJobPrototype.Input_)
             .NotNull()
-            .WithMessage("Field input is required.");
+            .WithMessage("Field input is required and cannot be null.");
 
         RuleFor(QueueJobPrototype => QueueJobPrototype.Webhook)
             .MinimumLength(1)

@@ -10,7 +10,7 @@ public class ContainerGroupStateValidator : AbstractValidator<ContainerGroupStat
     {
         RuleFor(ContainerGroupState => ContainerGroupState.FinishTime)
             .NotNull()
-            .WithMessage("Field finish_time is required.");
+            .WithMessage("Field finish_time is required and cannot be null.");
         RuleFor(ContainerGroupState => ContainerGroupState.InstanceStatusCounts)
             .Custom(
                 (containerGroupInstanceStatusCount, context) =>
@@ -30,13 +30,13 @@ public class ContainerGroupStateValidator : AbstractValidator<ContainerGroupStat
                 }
             )
             .NotNull()
-            .WithMessage("Field instance_status_counts is required.");
+            .WithMessage("Field instance_status_counts is required and cannot be null.");
         RuleFor(ContainerGroupState => ContainerGroupState.StartTime)
             .NotNull()
-            .WithMessage("Field start_time is required.");
+            .WithMessage("Field start_time is required and cannot be null.");
         RuleFor(ContainerGroupState => ContainerGroupState.Status)
             .NotNull()
-            .WithMessage("Field status is required.");
+            .WithMessage("Field status is required and cannot be null.");
         RuleFor(ContainerGroupState => ContainerGroupState.Description)
             .MaximumLength(1000)
             .WithMessage("Minimum length for description is 0.")

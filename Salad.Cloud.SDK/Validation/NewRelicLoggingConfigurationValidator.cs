@@ -17,7 +17,7 @@ public class NewRelicLoggingConfigurationValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(NewRelicLoggingConfiguration => NewRelicLoggingConfiguration.IngestionKey)
             .MinimumLength(1)
             .WithMessage("Minimum length for ingestion_key is 1.")
@@ -26,6 +26,6 @@ public class NewRelicLoggingConfigurationValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for ingestion_key must match ^.*$.")
             .NotNull()
-            .WithMessage("Field ingestion_key is required.");
+            .WithMessage("Field ingestion_key is required and cannot be null.");
     }
 }

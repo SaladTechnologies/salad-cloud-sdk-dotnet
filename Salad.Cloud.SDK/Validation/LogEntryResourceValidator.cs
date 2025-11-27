@@ -10,13 +10,13 @@ public class LogEntryResourceValidator : AbstractValidator<LogEntryResource?>
     {
         RuleFor(LogEntryResource => LogEntryResource.Labels)
             .NotNull()
-            .WithMessage("Field labels is required.");
+            .WithMessage("Field labels is required and cannot be null.");
         RuleFor(LogEntryResource => LogEntryResource.Type_)
             .MinimumLength(1)
             .WithMessage("Minimum length for type is 1.")
             .MaximumLength(1000)
             .WithMessage("Minimum length for type is 1.")
             .NotNull()
-            .WithMessage("Field type is required.");
+            .WithMessage("Field type is required and cannot be null.");
     }
 }

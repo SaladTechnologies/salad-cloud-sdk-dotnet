@@ -4,10 +4,10 @@ Represents the operational state of a container group during its lifecycle, incl
 
 **Properties**
 
-| Name                 | Type                              | Required | Description                                                                              |
-| :------------------- | :-------------------------------- | :------- | :--------------------------------------------------------------------------------------- |
-| FinishTime           | string                            | ✅       | Timestamp when the container group execution finished or is expected to finish           |
-| InstanceStatusCounts | ContainerGroupInstanceStatusCount | ✅       | A summary of container group instances categorized by their current lifecycle status     |
-| StartTime            | string                            | ✅       | Timestamp when the container group execution started                                     |
-| Status               | ContainerGroupStatus              | ✅       | Represents the current operational state of a container group within the Salad platform. |
-| Description          | string                            | ❌       | Optional textual description or notes about the current state of the container group     |
+| Name                 | Type                                                                      | Required | Description                                                                              |
+| :------------------- | :------------------------------------------------------------------------ | :------- | :--------------------------------------------------------------------------------------- |
+| FinishTime           | string                                                                    | ✅       | Timestamp when the container group execution finished or is expected to finish           |
+| InstanceStatusCounts | [ContainerGroupInstanceStatusCount](ContainerGroupInstanceStatusCount.md) | ✅       | A summary of container group instances categorized by their current lifecycle status     |
+| StartTime            | string                                                                    | ✅       | Timestamp when the container group execution started                                     |
+| Status               | [ContainerGroupStatus](ContainerGroupStatus.md)                           | ✅       | Represents the current operational state of a container group within the Salad platform. |
+| Description          | string                                                                    | ❌       | Optional textual description or notes about the current state of the container group     |

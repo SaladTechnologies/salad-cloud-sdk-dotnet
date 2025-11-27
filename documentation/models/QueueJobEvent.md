@@ -4,10 +4,10 @@ Represents an event for queue job
 
 **Properties**
 
-| Name    | Type   | Required | Description                                    |
-| :------ | :----- | :------- | :--------------------------------------------- |
-| Action1 | Action | ✅       | The action that was taken on the queue job     |
-| Time    | string | ✅       | The time the action was taken on the queue job |
+| Name   | Type   | Required | Description                                    |
+| :----- | :----- | :------- | :--------------------------------------------- |
+| Action | Action | ✅       | The action that was taken on the queue job     |
+| Time   | string | ✅       | The time the action was taken on the queue job |
 
 # Action
 

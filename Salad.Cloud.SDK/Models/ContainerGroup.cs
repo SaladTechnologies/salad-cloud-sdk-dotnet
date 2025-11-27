@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Models;
 
-/// <summary>A container group definition that represents a scalable set of identical containers running as a distributed service</summary>
 public record ContainerGroup(
     /// <value>Defines whether containers in this group should automatically start when deployed (true) or require manual starting (false)</value>
     [property: JsonPropertyName("autostart_policy")]
@@ -36,7 +35,7 @@ public record ContainerGroup(
         bool PendingChange,
     /// <value>Specifies the priority level for container group execution, which determines resource allocation and scheduling precedence.</value>
     [property: JsonPropertyName("priority")]
-        ContainerGroupPriority Priority,
+        ContainerGroupPriority? Priority,
     /// <value>The project name.</value>
     [property: JsonPropertyName("project_name")]
         string ProjectName,

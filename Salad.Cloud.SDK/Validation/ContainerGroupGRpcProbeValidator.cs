@@ -14,13 +14,13 @@ public class ContainerGroupGRpcProbeValidator : AbstractValidator<ContainerGroup
             .LessThanOrEqualTo(65536)
             .WithMessage("Minimum for port is 65536.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
         RuleFor(ContainerGroupGRpcProbe => ContainerGroupGRpcProbe.Service)
             .MaximumLength(1024)
             .WithMessage("Minimum length for service is 0.")
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for service must match ^.*$.")
             .NotNull()
-            .WithMessage("Field service is required.");
+            .WithMessage("Field service is required and cannot be null.");
     }
 }

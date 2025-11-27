@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Models;
 
-/// <summary>Represents a queue.</summary>
 public record Queue(
     /// <value>The queue identifier. This is automatically generated and assigned when the queue is created.</value>
     [property: JsonPropertyName("id")]
@@ -27,5 +26,11 @@ public record Queue(
         JsonPropertyName("description"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        string? Description = null
+        string? Description = null,
+    /// <value>The current length of the queue</value>
+    [property:
+        JsonPropertyName("current_queue_length"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        long? CurrentQueueLength = null
 );

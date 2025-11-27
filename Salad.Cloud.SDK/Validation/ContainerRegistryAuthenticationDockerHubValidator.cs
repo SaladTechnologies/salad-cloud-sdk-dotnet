@@ -19,7 +19,7 @@ public class ContainerRegistryAuthenticationDockerHubValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for username must match ^.*$.")
             .NotNull()
-            .WithMessage("Field username is required.");
+            .WithMessage("Field username is required and cannot be null.");
         RuleFor(ContainerRegistryAuthenticationDockerHub =>
                 ContainerRegistryAuthenticationDockerHub.PersonalAccessToken
             )
@@ -30,6 +30,6 @@ public class ContainerRegistryAuthenticationDockerHubValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for personal_access_token must match ^.*$.")
             .NotNull()
-            .WithMessage("Field personal_access_token is required.");
+            .WithMessage("Field personal_access_token is required and cannot be null.");
     }
 }

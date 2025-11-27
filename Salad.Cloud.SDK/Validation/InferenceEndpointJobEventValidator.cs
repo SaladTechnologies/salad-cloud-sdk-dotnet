@@ -10,9 +10,9 @@ public class InferenceEndpointJobEventValidator : AbstractValidator<InferenceEnd
     {
         RuleFor(InferenceEndpointJobEvent => InferenceEndpointJobEvent.Action)
             .NotNull()
-            .WithMessage("Field action is required.");
+            .WithMessage("Field action is required and cannot be null.");
         RuleFor(InferenceEndpointJobEvent => InferenceEndpointJobEvent.Time)
             .NotNull()
-            .WithMessage("Field time is required.");
+            .WithMessage("Field time is required and cannot be null.");
     }
 }

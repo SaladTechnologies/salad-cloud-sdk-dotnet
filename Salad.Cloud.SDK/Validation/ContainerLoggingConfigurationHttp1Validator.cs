@@ -17,25 +17,23 @@ public class ContainerLoggingConfigurationHttp1Validator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
         RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Format)
             .NotNull()
-            .WithMessage("Field format is required.");
-        RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.Headers)
-            .NotNull()
-            .WithMessage("Field headers is required.");
+            .WithMessage("Field format is required and cannot be null.");
+
         RuleFor(ContainerLoggingConfigurationHttp1 =>
                 ContainerLoggingConfigurationHttp1.Compression
             )
             .NotNull()
-            .WithMessage("Field compression is required.");
+            .WithMessage("Field compression is required and cannot be null.");
         RuleFor(ContainerLoggingConfigurationHttp1 => ContainerLoggingConfigurationHttp1.User)
             .MinimumLength(1)
             .WithMessage("Minimum length for user is 1.")

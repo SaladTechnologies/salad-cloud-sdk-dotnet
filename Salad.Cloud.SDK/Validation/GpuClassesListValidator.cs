@@ -10,6 +10,6 @@ public class GpuClassesListValidator : AbstractValidator<GpuClassesList?>
     {
         RuleFor(GpuClassesList => GpuClassesList.Items)
             .NotNull()
-            .WithMessage("Field items is required.");
+            .WithMessage("Field items is required and cannot be null.");
     }
 }

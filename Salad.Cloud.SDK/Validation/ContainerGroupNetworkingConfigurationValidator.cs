@@ -11,7 +11,7 @@ public class ContainerGroupNetworkingConfigurationValidator
     {
         RuleFor(ContainerGroupNetworkingConfiguration => ContainerGroupNetworkingConfiguration.Auth)
             .NotNull()
-            .WithMessage("Field auth is required.");
+            .WithMessage("Field auth is required and cannot be null.");
         RuleFor(ContainerGroupNetworkingConfiguration => ContainerGroupNetworkingConfiguration.Dns)
             .MinimumLength(1)
             .WithMessage("Minimum length for dns is 1.")
@@ -22,24 +22,24 @@ public class ContainerGroupNetworkingConfigurationValidator
                 @"Pattern for dns must match ^([a-z][a-z0-9-]{0,61}[a-z0-9]\.)*[a-z][a-z0-9-]{0,61}[a-z0-9]$."
             )
             .NotNull()
-            .WithMessage("Field dns is required.");
+            .WithMessage("Field dns is required and cannot be null.");
         RuleFor(ContainerGroupNetworkingConfiguration =>
                 ContainerGroupNetworkingConfiguration.LoadBalancer
             )
             .NotNull()
-            .WithMessage("Field load_balancer is required.");
+            .WithMessage("Field load_balancer is required and cannot be null.");
         RuleFor(ContainerGroupNetworkingConfiguration => ContainerGroupNetworkingConfiguration.Port)
             .GreaterThanOrEqualTo(1)
             .WithMessage("Minimum for port is 1.")
             .LessThanOrEqualTo(65535)
             .WithMessage("Minimum for port is 65535.")
             .NotNull()
-            .WithMessage("Field port is required.");
+            .WithMessage("Field port is required and cannot be null.");
         RuleFor(ContainerGroupNetworkingConfiguration =>
                 ContainerGroupNetworkingConfiguration.Protocol
             )
             .NotNull()
-            .WithMessage("Field protocol is required.");
+            .WithMessage("Field protocol is required and cannot be null.");
         RuleFor(ContainerGroupNetworkingConfiguration =>
                 ContainerGroupNetworkingConfiguration.ClientRequestTimeout
             )

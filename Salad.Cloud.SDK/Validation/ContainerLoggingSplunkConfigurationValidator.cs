@@ -17,7 +17,7 @@ public class ContainerLoggingSplunkConfigurationValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(ContainerLoggingSplunkConfiguration => ContainerLoggingSplunkConfiguration.Token)
             .MinimumLength(1)
             .WithMessage("Minimum length for token is 1.")
@@ -26,6 +26,6 @@ public class ContainerLoggingSplunkConfigurationValidator
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for token must match ^.*$.")
             .NotNull()
-            .WithMessage("Field token is required.");
+            .WithMessage("Field token is required and cannot be null.");
     }
 }

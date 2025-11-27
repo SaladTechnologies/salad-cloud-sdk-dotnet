@@ -16,7 +16,7 @@ public class DatadogLoggingConfigurationValidator : AbstractValidator<DatadogLog
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for host must match ^.*$.")
             .NotNull()
-            .WithMessage("Field host is required.");
+            .WithMessage("Field host is required and cannot be null.");
         RuleFor(DatadogLoggingConfiguration => DatadogLoggingConfiguration.ApiKey)
             .MinimumLength(1)
             .WithMessage("Minimum length for api_key is 1.")
@@ -25,9 +25,6 @@ public class DatadogLoggingConfigurationValidator : AbstractValidator<DatadogLog
             .Matches(@"^.*$")
             .WithMessage(@"Pattern for api_key must match ^.*$.")
             .NotNull()
-            .WithMessage("Field api_key is required.");
-        RuleFor(DatadogLoggingConfiguration => DatadogLoggingConfiguration.Tags)
-            .NotNull()
-            .WithMessage("Field tags is required.");
+            .WithMessage("Field api_key is required and cannot be null.");
     }
 }

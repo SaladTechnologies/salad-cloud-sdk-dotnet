@@ -37,11 +37,8 @@ Gets the list of queues in the given project.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -75,15 +72,12 @@ Creates a new queue in the given project.
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "NEdv", "description");
+var input = new QueuePrototype("name", "AV3ysQq", "description");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 
@@ -114,11 +108,8 @@ Gets an existing queue in the given project.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -153,15 +144,12 @@ Updates an existing queue in the given project.
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePatch("NUUZxsuy", "description");
+var input = new QueuePatch("5Ecnf", "description");
 
 var response = await client.Queues.UpdateQueueAsync(input, "acme-corp", "dev-env", "fifo-queue");
 
@@ -188,11 +176,8 @@ Deletes an existing queue in the given project.
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -225,11 +210,8 @@ Gets the list of jobs in a queue
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -264,11 +246,8 @@ Creates a new job
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
 using Salad.Cloud.SDK.Models;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -304,11 +283,8 @@ Gets a job in a queue
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
@@ -338,11 +314,8 @@ Cancels a job in a queue
 ```csharp
 using Salad.Cloud.SDK;
 using Salad.Cloud.SDK.Config;
-using Environment = Salad.Cloud.SDK.Http.Environment;
 
-var config = new SaladCloudSdkConfig{
-    Environment = Environment.Default
-};
+var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 

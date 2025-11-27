@@ -34,6 +34,10 @@ public class LogsService : BaseService
         {
             validationResults.Add(organizationNameValidationResult);
         }
+        ;
+        var validator = new LogEntryQueryValidator();
+        var validationResult = validator.Validate(input);
+        validationResults.Add(validationResult);
 
         var combinedFailures = validationResults.SelectMany(result => result.Errors).ToList();
         if (combinedFailures.Any())
@@ -53,12 +57,16 @@ public class LogsService : BaseService
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
 
-        return await response
+        // Standard deserialization
+        var result =
+            await response
                 .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<LogEntryCollection>(
                     _jsonSerializerOptions,
                     cancellationToken
                 )
                 .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+
+        return result;
     }
 }
