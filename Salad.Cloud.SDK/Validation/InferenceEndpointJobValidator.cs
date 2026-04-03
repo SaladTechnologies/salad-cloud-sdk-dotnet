@@ -4,10 +4,21 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpointJob?>
+/// <summary>
+/// FluentValidation validator for InferenceEndpointJob model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpointJob>
 {
     public InferenceEndpointJobValidator()
     {
+        RuleFor(InferenceEndpointJob => InferenceEndpointJob.CreateTime)
+            .NotNull()
+            .WithMessage("Field create_time is required and cannot be null.");
+        RuleFor(InferenceEndpointJob => InferenceEndpointJob.Events)
+            .NotNull()
+            .WithMessage("Field events is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Id)
             .NotNull()
             .WithMessage("Field id is required and cannot be null.");
@@ -22,6 +33,9 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
             )
             .NotNull()
             .WithMessage("Field inference_endpoint_name is required and cannot be null.");
+        RuleFor(InferenceEndpointJob => InferenceEndpointJob.Input_)
+            .NotNull()
+            .WithMessage("Field input is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.OrganizationName)
             .MinimumLength(2)
             .WithMessage("Minimum length for organization_name is 2.")
@@ -33,18 +47,9 @@ public class InferenceEndpointJobValidator : AbstractValidator<InferenceEndpoint
             )
             .NotNull()
             .WithMessage("Field organization_name is required and cannot be null.");
-        RuleFor(InferenceEndpointJob => InferenceEndpointJob.Input_)
-            .NotNull()
-            .WithMessage("Field input is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.Status)
             .NotNull()
             .WithMessage("Field status is required and cannot be null.");
-        RuleFor(InferenceEndpointJob => InferenceEndpointJob.Events)
-            .NotNull()
-            .WithMessage("Field events is required and cannot be null.");
-        RuleFor(InferenceEndpointJob => InferenceEndpointJob.CreateTime)
-            .NotNull()
-            .WithMessage("Field create_time is required and cannot be null.");
         RuleFor(InferenceEndpointJob => InferenceEndpointJob.UpdateTime)
             .NotNull()
             .WithMessage("Field update_time is required and cannot be null.");

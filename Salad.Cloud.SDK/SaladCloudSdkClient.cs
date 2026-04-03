@@ -6,6 +6,11 @@ using Environment = Salad.Cloud.SDK.Http.Environment;
 
 namespace Salad.Cloud.SDK;
 
+/// <summary>
+/// The main SDK client that provides access to all service endpoints.
+/// Manages HTTP client lifecycle, authentication handlers, and service instances with centralized configuration.
+/// Implements IDisposable to properly clean up HTTP resources.
+/// </summary>
 public class SaladCloudSdkClient : IDisposable
 {
     private readonly HttpClient _httpClient;
@@ -19,6 +24,7 @@ public class SaladCloudSdkClient : IDisposable
     public OrganizationDataService OrganizationData { get; private set; }
     public WebhookSecretKeyService WebhookSecretKey { get; private set; }
     public LogsService Logs { get; private set; }
+    public OrganizationsService Organizations { get; private set; }
 
     public SaladCloudSdkClient(SaladCloudSdkConfig? config = null)
     {
@@ -44,6 +50,7 @@ public class SaladCloudSdkClient : IDisposable
         OrganizationData = new OrganizationDataService(_httpClient);
         WebhookSecretKey = new WebhookSecretKeyService(_httpClient);
         Logs = new LogsService(_httpClient);
+        Organizations = new OrganizationsService(_httpClient);
     }
 
     /// <summary>

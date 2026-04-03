@@ -5,8 +5,21 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Http.Extensions;
 
+/// <summary>
+/// Extension methods for MultipartFormDataContent to serialize objects into multipart/form-data format.
+/// Handles primitives, byte arrays (files), nested objects, and Optional wrapper types.
+/// </summary>
 public static class MultipartFormDataContentExtensions
 {
+    /// <summary>
+    /// Recursively serializes an object into multipart/form-data format.
+    /// Maps object properties to form fields, handling files (byte[]), nested objects, and primitives.
+    /// Respects JSON property name attributes and Optional wrapper semantics.
+    /// </summary>
+    /// <param name="formData">The multipart form data content to populate.</param>
+    /// <param name="content">The object to serialize.</param>
+    /// <param name="options">JSON serializer options for property name mapping.</param>
+    /// <returns>The populated multipart form data content for method chaining.</returns>
     public static MultipartFormDataContent AddObject(
         this MultipartFormDataContent formData,
         object content,

@@ -7,7 +7,7 @@ var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePatch("5Ecnf", "description");
+var input = new QueuePatch("description", "hB13");
 
 var response = await client.Queues.UpdateQueueAsync(input, "acme-corp", "dev-env", "fifo-queue");
 

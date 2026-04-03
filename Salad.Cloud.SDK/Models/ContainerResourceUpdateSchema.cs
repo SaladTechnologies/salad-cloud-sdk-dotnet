@@ -9,33 +9,33 @@ public class ContainerResourceUpdateSchema
     [JsonPropertyName("cpu")]
     public long? Cpu { get; init; }
 
-    /// <value>The amount of memory to allocate to the container in megabytes (between 1024 and 1073741824).</value>
-    [JsonPropertyName("memory")]
-    public long? Memory { get; init; }
-
     /// <value>List of GPU class identifiers that the container can use, specified as UUIDs.</value>
     [JsonPropertyName("gpu_classes")]
     public List<string>? GpuClasses { get; init; }
 
-    /// <value>The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB).</value>
-    [JsonPropertyName("storage_amount")]
-    public long? StorageAmount { get; init; }
+    /// <value>The amount of memory to allocate to the container in megabytes (between 1024 and 1073741824).</value>
+    [JsonPropertyName("memory")]
+    public long? Memory { get; init; }
 
     /// <value>The amount of shared memory to allocate to the container via `/dev/shm` in megabytes (between 64 and 1073741824). If not specified, defaults to 64 MB.</value>
     [JsonPropertyName("shm_size")]
     public long? ShmSize { get; init; }
 
+    /// <value>The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB).</value>
+    [JsonPropertyName("storage_amount")]
+    public long? StorageAmount { get; init; }
+
     // Constructor with defaults applied
     public ContainerResourceUpdateSchema(
         long? cpu = null,
-        long? memory = null,
         List<string>? gpu_classes = null,
-        long? storage_amount = null,
-        long? shm_size = null
+        long? memory = null,
+        long? shm_size = null,
+        long? storage_amount = null
     ) { }
 
     public override string ToString()
     {
-        return $"{nameof(ContainerResourceUpdateSchema)} {{Cpu = {Cpu}, Memory = {Memory}, GpuClasses = {GpuClasses}, StorageAmount = {StorageAmount}, ShmSize = {ShmSize}}}";
+        return $"{nameof(ContainerResourceUpdateSchema)} {{Cpu = {Cpu}, GpuClasses = {GpuClasses}, Memory = {Memory}, ShmSize = {ShmSize}, StorageAmount = {StorageAmount}}}";
     }
 }

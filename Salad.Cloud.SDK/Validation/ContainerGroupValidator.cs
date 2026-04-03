@@ -4,7 +4,12 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class ContainerGroupValidator : AbstractValidator<ContainerGroup?>
+/// <summary>
+/// FluentValidation validator for ContainerGroup model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class ContainerGroupValidator : AbstractValidator<ContainerGroup>
 {
     public ContainerGroupValidator()
     {
@@ -112,6 +117,12 @@ public class ContainerGroupValidator : AbstractValidator<ContainerGroup?>
         RuleFor(ContainerGroup => ContainerGroup.RestartPolicy)
             .NotNull()
             .WithMessage("Field restart_policy is required and cannot be null.");
+        RuleFor(ContainerGroup => ContainerGroup.ScalingActions)
+            .NotNull()
+            .WithMessage("Field scaling-actions is required and cannot be null.");
+        RuleFor(ContainerGroup => ContainerGroup.ScheduledScalingEnabled)
+            .NotNull()
+            .WithMessage("Field scheduled-scaling-enabled is required and cannot be null.");
         RuleFor(ContainerGroup => ContainerGroup.UpdateTime)
             .NotNull()
             .WithMessage("Field update_time is required and cannot be null.");

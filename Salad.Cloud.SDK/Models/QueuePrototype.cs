@@ -7,16 +7,16 @@ public record QueuePrototype(
     /// <value>The queue name. This must be unique within the project.</value>
     [property: JsonPropertyName("name")]
         string Name,
-    /// <value>The display name. This may be used as a more human-readable name.</value>
-    [property:
-        JsonPropertyName("display_name"),
-        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
-    ]
-        string? DisplayName = null,
     /// <value>The description. This may be used as a space for notes or other information about the queue.</value>
     [property:
         JsonPropertyName("description"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        string? Description = null
+        string? Description = null,
+    /// <value>The display name. This may be used as a more human-readable name.</value>
+    [property:
+        JsonPropertyName("display_name"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        string? DisplayName = null
 );
