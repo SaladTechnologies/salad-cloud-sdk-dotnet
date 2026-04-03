@@ -4,10 +4,21 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class QueueJobValidator : AbstractValidator<QueueJob?>
+/// <summary>
+/// FluentValidation validator for QueueJob model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class QueueJobValidator : AbstractValidator<QueueJob>
 {
     public QueueJobValidator()
     {
+        RuleFor(QueueJob => QueueJob.CreateTime)
+            .NotNull()
+            .WithMessage("Field create_time is required and cannot be null.");
+        RuleFor(QueueJob => QueueJob.Events)
+            .NotNull()
+            .WithMessage("Field events is required and cannot be null.");
         RuleFor(QueueJob => QueueJob.Id)
             .NotNull()
             .WithMessage("Field id is required and cannot be null.");
@@ -17,12 +28,6 @@ public class QueueJobValidator : AbstractValidator<QueueJob?>
         RuleFor(QueueJob => QueueJob.Status)
             .NotNull()
             .WithMessage("Field status is required and cannot be null.");
-        RuleFor(QueueJob => QueueJob.Events)
-            .NotNull()
-            .WithMessage("Field events is required and cannot be null.");
-        RuleFor(QueueJob => QueueJob.CreateTime)
-            .NotNull()
-            .WithMessage("Field create_time is required and cannot be null.");
         RuleFor(QueueJob => QueueJob.UpdateTime)
             .NotNull()
             .WithMessage("Field update_time is required and cannot be null.");

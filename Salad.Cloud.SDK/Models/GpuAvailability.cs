@@ -9,6 +9,12 @@ public record GpuAvailability(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? AvailableGpuBatch = null,
+    /// <value>The number of available high-end GPUs</value>
+    [property:
+        JsonPropertyName("available_gpu_high"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        long? AvailableGpuHigh = null,
     /// <value>The number of available low-end GPUs</value>
     [property:
         JsonPropertyName("available_gpu_low"),
@@ -21,12 +27,6 @@ public record GpuAvailability(
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
         long? AvailableGpuMedium = null,
-    /// <value>The number of available high-end GPUs</value>
-    [property:
-        JsonPropertyName("available_gpu_high"),
-        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
-    ]
-        long? AvailableGpuHigh = null,
     /// <value>The number of on-call GPUs available</value>
     [property:
         JsonPropertyName("on_call_gpu"),

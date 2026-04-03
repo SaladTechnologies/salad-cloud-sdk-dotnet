@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>A container group definition that represents a scalable set of identical containers running as a distributed service</summary>
 public record ContainerGroup(
     /// <value>Defines whether containers in this group should automatically start when deployed (true) or require manual starting (false)</value>
     [property: JsonPropertyName("autostart_policy")]
@@ -45,6 +46,12 @@ public record ContainerGroup(
     /// <value>Specifies the policy for restarting containers when they exit or fail.</value>
     [property: JsonPropertyName("restart_policy")]
         ContainerRestartPolicy RestartPolicy,
+    /// <value>List of scaling actions configurations</value>
+    [property: JsonPropertyName("scaling-actions")]
+        List<ContainerGroupScalingAction> ScalingActions,
+    /// <value>Indicates if scheduled scaling is enabled</value>
+    [property: JsonPropertyName("scheduled-scaling-enabled")]
+        bool ScheduledScalingEnabled,
     /// <value>ISO 8601 timestamp when this container group was last updated</value>
     [property: JsonPropertyName("update_time")]
         string UpdateTime,

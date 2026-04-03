@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Salad.Cloud.SDK</RootNamespace>
-    <Version>0.9.0-alpha.16</Version>
+    <Version>0.9.0-alpha.17</Version>
     <PackageId>Salad.Cloud.SDK</PackageId>
     <Authors>salad, seniorquico</Authors>
     <ProjectUrl>https://github.com/saladtechnologies/salad-cloud-sdk-dotnet</ProjectUrl>
@@ -21,6 +21,9 @@
     <None Include="../README.md" Pack="true" PackagePath="\" />
     <PackageReference Include="FluentValidation" Version="11.5.0" />
     <PackageReference Include="Polly" Version="8.2.1" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

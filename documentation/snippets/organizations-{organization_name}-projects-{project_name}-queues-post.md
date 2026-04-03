@@ -7,7 +7,7 @@ var config = new SaladCloudSdkConfig{};
 
 var client = new SaladCloudSdkClient(config);
 
-var input = new QueuePrototype("name", "AV3ysQq", "description");
+var input = new QueuePrototype("name", "description", "tLWSUinMUjM");
 
 var response = await client.Queues.CreateQueueAsync(input, "acme-corp", "dev-env");
 

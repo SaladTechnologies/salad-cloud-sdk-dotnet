@@ -2,35 +2,36 @@ using System.Text.Json.Serialization;
 
 namespace Salad.Cloud.SDK.Models;
 
+/// <summary>Represents a queue.</summary>
 public record Queue(
-    /// <value>The queue identifier. This is automatically generated and assigned when the queue is created.</value>
-    [property: JsonPropertyName("id")]
-        string Id,
-    /// <value>The queue name. This must be unique within the project.</value>
-    [property: JsonPropertyName("name")]
-        string Name,
-    /// <value>The display name. This may be used as a more human-readable name.</value>
-    [property: JsonPropertyName("display_name")]
-        string DisplayName,
     /// <value>The container groups that are part of this queue. Each container group represents a scalable set of identical containers running as a distributed service.</value>
     [property: JsonPropertyName("container_groups")]
         List<ContainerGroup> ContainerGroups,
     /// <value>The date and time the queue was created.</value>
     [property: JsonPropertyName("create_time")]
         string CreateTime,
+    /// <value>The display name. This may be used as a more human-readable name.</value>
+    [property: JsonPropertyName("display_name")]
+        string DisplayName,
+    /// <value>The queue identifier. This is automatically generated and assigned when the queue is created.</value>
+    [property: JsonPropertyName("id")]
+        string Id,
+    /// <value>The queue name. This must be unique within the project.</value>
+    [property: JsonPropertyName("name")]
+        string Name,
     /// <value>The date and time the queue was last updated.</value>
     [property: JsonPropertyName("update_time")]
         string UpdateTime,
-    /// <value>The description. This may be used as a space for notes or other information about the queue.</value>
-    [property:
-        JsonPropertyName("description"),
-        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
-    ]
-        string? Description = null,
     /// <value>The current length of the queue</value>
     [property:
         JsonPropertyName("current_queue_length"),
         JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
     ]
-        long? CurrentQueueLength = null
+        long? CurrentQueueLength = null,
+    /// <value>The description. This may be used as a space for notes or other information about the queue.</value>
+    [property:
+        JsonPropertyName("description"),
+        JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)
+    ]
+        string? Description = null
 );

@@ -17,6 +17,10 @@ public class CreateContainerResourceRequirements
     [JsonPropertyName("gpu_classes"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public List<string>? GpuClasses { get; init; }
 
+    /// <value>The amount of shared memory to allocate to the container via `/dev/shm` in megabytes (between 64 and 1073741824). If not specified, defaults to 64 MB.</value>
+    [JsonPropertyName("shm_size"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public long? ShmSize { get; init; }
+
     /// <value>The amount of storage to allocate to the container in bytes (between 1 GB and 1 PB).</value>
     [
         JsonPropertyName("storage_amount"),
@@ -24,21 +28,17 @@ public class CreateContainerResourceRequirements
     ]
     public long? StorageAmount { get; init; }
 
-    /// <value>The amount of shared memory to allocate to the container via `/dev/shm` in megabytes (between 64 and 1073741824). If not specified, defaults to 64 MB.</value>
-    [JsonPropertyName("shm_size"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public long? ShmSize { get; init; }
-
     // Constructor with defaults applied
     public CreateContainerResourceRequirements(
         long cpu,
         long memory,
         List<string>? gpu_classes = null,
-        long? storage_amount = null,
-        long? shm_size = null
+        long? shm_size = null,
+        long? storage_amount = null
     ) { }
 
     public override string ToString()
     {
-        return $"{nameof(CreateContainerResourceRequirements)} {{Cpu = {Cpu}, Memory = {Memory}, GpuClasses = {GpuClasses}, StorageAmount = {StorageAmount}, ShmSize = {ShmSize}}}";
+        return $"{nameof(CreateContainerResourceRequirements)} {{Cpu = {Cpu}, Memory = {Memory}, GpuClasses = {GpuClasses}, ShmSize = {ShmSize}, StorageAmount = {StorageAmount}}}";
     }
 }

@@ -4,8 +4,13 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
+/// <summary>
+/// FluentValidation validator for CreateContainerResourceRequirements model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
 public class CreateContainerResourceRequirementsValidator
-    : AbstractValidator<CreateContainerResourceRequirements?>
+    : AbstractValidator<CreateContainerResourceRequirements>
 {
     public CreateContainerResourceRequirementsValidator()
     {
@@ -24,6 +29,11 @@ public class CreateContainerResourceRequirementsValidator
             .NotNull()
             .WithMessage("Field memory is required and cannot be null.");
 
+        RuleFor(CreateContainerResourceRequirements => CreateContainerResourceRequirements.ShmSize)
+            .GreaterThanOrEqualTo(64)
+            .WithMessage("Minimum for shm_size is 64.")
+            .LessThanOrEqualTo(1073741824)
+            .WithMessage("Minimum for shm_size is 1073741824.");
         RuleFor(CreateContainerResourceRequirements =>
                 CreateContainerResourceRequirements.StorageAmount
             )
@@ -31,10 +41,5 @@ public class CreateContainerResourceRequirementsValidator
             .WithMessage("Minimum for storage_amount is 1073741824.")
             .LessThanOrEqualTo(1125899906842624)
             .WithMessage("Minimum for storage_amount is 1125899906842624.");
-        RuleFor(CreateContainerResourceRequirements => CreateContainerResourceRequirements.ShmSize)
-            .GreaterThanOrEqualTo(64)
-            .WithMessage("Minimum for shm_size is 64.")
-            .LessThanOrEqualTo(1073741824)
-            .WithMessage("Minimum for shm_size is 1073741824.");
     }
 }

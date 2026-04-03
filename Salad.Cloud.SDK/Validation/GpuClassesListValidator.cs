@@ -4,7 +4,12 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class GpuClassesListValidator : AbstractValidator<GpuClassesList?>
+/// <summary>
+/// FluentValidation validator for GpuClassesList model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class GpuClassesListValidator : AbstractValidator<GpuClassesList>
 {
     public GpuClassesListValidator()
     {

@@ -4,7 +4,12 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class GpuClassValidator : AbstractValidator<GpuClass?>
+/// <summary>
+/// FluentValidation validator for GpuClass model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class GpuClassValidator : AbstractValidator<GpuClass>
 {
     public GpuClassValidator()
     {
@@ -29,23 +34,24 @@ public class GpuClassValidator : AbstractValidator<GpuClass?>
             .WithMessage("Minimum for gpu_count is 1.")
             .LessThanOrEqualTo(512)
             .WithMessage("Minimum for gpu_count is 512.");
-        RuleFor(GpuClass => GpuClass.MinVcpu)
+
+        RuleFor(GpuClass => GpuClass.MaxRam)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for min_vcpu is 0.");
+            .WithMessage("Minimum for max_ram is 0.");
+        RuleFor(GpuClass => GpuClass.MaxStorage)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Minimum for max_storage is 0.");
         RuleFor(GpuClass => GpuClass.MaxVcpu)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for max_vcpu is 0.");
         RuleFor(GpuClass => GpuClass.MinRam)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for min_ram is 0.");
-        RuleFor(GpuClass => GpuClass.MaxRam)
-            .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_ram is 0.");
         RuleFor(GpuClass => GpuClass.MinStorage)
             .GreaterThanOrEqualTo(0)
             .WithMessage("Minimum for min_storage is 0.");
-        RuleFor(GpuClass => GpuClass.MaxStorage)
+        RuleFor(GpuClass => GpuClass.MinVcpu)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Minimum for max_storage is 0.");
+            .WithMessage("Minimum for min_vcpu is 0.");
     }
 }

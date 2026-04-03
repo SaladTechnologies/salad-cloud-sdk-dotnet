@@ -4,7 +4,12 @@ using FluentValidation;
 using FluentValidation.Results;
 using Salad.Cloud.SDK.Models;
 
-public class WebhookSecretKeyValidator : AbstractValidator<WebhookSecretKey?>
+/// <summary>
+/// FluentValidation validator for WebhookSecretKey model.
+/// Defines validation rules for required fields, formats, ranges, and constraints based on the API schema.
+/// Automatically validates instances during request serialization and response deserialization.
+/// </summary>
+public class WebhookSecretKeyValidator : AbstractValidator<WebhookSecretKey>
 {
     public WebhookSecretKeyValidator()
     {

@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using Salad.Cloud.SDK.Http;
 using Salad.Cloud.SDK.Http.Exceptions;
 using Salad.Cloud.SDK.Http.Extensions;
+using Salad.Cloud.SDK.Http.Handlers;
 using Salad.Cloud.SDK.Http.Serialization;
 using Salad.Cloud.SDK.Models;
 using Salad.Cloud.SDK.Validation;
@@ -9,6 +10,11 @@ using Salad.Cloud.SDK.Validation.Extensions;
 
 namespace Salad.Cloud.SDK.Services;
 
+/// <summary>
+/// Service class providing access to API endpoints for InferenceEndpointsService.
+/// Inherits HTTP client management, JSON serialization, and streaming capabilities from the base service.
+/// Each method corresponds to an API operation and handles request building, execution, and response parsing.
+/// </summary>
 public class InferenceEndpointsService : BaseService
 {
     internal InferenceEndpointsService(HttpClient httpClient)
@@ -31,7 +37,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -40,7 +46,7 @@ public class InferenceEndpointsService : BaseService
         var pageValidationResult = new NumberValidator()
             .WithLessThanOrEqualTo(2147483647)
             .WithGreaterThanOrEqualTo(1)
-            .ValidateOptional<long?>((long?)page);
+            .ValidateOptional<long>((long?)page);
         if (pageValidationResult != null)
         {
             validationResults.Add(pageValidationResult);
@@ -49,7 +55,7 @@ public class InferenceEndpointsService : BaseService
         var pageSizeValidationResult = new NumberValidator()
             .WithLessThanOrEqualTo(100)
             .WithGreaterThanOrEqualTo(1)
-            .ValidateOptional<long?>((long?)pageSize);
+            .ValidateOptional<long>((long?)pageSize);
         if (pageSizeValidationResult != null)
         {
             validationResults.Add(pageSizeValidationResult);
@@ -75,14 +81,26 @@ public class InferenceEndpointsService : BaseService
             .ConfigureAwait(false);
 
         // Standard deserialization
-        var result =
-            await response
-                .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpointCollection>(
-                    _jsonSerializerOptions,
-                    cancellationToken
-                )
-                .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+        var responseContent = response.EnsureSuccessfulResponse().Content;
+        var contentLength = responseContent.Headers.ContentLength;
+
+        InferenceEndpointCollection result;
+        if (contentLength == null || contentLength > 0)
+        {
+            result =
+                await responseContent
+                    .ReadFromJsonAsync<InferenceEndpointCollection>(
+                        _jsonSerializerOptions,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false)
+                ?? throw new Exception("Failed to deserialize response.");
+        }
+        else
+        {
+            // Empty response body - return default instance
+            result = default!;
+        }
 
         return result;
     }
@@ -103,7 +121,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -113,7 +131,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)inferenceEndpointName);
+            .ValidateRequired<string>(inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
@@ -138,14 +156,23 @@ public class InferenceEndpointsService : BaseService
             .ConfigureAwait(false);
 
         // Standard deserialization
-        var result =
-            await response
-                .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpoint>(
-                    _jsonSerializerOptions,
-                    cancellationToken
-                )
-                .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+        var responseContent = response.EnsureSuccessfulResponse().Content;
+        var contentLength = responseContent.Headers.ContentLength;
+
+        InferenceEndpoint result;
+        if (contentLength == null || contentLength > 0)
+        {
+            result =
+                await responseContent
+                    .ReadFromJsonAsync<InferenceEndpoint>(_jsonSerializerOptions, cancellationToken)
+                    .ConfigureAwait(false)
+                ?? throw new Exception("Failed to deserialize response.");
+        }
+        else
+        {
+            // Empty response body - return default instance
+            result = default!;
+        }
 
         return result;
     }
@@ -170,7 +197,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -180,7 +207,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)inferenceEndpointName);
+            .ValidateRequired<string>(inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
@@ -189,7 +216,7 @@ public class InferenceEndpointsService : BaseService
         var pageValidationResult = new NumberValidator()
             .WithLessThanOrEqualTo(2147483647)
             .WithGreaterThanOrEqualTo(1)
-            .ValidateOptional<long?>((long?)page);
+            .ValidateOptional<long>((long?)page);
         if (pageValidationResult != null)
         {
             validationResults.Add(pageValidationResult);
@@ -198,7 +225,7 @@ public class InferenceEndpointsService : BaseService
         var pageSizeValidationResult = new NumberValidator()
             .WithLessThanOrEqualTo(100)
             .WithGreaterThanOrEqualTo(1)
-            .ValidateOptional<long?>((long?)pageSize);
+            .ValidateOptional<long>((long?)pageSize);
         if (pageSizeValidationResult != null)
         {
             validationResults.Add(pageSizeValidationResult);
@@ -225,14 +252,26 @@ public class InferenceEndpointsService : BaseService
             .ConfigureAwait(false);
 
         // Standard deserialization
-        var result =
-            await response
-                .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpointJobCollection>(
-                    _jsonSerializerOptions,
-                    cancellationToken
-                )
-                .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+        var responseContent = response.EnsureSuccessfulResponse().Content;
+        var contentLength = responseContent.Headers.ContentLength;
+
+        InferenceEndpointJobCollection result;
+        if (contentLength == null || contentLength > 0)
+        {
+            result =
+                await responseContent
+                    .ReadFromJsonAsync<InferenceEndpointJobCollection>(
+                        _jsonSerializerOptions,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false)
+                ?? throw new Exception("Failed to deserialize response.");
+        }
+        else
+        {
+            // Empty response body - return default instance
+            result = default!;
+        }
 
         return result;
     }
@@ -255,7 +294,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -265,7 +304,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)inferenceEndpointName);
+            .ValidateRequired<string>(inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
@@ -295,14 +334,26 @@ public class InferenceEndpointsService : BaseService
             .ConfigureAwait(false);
 
         // Standard deserialization
-        var result =
-            await response
-                .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpointJob>(
-                    _jsonSerializerOptions,
-                    cancellationToken
-                )
-                .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+        var responseContent = response.EnsureSuccessfulResponse().Content;
+        var contentLength = responseContent.Headers.ContentLength;
+
+        InferenceEndpointJob result;
+        if (contentLength == null || contentLength > 0)
+        {
+            result =
+                await responseContent
+                    .ReadFromJsonAsync<InferenceEndpointJob>(
+                        _jsonSerializerOptions,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false)
+                ?? throw new Exception("Failed to deserialize response.");
+        }
+        else
+        {
+            // Empty response body - return default instance
+            result = default!;
+        }
 
         return result;
     }
@@ -326,7 +377,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -336,14 +387,15 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)inferenceEndpointName);
+            .ValidateRequired<string>(inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
         }
         ;
-        var inferenceEndpointJobIdValidationResult =
-            new StringValidator().ValidateRequired<string?>((string?)inferenceEndpointJobId);
+        var inferenceEndpointJobIdValidationResult = new StringValidator().ValidateRequired<string>(
+            inferenceEndpointJobId
+        );
         if (inferenceEndpointJobIdValidationResult != null)
         {
             validationResults.Add(inferenceEndpointJobIdValidationResult);
@@ -369,14 +421,26 @@ public class InferenceEndpointsService : BaseService
             .ConfigureAwait(false);
 
         // Standard deserialization
-        var result =
-            await response
-                .EnsureSuccessfulResponse()
-                .Content.ReadFromJsonAsync<InferenceEndpointJob>(
-                    _jsonSerializerOptions,
-                    cancellationToken
-                )
-                .ConfigureAwait(false) ?? throw new Exception("Failed to deserialize response.");
+        var responseContent = response.EnsureSuccessfulResponse().Content;
+        var contentLength = responseContent.Headers.ContentLength;
+
+        InferenceEndpointJob result;
+        if (contentLength == null || contentLength > 0)
+        {
+            result =
+                await responseContent
+                    .ReadFromJsonAsync<InferenceEndpointJob>(
+                        _jsonSerializerOptions,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false)
+                ?? throw new Exception("Failed to deserialize response.");
+        }
+        else
+        {
+            // Empty response body - return default instance
+            result = default!;
+        }
 
         return result;
     }
@@ -400,7 +464,7 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)organizationName);
+            .ValidateRequired<string>(organizationName);
         if (organizationNameValidationResult != null)
         {
             validationResults.Add(organizationNameValidationResult);
@@ -410,14 +474,15 @@ public class InferenceEndpointsService : BaseService
             .WithMaximumLength(63)
             .WithMinimumLength(2)
             .WithMatch(@"^[a-z][a-z0-9-]{0,61}[a-z0-9]$")
-            .ValidateRequired<string?>((string?)inferenceEndpointName);
+            .ValidateRequired<string>(inferenceEndpointName);
         if (inferenceEndpointNameValidationResult != null)
         {
             validationResults.Add(inferenceEndpointNameValidationResult);
         }
         ;
-        var inferenceEndpointJobIdValidationResult =
-            new StringValidator().ValidateRequired<string?>((string?)inferenceEndpointJobId);
+        var inferenceEndpointJobIdValidationResult = new StringValidator().ValidateRequired<string>(
+            inferenceEndpointJobId
+        );
         if (inferenceEndpointJobIdValidationResult != null)
         {
             validationResults.Add(inferenceEndpointJobIdValidationResult);
