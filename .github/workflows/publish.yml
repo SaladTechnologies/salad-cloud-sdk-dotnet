@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Read .csproj file path
         id: read_csproj_path
         run: echo "csproj_path=$(jq -r '.files[] | select(endswith(".csproj") and (. | endswith("Example.csproj") | not))' $MANIFEST_PATH)" >> "$GITHUB_OUTPUT"
@@ -23,7 +23,7 @@ jobs:
         id: read_sdk_version
         run: echo "sdk_version=$(jq -r '.config.sdkVersion' $MANIFEST_PATH)" >> "$GITHUB_OUTPUT"
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
       - name: Pack NuGet package
